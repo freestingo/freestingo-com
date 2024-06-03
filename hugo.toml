@@ -1,4 +1,23 @@
 baseURL = 'https://www.freestingo.com/'
-languageCode = 'en-us'
 title = 'freestingo'
 theme = 'nicolo'
+
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = true
+[languages]
+  [languages.en]
+    contentDir = 'content/en'
+    disabled = false
+    languageCode = 'en-US'
+    languageDirection = 'ltr'
+    languageName = 'en'
+    title = 'freestingo'
+    weight = 1
+  [languages.it]
+    contentDir = 'content/it'
+    disabled = false
+    languageCode = 'it-IT'
+    languageDirection = 'ltr'
+    languageName = 'it'
+    title = 'freestingo'
+    weight = 2

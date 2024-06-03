@@ -1,0 +1,6 @@
+<ul class="flex gap-3">
+  {{ range $.Site.Home.AllTranslations }}
+    <li class="hover:text-emerald-400 dark:hover:text-emerald-400"><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+  {{ end }}
+</ul>
+
