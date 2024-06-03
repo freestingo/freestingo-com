@@ -1,2 +1,4 @@
-articles = 'Articles'
+books = 'Books'
+music = 'Music'
+musics = 'Music'
 recipes = 'Recipes'
