@@ -1,9 +1,11 @@
 {{ define "main" }}
-{{ range .Pages }}
-<article
-    class="justify-self-center mx-auto mb-16 px-6 sm:px-4 md:px-0 prose dark:prose-invert prose-emerald lg:prose-lg hover:prose-a:text-emerald-500">
-    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-    {{ .Content }}
-</article>
-{{ end }}
+  {{ range .Pages }}
+    <article class="justify-self-center mb-3 mx-auto prose dark:prose-invert prose-a:text-emerald-400 hover:prose-a:text-emerald-700 hover:dark:prose-a:text-emerald-100">
+      <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 items-center justify-items-start">
+        <div class="sm:col-span-1">{{ time.Format "2006-01-02" .Date }}</div>
+        <h1 class="sm:col-span-4 text-base mb-0"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        <div class="sm:col-span-1"></div>
+        <div class="sm:col-span-4 text-sm">{{ .Summary }}</div>
+    </article>
+  {{ end }}
 {{ end }}
