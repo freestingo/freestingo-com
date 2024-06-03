@@ -39,7 +39,7 @@
             <div class="flex sm:gap-2 flex-col sm:flex-row">
             {{ range .Site.Sections }}
                 <li>
-                    <a href="{{ .Permalink }}" class="hover:text-emerald-400 dark:hover:text-emerald-400">{{ lower .Title }}</a>
+                    <a href="{{ .Permalink }}" class="hover:text-emerald-400 dark:hover:text-emerald-400">{{ or (lower .Title | T) .Name | lower | safeHTML }}</a>
                 </li>
                 <div class="hidden sm:block">|</div>
             {{ end }}
