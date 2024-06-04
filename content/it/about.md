@@ -10,8 +10,8 @@ type: about
 ## 🎹 Musica
 
 Le mie prime ispirazioni venivano dai dischi dei fratelli [Abbott](https://www.youtube.com/watch?v=NY4pKdA1SnE)
-e [Van Halen](https://www.youtube.com/watch?v=MsehEPyyXVQ).  Ho seguito per anni lezioni di chitarra e batteria
-quando, all'improvviso, l'algoritmo mi folgora sulla via di Damasco proponendomi 
+e [Van Halen](https://www.youtube.com/watch?v=MsehEPyyXVQ). Ho seguito per anni lezioni di chitarra e batteria
+quando, all'improvviso, l'algoritmo mi folgorò sulla via di Damasco proponendomi 
 [una ricostruzione di un pezzo dei Prodigy](https://www.youtube.com/watch?v=eU5Dn-WaElI).
 Nel giro di qualche settimana mi ero già trasformato in un 
 [tutorialofago](https://www.youtube.com/watch?v=NWvaxzI1vG4&pp=ygUYbXIgYmlsbCBhYmxldG9uIHR1dG9yaWFs) bulimico e 
