@@ -3,6 +3,7 @@ author: Nicolo Traini
 title: Chi sono
 date: 2024-06-03
 description: Una breve descrizione di me stesso.
+slug: chi-sono
 keywords: [about, creator]
 type: about
 ---
