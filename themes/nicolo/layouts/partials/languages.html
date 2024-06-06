@@ -2,9 +2,9 @@
   <ul class="flex gap-3">
     {{ range . }}
       {{ if eq .Language.Lang $.Language.Lang }}
-      <li><a class="hover:text-emerald-400 dark:hover:text-emerald-400" aria-current="page" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+      <li><a class="hover:text-emerald-600 dark:hover:text-emerald-400" aria-current="page" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
       {{ else }}
-      <li><a class="hover:text-emerald-400 dark:hover:text-emerald-400" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
+      <li><a class="hover:text-emerald-600 dark:hover:text-emerald-400" href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></li>
       {{ end }}
     {{ end }}
   </ul>
