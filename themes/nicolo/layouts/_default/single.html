@@ -1,7 +1,8 @@
 {{ define "main" }}
-<article
-    class="justify-self-center mx-auto mb-16 prose prose-sm sm:prose-base dark:prose-invert prose-a:text-emerald-600 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100 prose-blockquote:font-light prose-blockquote:text-sm sm:prose-blockquote:text-base">
+  <article
+    class="justify-self-center mx-auto mb-16 prose prose-sm sm:prose-base dark:prose-invert prose-a:text-emerald-600 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100 prose-blockquote:font-light prose-blockquote:text-sm sm:prose-blockquote:text-base"
+  >
     <h1 class="text-xl sm:text-3xl">{{ .Title }}</h1>
     {{ .Content }}
-</article>
+  </article>
 {{ end }}
