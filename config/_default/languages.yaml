@@ -6,6 +6,14 @@ en:
   languageName: en
   title: freestingo
   weight: 1
+  permalinks:
+    page:
+      coding: /coding/:slug/
+      music: /music/:slug/
+    section:
+      coding: /coding/
+      music: /music/
+
 it:
   contentDir: content/it
   disabled: false
@@ -14,3 +22,10 @@ it:
   languageName: it
   title: freestingo
   weight: 2
+  permalinks:
+    page:
+      coding: /coding/:slug/
+      music: /musica/:slug/
+    section:
+      coding: /coding/
+      music: /musica/
