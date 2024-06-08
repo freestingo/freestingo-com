@@ -1,0 +1,16 @@
+en:
+  contentDir: content/en
+  disabled: false
+  languageCode: en-US
+  languageDirection: ltr
+  languageName: en
+  title: freestingo
+  weight: 1
+it:
+  contentDir: content/it
+  disabled: false
+  languageCode: it-IT
+  languageDirection: ltr
+  languageName: it
+  title: freestingo
+  weight: 2

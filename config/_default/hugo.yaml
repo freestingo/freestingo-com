@@ -1,0 +1,5 @@
+baseURL: https://www.freestingo.com/
+title: freestingo
+theme: nicolo
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: true
