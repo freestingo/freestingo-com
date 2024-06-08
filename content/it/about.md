@@ -3,6 +3,7 @@ author: Nicolo Traini
 title: Chi sono
 date: 2024-06-03
 description: Una breve descrizione di me stesso.
+summary: Una breve descrizione di tutto quello che faccio.
 slug: chi-sono
 keywords: [about, creator]
 type: about
@@ -17,7 +18,7 @@ quando, all'improvviso, l'algoritmo mi folgorò sulla via di Damasco proponendom
 Nel giro di qualche settimana mi ero già trasformato in un
 [tutorialofago](https://www.youtube.com/watch?v=NWvaxzI1vG4&pp=ygUYbXIgYmlsbCBhYmxldG9uIHR1dG9yaWFs) bulimico e
 fanboy di Ableton.
-Gira voce di una mia live su Twitch in cui, al solo cospetto della mia ragazza e un tale *caccapippo*,
+Gira voce di una mia live su Twitch in cui, al solo cospetto della mia ragazza e un tale _caccapippo_,
 composi la oscura [hit](https://soundcloud.com/freestingo/noclassnomanners) dell'estate 2020 che mai fu.
 Non confermo né smentisco.
 
