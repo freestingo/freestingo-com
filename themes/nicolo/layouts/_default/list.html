@@ -4,9 +4,11 @@
       class="justify-self-center mb-7 sm:mb-3 mx-auto prose prose-sm sm:prose-base dark:prose-invert prose-a:text-emerald-700 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100"
     >
       <div
-        class="grid grid-cols-1 sm:grid-cols-5 sm:gap-2 items-center justify-items-start"
+        class="grid grid-cols-1 sm:grid-cols-5 sm:gap-2 items-baseline justify-items-start"
       >
-        <div class="sm:col-span-1">{{ time.Format "2006-01-02" .Date }}</div>
+        <div class="sm:col-span-1">
+          {{ time.Format "2006-01-02" .Date }}
+        </div>
         <a class="sm:col-span-4 text-base mb-0" href="{{ .Permalink }}">
           {{ .Title }}
         </a>
