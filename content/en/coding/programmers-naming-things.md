@@ -6,6 +6,7 @@ slug: programmers-naming-things
 description: A look into the reasons behind the worst names ever given to something by programmers.
 keywords: [worst of, programming, cache invalidation, javascript, vim, php]
 date: 2024-06-06
+tags: [programming, worst of]
 ---
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.

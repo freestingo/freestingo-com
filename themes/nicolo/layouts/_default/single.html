@@ -4,10 +4,24 @@
   >
     <h1 class="text-xl sm:text-3xl !mb-2 sm:!mb-4">{{ .Title }}</h1>
     <h2
-      class="text-emerald-600 dark:text-emerald-400 text-sm sm:text-lg !mt-3 !mb-8 sm:!mb-10"
+      class="text-emerald-600 dark:text-emerald-400 text-sm sm:text-lg !mt-3 !mb-4 sm:!mb-5"
     >
       {{ .Summary }}
     </h2>
+
+    <div class="text-xs sm:text-sm mb-5 sm:mb-7">
+      {{ $taxonomy := "tags" }}
+      {{ with .GetTerms $taxonomy }}
+        <p>
+          {{ lower (site.GetPage $taxonomy).LinkTitle }}:
+          {{ range $k, $_ := . -}}
+            {{ if $k }},{{ end }}
+            <a href="{{ .RelPermalink }}">{{ lower .LinkTitle }}</a>
+          {{- end }}
+        </p>
+      {{ end }}
+    </div>
+
     {{ .Content }}
   </article>
 {{ end }}
