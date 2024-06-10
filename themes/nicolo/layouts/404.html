@@ -1,3 +1,12 @@
 {{ define "main" }}
-  <p>404 - page not found</p>
+  <h1>404</h1>
+  <p>{{ "pageNotFound" | T }}</p>
+  <p>
+    <a href="{{ .Site.Home.RelPermalink }}">
+      {{ "backToHome" | T }}
+    </a>
+  </p>
 {{ end }}
+
+
+
