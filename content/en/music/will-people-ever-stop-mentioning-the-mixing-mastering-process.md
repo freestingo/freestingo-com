@@ -4,7 +4,7 @@ title: Will people ever stop mentioning the mixing/mastering process in their re
 summary: musings about the futility of production jargon in music criticism
 slug: will-people-ever-stop-mentioning-the-mixing-mastering-process
 date: 2024-03-24
-tags: [music criticism, music production]
+topics: [music criticism, music production]
 ---
 
 The internet sometimes presents me with stuff seemingly written by aliens that have just landed on Earth and have just listened to their first human record.

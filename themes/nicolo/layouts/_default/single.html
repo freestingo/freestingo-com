@@ -10,7 +10,7 @@
     </h2>
 
     <div class="text-xs sm:text-sm mb-5 sm:mb-7">
-      {{ $taxonomy := "tags" }}
+      {{ $taxonomy := "topics" }}
       {{ with .GetTerms $taxonomy }}
         <p>
           {{ lower (site.GetPage $taxonomy).LinkTitle }}:

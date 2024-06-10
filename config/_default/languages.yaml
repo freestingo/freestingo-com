@@ -13,7 +13,7 @@ en:
     section:
       coding: /coding/
       music: /music/
-    tags: /tags/:slug/
+    topics: /topics/:slug/
 
 it:
   contentDir: content/it
@@ -30,4 +30,4 @@ it:
     section:
       coding: /coding/
       music: /musica/
-    tags: /argomenti/:slug/
+    topics: /argomenti/:slug/

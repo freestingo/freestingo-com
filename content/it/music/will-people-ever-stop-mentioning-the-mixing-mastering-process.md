@@ -4,7 +4,7 @@ title: Basta parlare di produzione nelle recensioni musicali, per favore
 summary: elucubrazioni sull'inutilità del gergo da produttore nella critica musicale
 slug: basta-parlare-di-produzione-nelle-recensioni-musicali-per-favore
 date: 2024-03-24
-tags: [critica musicale, produzione musicale]
+topics: [critica musicale, produzione musicale]
 ---
 
 Internet certe volte mi propina roba che sembra uscita da pugni di alieni appena atterrati sul pianeta Terra, reduci freschissimi dal loro primo ascolto di un album composto e suonato da esseri umani.

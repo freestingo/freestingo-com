@@ -6,7 +6,7 @@ slug: programmatori-che-nominano-cose
 description: Un compendio dei peggiori nomi mai dati da programmatori.
 keywords: [worst of, programming, cache invalidation, javascript, vim, php]
 date: 2024-06-06
-tags: [programmazione, worst of]
+topics: [programmazione, worst of]
 ---
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
