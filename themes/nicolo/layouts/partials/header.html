@@ -69,7 +69,7 @@
             <a
               href="{{ .Permalink }}"
               class="hover:text-emerald-600 dark:hover:text-emerald-400"
-              >{{ or (lower .Title | T) .Name | lower | safeHTML }}</a
+              >{{ .Title | lower | safeHTML }}</a
             >
           </li>
           <div class="hidden sm:block">|</div>
@@ -79,7 +79,7 @@
             <a
               href="{{ .Permalink }}"
               class="hover:text-emerald-600 dark:hover:text-emerald-400"
-              >{{ lower .Title }}</a
+              >{{ .Title | lower | safeHTML }}</a
             >
           </li>
         {{ end }}

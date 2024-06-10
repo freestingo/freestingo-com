@@ -1,7 +1,8 @@
 ---
 author: Nicolo Traini
 title: Basta parlare di produzione nelle recensioni musicali, per favore
-summary: elucubrazioni sull'inutilità del gergo da produttore nella critica musicale
+summary: Elucubrazioni sull'inutilità del gergo da produttore nella critica musicale
+description: Elucubrazioni sull'inutilità del gergo da produttore nella critica musicale
 slug: basta-parlare-di-produzione-nelle-recensioni-musicali-per-favore
 date: 2024-03-24
 topics: [critica musicale, produzione musicale]

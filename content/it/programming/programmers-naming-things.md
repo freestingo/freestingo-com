@@ -3,10 +3,10 @@ author: Nicolo Traini
 title: Programmatori che nominano cose
 summary: e nemmeno troppo bene, a dir la verità
 slug: programmatori-che-nominano-cose
-description: Un compendio dei peggiori nomi mai dati da programmatori.
+description: Un compendio dei peggiori nomi mai dati da programmatori
 keywords: [worst of, programming, cache invalidation, javascript, vim, php]
 date: 2024-06-06
-topics: [programmazione, worst of]
+topics: [worst of, debugging, PHP, javascript, vim]
 ---
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.

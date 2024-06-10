@@ -8,10 +8,10 @@ en:
   weight: 1
   permalinks:
     page:
-      coding: /coding/:slug/
+      programming: /programming/:slug/
       music: /music/:slug/
     section:
-      coding: /coding/
+      programming: /programming/
       music: /music/
     topics: /topics/:slug/
 
@@ -25,9 +25,9 @@ it:
   weight: 2
   permalinks:
     page:
-      coding: /coding/:slug/
+      programming: /programmazione/:slug/
       music: /musica/:slug/
     section:
-      coding: /coding/
+      programmazione: /programmazione/
       music: /musica/
     topics: /argomenti/:slug/
