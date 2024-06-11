@@ -3,6 +3,7 @@ author: Nicolo Traini
 title: Programmatori che nominano cose
 summary: e nemmeno troppo bene, a dir la verità
 slug: programmatori-che-nominano-cose
+translationKey: programmers-naming-things
 description: Un compendio dei peggiori nomi mai dati da programmatori
 keywords: [worst of, programming, cache invalidation, javascript, vim, php]
 date: 2024-06-06

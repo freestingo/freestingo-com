@@ -3,6 +3,7 @@ author: Nicolo Traini
 title: Programmers naming things
 summary: and not being very good at it, to be honest
 slug: programmers-naming-things
+translationKey: programmers-naming-things
 description: A look into the reasons behind the worst names ever given to something by programmers
 keywords: [worst of, programming, cache invalidation, javascript, vim, php]
 date: 2024-06-06

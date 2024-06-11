@@ -7,12 +7,6 @@ en:
   title: freestingo
   weight: 1
   permalinks:
-    page:
-      programming: /programming/:slug/
-      music: /music/:slug/
-    section:
-      programming: /programming/
-      music: /music/
     topics: /topics/:slug/
 
 it:
@@ -24,10 +18,4 @@ it:
   title: freestingo
   weight: 2
   permalinks:
-    page:
-      programming: /programmazione/:slug/
-      music: /musica/:slug/
-    section:
-      programmazione: /programmazione/
-      music: /musica/
     topics: /argomenti/:slug/

@@ -4,6 +4,7 @@ title: Basta parlare di produzione nelle recensioni musicali, per favore
 summary: Elucubrazioni sull'inutilità del gergo da produttore nella critica musicale
 description: Elucubrazioni sull'inutilità del gergo da produttore nella critica musicale
 slug: basta-parlare-di-produzione-nelle-recensioni-musicali-per-favore
+translationKey: will-people-ever-stop-mentioning-the-mixing-mastering-process
 date: 2024-03-24
 topics: [critica musicale, produzione musicale]
 ---
