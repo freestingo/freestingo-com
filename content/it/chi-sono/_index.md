@@ -1,12 +1,11 @@
 ---
-author: Nicolo Traini
 title: Chi sono
 date: 2024-06-03
 description: Una breve descrizione di tutto quello che faccio
 summary: Una breve descrizione di tutto quello che faccio
-slug: chi-sono
-keywords: [about, creator]
-type: about
+translationKey: about
+layout: about
+weight: 100
 ---
 
 ## 🎹 Musica

@@ -1,11 +1,10 @@
 ---
-author: Nicolo Traini
 title: About
 date: 2024-06-03
 description: A short description about everything I do
 summary: A short description about everything I do
-keywords: [about, creator]
-type: about
+translationKey: about
+weight: 100
 ---
 
 ## 🎹 Music

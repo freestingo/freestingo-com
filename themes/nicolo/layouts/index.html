@@ -6,7 +6,7 @@
       {{ .Content }}
     </div>
 
-    {{ with .Sections }}
+    {{ with (where .Sections ".TranslationKey" "ne" "about") }}
       {{ range . }}
         <section class="last:mb-14">
           <h2>{{ .Title }}</h2>

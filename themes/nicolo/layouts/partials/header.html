@@ -64,24 +64,29 @@
       class="sm:flex basis-full sm:basis-auto sm:flex-grow gap-2 hidden sm:space-x-2 justify-between"
     >
       <div class="flex sm:gap-2 flex-col sm:flex-row">
-        {{ range .Site.Sections }}
-          <li>
-            <a
-              href="{{ .Permalink }}"
-              class="hover:text-emerald-600 dark:hover:text-emerald-400"
-              >{{ .Title | lower | safeHTML }}</a
-            >
-          </li>
-          <div class="hidden sm:block">|</div>
-        {{ end }}
-        {{ with .Site.GetPage "/about" }}
-          <li>
-            <a
-              href="{{ .Permalink }}"
-              class="hover:text-emerald-600 dark:hover:text-emerald-400"
-              >{{ .Title | lower | safeHTML }}</a
-            >
-          </li>
+        {{ range $k, $_ := .Site.Sections.ByWeight }}
+          {{ if $k }}
+            <div class="hidden sm:block select-none pointer-events-none">|</div>
+          {{ end }}
+          {{ if eq $.CurrentSection.FirstSection.Title .Title }}
+            <li>
+              <a
+                href="{{ .Permalink }}"
+                class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-200"
+              >
+                {{ .Title | lower | safeHTML }}
+              </a>
+            </li>
+          {{ else }}
+            <li>
+              <a
+                href="{{ .Permalink }}"
+                class="hover:text-emerald-600 dark:hover:text-emerald-400"
+              >
+                {{ .Title | lower | safeHTML }}
+              </a>
+            </li>
+          {{ end }}
         {{ end }}
       </div>
 
