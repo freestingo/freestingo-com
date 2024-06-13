@@ -1,9 +1,13 @@
 {{ define "main" }}
-  <h1>404</h1>
-  <p>{{ "pageNotFound" | T }}</p>
-  <p>
-    <a href="{{ .Site.Home.RelPermalink }}">
-      {{ "backToHome" | T }}
-    </a>
-  </p>
+  <article
+    class="justify-self-center text-center mx-auto prose prose-sm sm:prose-base dark:prose-invert prose-h3:text-base prose-a:text-emerald-700 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100"
+  >
+    <h1>404</h1>
+    <h2>{{ "pageNotFound" | T }}</h2>
+    <h3>
+      <a href="{{ .Site.Home.RelPermalink }}">
+        {{ "backToHome" | T }}
+      </a>
+    </h3>
+  </article>
 {{ end }}
