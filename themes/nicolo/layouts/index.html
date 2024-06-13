@@ -1,6 +1,22 @@
 {{ define "main" }}
-  <article class="justify-self-center mx-auto text-center prose prose-sm sm:prose-base dark:prose-invert prose-emerald">
-    {{/*  <h1 class="font-extralight text-xl">{{ .Title }}</h1>  */}}
-    {{ .Content }}
+  <article
+    class="justify-self-center mx-auto prose prose-sm sm:prose-base dark:prose-invert prose-h3:text-base prose-a:text-emerald-700 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100"
+  >
+    <div class="text-center">
+      {{ .Content }}
+    </div>
+
+    {{ with .Sections }}
+      {{ range . }}
+        <section class="last:mb-14">
+          <h2>{{ .Title }}</h2>
+          {{ with (where site.RegularPages ".Section" (lower .Title)) }}
+            {{ range . }}
+              {{- partial "article-preview.html" . -}}
+            {{ end }}
+          {{ end }}
+        </section>
+      {{ end }}
+    {{ end }}
   </article>
 {{ end }}

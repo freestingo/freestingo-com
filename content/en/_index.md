@@ -6,6 +6,5 @@ description: Home page
 keywords: [home]
 ---
 
-## 🛠️🛠️🛠️
-
-This website is currently under construction. You can already browse its contents, but don't grow too attached because they will most likely change very frequently.
+No cookies, no tracking, no ads.  
+Just content.

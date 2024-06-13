@@ -6,6 +6,5 @@ description: Home page
 keywords: [home]
 ---
 
-## 🛠️🛠️🛠️
-
-Il sito è al momento in fase di costruzione. Puoi già navigare in alcune pagine, ma non affezionarti troppo ai contenuti perché saranno soggetti a cambiamenti molto frequenti.
+Niente _cookies_, niente _tracking_, niente _ads_.  
+Solo contenuti.
