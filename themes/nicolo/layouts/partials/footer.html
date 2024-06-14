@@ -1,5 +1,25 @@
 <footer
-  class="bottom-0 w-full p-4 text-xs text-center text-zinc-600 border-t-2 border-zinc-200 dark:border-zinc-700"
+  class="flex justify-between items-center bottom-0 mx-auto w-screen max-w-screen-md px-6 sm:px-7 xl:px-8 2xl:px-10 py-4 text-xs text-zinc-600"
 >
-  Copyright © {{ now.Year }} freestingo
+  <div>
+    Copyright © {{ now.Year }} freestingo
+  </div>
+  {{ with .Site.Params.social }}
+    <div class="flex gap-1">
+      {{/* https://icons8.com/icon/set/social/material */}}
+      {{ range . }}
+        <a href="{{- .url -}}">
+          {{ if eq .name "youtube" }}
+            {{- partial "svg/youtube.html" . -}}
+          {{ else if eq .name "instagram" }}
+            {{- partial "svg/instagram.html" . -}}
+          {{ else if eq .name "linkedin" }}
+            {{- partial "svg/linkedin.html" . -}}
+          {{ else if eq .name "github" }}
+            {{- partial "svg/github.html" . -}}
+          {{ end }}
+        </a>
+      {{ end }}
+    </div>
+  {{ end }}
 </footer>
