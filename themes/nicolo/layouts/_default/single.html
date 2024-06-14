@@ -24,4 +24,21 @@
 
     {{ .Content }}
   </article>
+
+  {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
+  <div
+    class="flex mb-8 justify-between items-center prose prose-sm dark:prose-invert max-w-screen-md prose-a:text-emerald-600 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100"
+  >
+    <div>
+      {{ with $pages.Prev . }}
+        <a href="{{ .RelPermalink }}">{{ "previous" | T }}</a>
+      {{ end }}
+    </div>
+
+    <div>
+      {{ with $pages.Next . }}
+        <a href="{{ .RelPermalink }}">{{ "next" | T }}</a>
+      {{ end }}
+    </div>
+  </div>
 {{ end }}
