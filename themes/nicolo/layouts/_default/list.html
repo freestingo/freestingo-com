@@ -1,4 +1,13 @@
 {{ define "main" }}
+  {{/*  {{ range .Sections }}
+    {{- partial "sub-section-preview.html" . -}}
+  {{ end }}
+  {{ range .RegularPages }}
+    {{- partial "article-preview.html" . -}}
+  {{ end }}  */}}
+
+  {{/*  TODO: separate sections and regular pages like above  */}}
+
   {{ range .Pages }}
     {{- partial "article-preview.html" . -}}
   {{ end }}
