@@ -1,7 +1,15 @@
 social:
-  - name: youtube
-    url: "https://www.youtube.com/@nicolo6435"
-  - name: linkedin
-    url: "https://www.linkedin.com/in/nicolot"
-  - name: github
-    url: "https://github.com/freestingo"
+  profiles:
+    - name: youtube
+      url: "https://www.youtube.com/@nicolo6435"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/nicolot"
+    - name: github
+      url: "https://github.com/freestingo"
+  share:
+    networks:
+      - facebook
+      - twitter
+      - linkedin
+      - reddit
+      - telegram
