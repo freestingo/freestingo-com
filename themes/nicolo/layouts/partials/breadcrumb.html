@@ -1,0 +1,32 @@
+{{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}
+  <span class="select-none pointer-events-none">/</span
+  ><a
+    href="{{ .RelPermalink }}"
+    class="hover:text-emerald-600 dark:hover:text-emerald-400"
+    >{{- lower (path.Base $elem.RelPermalink) -}}</a
+  >
+{{- end -}}
+
+{{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
+  <span class="select-none pointer-events-none">/</span
+  ><a
+    aria-current="page"
+    href="{{ .RelPermalink }}"
+    class="hover:text-emerald-600 dark:hover:text-emerald-400 break-all"
+    >{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a
+  >
+{{- end -}}
+
+
+<span
+  class="prose dark:prose-invert leading-none select-none pointer-events-none text-sm sm:text-base"
+  >$</span
+><span
+  class="ms-0.5 prose dark:prose-invert leading-none select-none pointer-events-none text-sm sm:text-base"
+>
+  {{ if .Slug }}
+    cat {{ .Slug }}.md
+  {{ else }}
+    ls
+  {{ end }}
+</span>
