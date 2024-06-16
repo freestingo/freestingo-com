@@ -27,20 +27,22 @@
 
   {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
   <div
-    class="flex mb-8 justify-between items-center prose prose-sm dark:prose-invert max-w-screen-md prose-a:text-emerald-600 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100"
+    class="grid grid-cols-3 mb-8 justify-between items-start prose prose-sm dark:prose-invert max-w-screen-md prose-a:text-emerald-600 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100"
   >
-    <div>
+    <div class="flex justify-start">
       {{ with $pages.Prev . }}
         <a href="{{ .RelPermalink }}">{{ "previous" | T }}</a>
       {{ end }}
     </div>
 
     <div>
+      {{ partial "share-buttons" . }}
+    </div>
+
+    <div class="flex justify-end">
       {{ with $pages.Next . }}
         <a href="{{ .RelPermalink }}">{{ "next" | T }}</a>
       {{ end }}
     </div>
   </div>
-
-  {{ partial "share-buttons" . }}
 {{ end }}
