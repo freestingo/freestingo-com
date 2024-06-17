@@ -18,24 +18,29 @@
 
     <ul class="flex flex-wrap gap-x-3">
       {{ range .Sections.ByWeight }}
-        {{ if eq $.CurrentSection.FirstSection.Title .Title }}
-          <li>
-            <a
-              href="{{ .Permalink }}"
-              class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-emerald-200"
-            >
-              {{ .Title | lower | safeHTML }}/
-            </a>
-          </li>
-        {{ else }}
-          <li>
-            <a
-              href="{{ .Permalink }}"
-              class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            >
-              {{ path.Base .CurrentSection.Path | lower | safeHTML }}/
-            </a>
-          </li>
+        <li>
+          <a
+            href="{{ .Permalink }}"
+            class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          >
+            {{ path.Base .CurrentSection.Path | lower | safeHTML }}/
+          </a>
+        </li>
+      {{ end }}
+
+      {{/*  show social media profiles only on the "about" page  */}}
+      {{ if in (where site.Pages ".TranslationKey" "about") . }}
+        {{ with .Site.Params.social.profiles }}
+          {{ range . }}
+            <li>
+              <a
+                href="{{ .url }}"
+                class="hover:text-emerald-800 dark:hover:text-emerald-200"
+              >
+                {{ .name }}/
+              </a>
+            </li>
+          {{ end }}
         {{ end }}
       {{ end }}
     </ul>
