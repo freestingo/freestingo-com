@@ -137,7 +137,18 @@
     src: url("../fonts/JetBrainsMono-ThinItalic.woff2");
   }
 
+  html {
+    --emerald-800: rgb(6 95 70);
+    --zinc-100: rgb(244 244 245);
+  }
+
   body {
     font-family: "JetBrains Mono", monospace;
+  }
+
+  a:focus {
+    outline: none;
+    background-color: var(--emerald-800);
+    color: var(--zinc-100);
   }
 }
