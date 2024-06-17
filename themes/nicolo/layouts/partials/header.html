@@ -12,7 +12,7 @@
           class="prose dark:prose-invert leading-none select-none pointer-events-none text-sm sm:text-base"
           >:</span
         ><span class="select-none pointer-events-none">~</span
-        >{{- partial "breadcrumb.html" . -}}
+        >{{- partial "breadcrumbs.html" . -}}
       </div>
     </div>
 
@@ -28,7 +28,7 @@
         </li>
       {{ end }}
 
-      {{/*  show social media profiles only on the "about" page  */}}
+      {{/* show social media profiles only on the "about" page */}}
       {{ if in (where site.Pages ".TranslationKey" "about") . }}
         {{ with .Site.Params.social.profiles }}
           {{ range . }}
