@@ -1,18 +1,9 @@
 {{ with .Translations }}
   {{ range . }}
-    {{ if eq .Language.Lang $.Language.Lang }}
-      <a
-        class="hover:text-emerald-600 dark:hover:text-emerald-400"
-        aria-current="page"
-        href="{{ .RelPermalink }}"
-        >{{ .Language.LanguageName }}</a
-      >
-    {{ else }}
-      <a
-        class="hover:text-emerald-600 dark:hover:text-emerald-400"
-        href="{{ .RelPermalink }}"
-        >{{ .Language.LanguageName }}</a
-      >
-    {{ end }}
+    <a
+      class="hover:text-emerald-600 dark:hover:text-emerald-400"
+      href="{{ .RelPermalink }}"
+      >{{ "translateLinkLabel" | T }}</a
+    >
   {{ end }}
 {{ end }}
