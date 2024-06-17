@@ -6,5 +6,5 @@ description: Home page
 keywords: [home]
 ---
 
-Niente _cookies_, niente _tracking_, niente _ads_.  
+Niente _cookies_, niente _ads_.  
 Solo contenuti.
