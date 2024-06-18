@@ -6,5 +6,4 @@ description: Home page
 keywords: [home]
 ---
 
-No cookies, no ads.  
-Just content.
+{{< typewriter class="home-disclaimer" duration=3 lines="No cookies, no ads.|Just content." >}}

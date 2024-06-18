@@ -1,0 +1,49 @@
+{{ $class := .Get "class" }}
+{{ $duration := .Get "duration" }}
+{{ $lines := split (.Get "lines") "|" }}
+{{ $linesCount := $lines | len }}
+
+<span class="{{ $class }} select-none pointer-events-none">
+  <span>
+    {{ range $lines }}
+      <span>{{ . }}</span>
+    {{ end }}
+  </span>
+</span>
+
+<style>
+  .{{ $class }} {
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .{{ $class }} > span {
+    display: grid;
+    overflow: hidden;
+    height: 1.7em;
+  }
+
+  .{{ $class }} span span {
+    width: 0%;
+    max-width: max-content;
+    overflow: hidden;
+    height: inherit;
+    word-break: break-all;
+    animation:
+      t {{ $duration }}s linear infinite alternate,
+      m {{ mul $duration (mul $linesCount 2) }}s steps({{ $linesCount }}) infinite;
+  }
+
+  .{{ $class }} span span:before {
+    content: " ";
+    display: inline-block;
+  }
+
+  @keyframes t {
+    40%,100% { width: 100% }
+  }
+
+  @keyframes m {
+    100% { transform: translateY(-{{ mul $linesCount 100 }}%) }
+  }
+</style>
