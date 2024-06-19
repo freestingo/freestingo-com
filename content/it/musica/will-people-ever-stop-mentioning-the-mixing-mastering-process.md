@@ -7,6 +7,7 @@ slug: basta-parlare-di-produzione-nelle-recensioni-musicali-per-favore
 translationKey: will-people-ever-stop-mentioning-the-mixing-mastering-process
 date: 2024-03-24
 topics: [critica musicale, produzione musicale]
+draft: true
 ---
 
 Internet certe volte mi propina roba che sembra uscita da pugni di alieni appena atterrati sul pianeta Terra, reduci freschissimi dal loro primo ascolto di un album composto e suonato da esseri umani.

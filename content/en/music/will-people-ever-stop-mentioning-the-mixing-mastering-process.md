@@ -1,12 +1,13 @@
 ---
 author: Nicolo Traini
-title: Will people ever stop mentioning the mixing/mastering process in their reviews and avoid making fools of themselves?
+title: Will people ever stop mentioning the mixing/mastering process in their reviews?
 summary: Musings about the futility of production jargon in music criticism
 description: Musings about the futility of production jargon in music criticism
 slug: will-people-ever-stop-mentioning-the-mixing-mastering-process
 translationKey: will-people-ever-stop-mentioning-the-mixing-mastering-process
 date: 2024-03-24
 topics: [music criticism, music production]
+draft: true
 ---
 
 The internet sometimes presents me with stuff seemingly written by aliens that have just landed on Earth and have just listened to their first human record.
@@ -22,3 +23,10 @@ But don't just believe me — go listen to your favorite pop artist. Chances are
 In fact, you could even argue that the very opposite of themilkeyedmender's point is true: "experimental", "left-field", "challenging" mixes are usually the ones in which all instruments share the same virtual space (i.e. a techno track in which the bassdrum is as hazy as the drone beneath it, or a punk track in which guitars are as dry as the voice screaming over them). All in all though, mentioning reverb in order to support the fact that the music is "disorienting" is exactly the same as saying that a track is crazy because, say, one instrument is panned hard-left and another instrument is panned hard-right. It's just objective, technical data. They will actually mean something only after you take into consideration the context in which these aspects operate, but they don't mean anything by themselves.
 
 I've sadly noticed by now that, usually, an album's production is only ever mentioned in reviews wrote by reviewers who don't have anything actually interesting to talk about, and only have a very surface level (i.e., just watched a three-minute youtube essay about studio recordings) understanding of production in the first place. This has been no exception.
+
+- <https://open.substack.com/pub/golemmag/p/newsletter013?r=rq9kf&utm_medium=ios>
+  - further processing of sources through sound design does not always mean adding layers of complexity or inevitably further deviating from the original meaning.
+    most times, actually, sound design is meant to overcome the limitation of the recording tools (re-adding missing frequencies, removing unwanted background noise,
+    isolating specific aspects of the sample) (check examples in the [Ubu Dance Party Community chat](https://t.me/ubudanceparty/344696))
+- also talk about how synths are somehow always mentioned by model name, even though it has nothing to do with the sound they produce
+  (something that does not happen for any other instrument; nobody just says stuff like "the music-mans lay one riff after another in this rock song")
