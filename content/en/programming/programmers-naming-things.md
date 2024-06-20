@@ -13,12 +13,10 @@ topics: [worst of, debugging, PHP, javascript, vim]
 > There are only two hard things in Computer Science: cache invalidation and naming things.
 
 If you're a programmer, you've probably heard this joke before. If you're not a programmer, you're now
- wondering how on Earth could naming things be any harder than this scary-sounding
- _[cache invalidation](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fmalf7gt4qdj21.jpg "comic strip on Reddit")_
- business. It turns out — it is harder. Or at least it looks like it is, judging by the sheer amount
- of horrible names I have encountered so far in the coding world. I've been writing code for a little
- more than three years now so I'm hardly an expert, yet my findings are more than enough to make my
- point in this article and still have enough leftovers for maybe two or three more articles as well.
+wondering how on Earth could naming things be any harder than this scary-sounding
+_[cache invalidation](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fmalf7gt4qdj21.jpg "comic strip on Reddit")_
+business. It turns out — it is harder. Or at least it looks like it is, judging by the sheer amount
+of horrible names I have encountered so far in the coding world.
 
 In order for the non-programmer to understand how this could even be possible in the first place,
 though, I think it's necessary to give credit where credit is due. Programmers routinely write software.
@@ -39,15 +37,14 @@ So far so good. Let's just use descriptive names then, shall we? Well, it's not 
 First of all, there is [no common standard](https://xkcd.com/927/ "comic strip on xkcd.com")
 clearly dictating how to choose names. There are just guidelines, but even those
 [contradict each other](https://blog.ploeh.dk/2015/08/17/when-x-y-and-z-are-great-variable-names/)
-if you take into consideration different programming paradigms or even just different languages.
+as soon as you take into consideration different programming paradigms or even just different languages.
 It's easy enough to learn what is considered good for a specific language, but the average, experienced
 programmer has to simultaneously be fluent in multiple languages; guidelines easily become a huge
 blur pretty fast. The same name could be a perfect fit for my code, and an
 [abomination](https://x.com/jamesiry/status/598547781515485184 "functional programmers on Twitter")
-for yours. But let's just assume you managed to find a perfect name for a key part of your logic.
-Congratulations, you just did what you had to do just for one of the hundred other variables or
+for yours. But let's just assume you managed to find a perfect name for a key part of your logic:
+congratulations, you just did what you had to do just for one of the hundred other variables or
 functions you'll be creating today. It's not enough just to be good once — you have to be consistent.
-It's not impossible; most programmers manage to do it every day, but it's not easy by any means.
 
 After shedding some light on these very high stakes, no wonder programmers suck at naming things
 when they are not coding. They are literally burnt out. They don't want to have anything to do with it,
@@ -60,10 +57,10 @@ is basically gulping a glass of cool, refreshing water after an eight-hour daily
 the digital, unforgiving desert. It's a neverending Dantesque poetic justice programmers
 like to inflict on their own kind.
 
-Let's go ahead and dive into this semantic hellscape then; Virgil (yours truly) has conveniently compiled
-a list below, enumerating the worst names ever given by programmers, in alphabetical order.
-For each entry you can find a short comment explaining why that name was worth including
-and why they are so bad. Enjoy!
+Let's go ahead then and dive into this semantic hellscape; yours truly has conveniently fulfilled
+his virgilean duty by compiling a list below, enumerating the worst names ever given by programmers,
+in alphabetical order. For each entry you can find a short comment explaining why that name was
+worth including and why they are so bad. Enjoy!
 
 ### CoC
 
@@ -92,16 +89,16 @@ languages. Judging by the name, you'd think **JavaScript** was some kind of tech
 built on top of **Java**. Wrong. The two languages virtually have nothing in common. The only
 reason **JavaScript** contains **Java** in its name is because **Java** sounded cool at the
 time. Pure marketing, clout-chasing, if you will. It's the same reason behind the fact that
-now, in 2024, even the most basic and bare-bones calendar app is being described as
+now, in 2024, even the most basic and bare-bones app is being described as
 ["AI-Powered"](https://www.scaruffi.com/singular/sin00.html "Intelligence is not Artificial, introduction")
-somewhere in the company website. The later attempt of renaming the language into **ECMAScript**,
+somewhere in its company website. The later attempt of renaming the language into **ECMAScript**,
 anyway, [did not fare any better](https://james-iry.blogspot.com/2009/05/brief-incomplete-and-mostly-wrong.html#:~:text=1995%20%2D%20Brendan%20Eich,is%20renamed%20ECMAScript. "A brief, incomplete, and mostly wrong history of programming languages").
 
 ### less
 
 This is a command-line program for viewing text files. Why the name **less**? It's because it's
 meant to be [an expansion and a replacement](https://man7.org/linux/man-pages/man1/less.1.html "'less' Linux manual page")
-for **more**, the old pager with limited features.  Hence, the name — **less** is **more**. Get it? Unfortunately, we all do.
+for **more**, the old pager with limited features.  Hence, the name — **less** is **more**. Get it? (unfortunately, we all do)
 
 ### scrot
 
@@ -137,12 +134,12 @@ on IRC, and got this answer:
 > philsturgeon, the token name was kept around because conservative people felt that removing
 > it would be too much of a change, and might confuse users.
 
-Wait, are these the same "conservative people" that are now occupying the West Bank? Have they started colonizing
+Wait, are these the same "conservative people" that are now occupying the West Bank? Have they started ***colon***izing
 code bases too? Should the open source community be worried? Does the USA know about this? In 2010, some guy
 aptly named Chad launched a terrorist attack aimed at the **PHP Internals** headquarters, asking if the
 exotically named token could please be translated to English (you can find the whole, delirious discussion
 [here](https://web.archive.org/web/20221209141424/https://grokbase.com/t/php/php-internals/10ayegjgg4/rename-t-paamayim-nekudotayim-to-t-double-colon/10ay7h1f2a "[PHP-INTERNALS] rename T_PAAMAYIM_NEKUDOTAYIM to T_DOUBLE_COLON")).
-After more than ten years, nothing has changed.
+After a lengthy negotiation between the two parties and more than ten years, nothing has changed.
 
 ### YAML
 

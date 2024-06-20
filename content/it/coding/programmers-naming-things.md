@@ -17,9 +17,7 @@ adesso ti starai chiedendo come cavolo possa essere difficile dare nomi a cose, 
 a questa fantomatica
 _[cache invalidation](https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fmalf7gt4qdj21.jpg "fumetto su Reddit")_.
 In realtà, è molto difficile. O perlomeno così pare, stando alla quantità immane di nomi orribili
-pullulanti nel sottobosco tech incontrati da me finora. Scrivo codice da poco più di tre anni,
-non mi considero assolutamente un esperto; tuttavia, ho già trovato esempi in abbondanza per questo
-articolo, e ne avanzerebbero comunque abbastanza per altri due o tre articoli senza troppi problemi.
+pullulanti nel sottobosco tech incontrati da me finora.
 
 Per spiegare al non-programmatore come sia possibile tutto ciò, comunque, bisogna dare a Cesare quel
 che è di Cesare. I programmatori in genere scrivono software. I software sono composti da codice,
@@ -50,8 +48,7 @@ e un [abominio](https://x.com/jamesiry/status/598547781515485184 "functional pro
 per il tuo. Come? Nonostante tutto sei riuscito a trovare il nome perfetto per una parte cruciale
 della tua logica? Congratulazioni, hai semplicemente fatto quello che dovevi fare per una sola
 delle centinaia di altri variabili e funzioni che creerai nel resto della giornata. Non basta
-essere bravi una volta: bisogna essere bravi sempre. Non è impossibile; la maggior parte dei
-programmatori ci riesce ogni giorno, ma non è facile.
+essere bravi una volta: bisogna essere bravi sempre.
 
 Dopo aver visto un po' più da vicino la natura di questi patemi giornalieri, diventa quindi ovvio il
 motivo per cui i programmatori fanno così schifo a dare nomi alle cose quando non stanno scrivendo
@@ -141,13 +138,13 @@ nella IRC, e gli hanno risposto così:
 > that removing it would be too much of a change, and might confuse users.
 
 Aspetta, per caso stiamo parlando degli stessi _conservative people_ che hanno
-pure colonie nella West Bank? Hanno iniziato a colonizzare anche i progetti
+pure colonie nella West Bank? Hanno iniziato a ***colon***izzare anche i progetti
 open source ora? Dobbiamo allarmarci? Gli Stati Uniti in tutto questo cosa dicono?
 Nel 2010 un tale Chad, di nome e di fatto, orchestrò un attacco terroristico a
 danni dei **PHP Internals** chiedendo se fosse possibile tradurre in inglese il
 token (trovate l'archivio dell'intera, delirante discussione
 [qui](https://web.archive.org/web/20221209141424/https://grokbase.com/t/php/php-internals/10ayegjgg4/rename-t-paamayim-nekudotayim-to-t-double-colon/10ay7h1f2a "[PHP-INTERNALS] rename T_PAAMAYIM_NEKUDOTAYIM to T_DOUBLE_COLON")).
-Dopo più di dieci anni, non è cambiato nulla.
+Seguì una lunga negoziazione: ad oggi, più di dieci anni dopo, non è ancora cambiato nulla.
 
 ### YAML
 
