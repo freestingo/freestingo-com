@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ range .Pages }}
-    {{- partial "article-preview.html" . -}}
+  {{ range .Pages.ByTitle }}
+    {{- partial "taxonomy-term-preview.html" . -}}
   {{ end }}
 {{ end }}
