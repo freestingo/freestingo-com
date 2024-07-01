@@ -1,11 +1,9 @@
 {{ define "main" }}
   <article
-    class="justify-self-center mx-auto mb-10 prose prose-sm sm:prose-base dark:prose-invert max-w-screen-md prose-a:text-emerald-600 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100 prose-blockquote:font-light prose-blockquote:text-sm sm:prose-blockquote:text-base prose-code:text-sm sm:prose-code:text-base prose-code:before:content-none prose-code:after:content-none"
+    class="justify-self-center mx-auto mb-10 prose prose-sm sm:prose-base dark:prose-invert max-w-screen-md prose-a:text-emerald-600 dark:prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-blockquote:font-light prose-blockquote:text-sm sm:prose-blockquote:text-base prose-code:text-sm sm:prose-code:text-base prose-code:before:content-none prose-code:after:content-none"
   >
     <h1 class="text-xl sm:text-3xl !mb-2 sm:!mb-4">{{ .Title }}</h1>
-    <h2
-      class="text-emerald-600 dark:text-emerald-400 text-sm sm:text-lg !mt-3 !mb-4 sm:!mb-5"
-    >
+    <h2 class="text-sm sm:text-lg !mt-3 !mb-4 sm:!mb-5">
       {{ .Summary }}
     </h2>
 
@@ -27,7 +25,7 @@
 
   {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
   <div
-    class="grid grid-cols-3 mb-8 justify-between items-start prose prose-sm dark:prose-invert max-w-screen-md prose-a:text-emerald-600 hover:prose-a:text-emerald-800 dark:prose-a:text-emerald-400 hover:dark:prose-a:text-emerald-100"
+    class="grid grid-cols-3 mb-8 justify-between items-start prose prose-sm dark:prose-invert max-w-screen-md prose-a:text-emerald-600 dark:prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline"
   >
     <div class="flex justify-start">
       {{ with $pages.Prev . }}

@@ -148,7 +148,6 @@
 
   a:focus {
     outline: none;
-    background-color: var(--emerald-800);
-    color: var(--zinc-100);
+    text-decoration-line: underline;
   }
 }
