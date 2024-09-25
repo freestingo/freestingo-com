@@ -6,6 +6,9 @@ module.exports = {
     "./content/**/*.html",
   ],
   theme: {
+    fontFamily: {
+      display: ["G2 Ciao"],
+    },
     extend: {},
   },
   plugins: [

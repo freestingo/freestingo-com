@@ -1,12 +1,12 @@
 {{ define "main" }}
   <article
-    class="justify-self-center mx-auto prose prose-sm sm:prose-base dark:prose-invert max-w-screen-md prose-h3:text-base"
+    class="justify-self-center mx-auto"
   >
     <div>
       {{ .Content }}
     </div>
 
-    {{ with (where .Sections ".TranslationKey" "ne" "about") }}
+    {{/*  {{ with (where .Sections ".TranslationKey" "ne" "about") }}
       {{ range . }}
         <section class="last:mb-14">
           <h2>{{ .Title }}</h2>
@@ -17,6 +17,6 @@
           {{ end }}
         </section>
       {{ end }}
-    {{ end }}
+    {{ end }}  */}}
   </article>
 {{ end }}

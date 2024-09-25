@@ -11,139 +11,152 @@
 @layer components {
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 600;
-    src: url("../fonts/JetBrainsMono-SemiBold.woff2");
+    src: url("../fonts/TTFirsNeue-DemiBold.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 600;
-    src: url("../fonts/JetBrainsMono-SemiBoldItalic.woff2");
+    src: url("../fonts/TTFirsNeue-DemiBoldItalic.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: bold;
-    src: url("../fonts/JetBrainsMono-Bold.woff2");
+    src: url("../fonts/TTFirsNeue-Bold.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: bold;
-    src: url("../fonts/JetBrainsMono-BoldItalic.woff2");
+    src: url("../fonts/TTFirsNeue-BoldItalic.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 800;
-    src: url("../fonts/JetBrainsMono-ExtraBold.woff2");
+    src: url("../fonts/TTFirsNeue-ExtraBold.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 800;
-    src: url("../fonts/JetBrainsMono-ExtraBoldItalic.woff2");
+    src: url("../fonts/TTFirsNeue-ExtraBoldItalic.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: normal;
-    src: url("../fonts/JetBrainsMono-Regular.woff2");
+    src: url("../fonts/TTFirsNeue-Regular.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: normal;
-    src: url("../fonts/JetBrainsMono-Italic.woff2");
+    src: url("../fonts/TTFirsNeue-Italic.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 500;
-    src: url("../fonts/JetBrainsMono-Medium.woff2");
+    src: url("../fonts/TTFirsNeue-Medium.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 500;
-    src: url("../fonts/JetBrainsMono-MediumItalic.woff2");
+    src: url("../fonts/TTFirsNeue-MediumItalic.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 300;
-    src: url("../fonts/JetBrainsMono-Light.woff2");
+    src: url("../fonts/TTFirsNeue-Light.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 300;
-    src: url("../fonts/JetBrainsMono-LightItalic.woff2");
+    src: url("../fonts/TTFirsNeue-LightItalic.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 200;
-    src: url("../fonts/JetBrainsMono-ExtraLight.woff2");
+    src: url("../fonts/TTFirsNeue-ExtraLight.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 200;
-    src: url("../fonts/JetBrainsMono-ExtraLightItalic.woff2");
+    src: url("../fonts/TTFirsNeue-ExtraLightItalic.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 100;
-    src: url("../fonts/JetBrainsMono-Thin.woff2");
+    src: url("../fonts/TTFirsNeue-Thin.otf");
   }
 
   @font-face {
     font-display: swap;
-    font-family: "JetBrains Mono";
+    font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 100;
-    src: url("../fonts/JetBrainsMono-ThinItalic.woff2");
+    src: url("../fonts/TTFirsNeue-ThinItalic.otf");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "G2 Ciao";
+    font-style: normal;
+    src: url("../fonts/G2Ciao-SilentSilent.otf");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "G2 Ciao";
+    font-weight: bold;
+    src: url("../fonts/G2Ciao-SilentSilent.otf");
   }
 
   html {
     --emerald-800: rgb(6 95 70);
-    --zinc-100: rgb(244 244 245);
   }
 
   body {
-    font-family: "JetBrains Mono", monospace;
+    font-family: "TT Firs Neue", sans-serif;
   }
 
   a:focus {

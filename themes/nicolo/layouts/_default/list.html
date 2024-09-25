@@ -1,4 +1,23 @@
 {{ define "main" }}
+  {{ with .Sections.ByWeight}}
+    <div class="flex flex-col gap-y-8">
+      {{ range . }}
+        <div class="flex flex-col">
+          <a
+            href="{{ .Permalink }}"
+            class="font-display text-5xl"
+          >
+            {{ path.Base .CurrentSection.Path | lower | safeHTML }}
+          </a>
+          <span class="text-base">
+            {{ .Description | lower }}
+          </span>
+        </div>
+
+      {{ end }}
+    </div>
+  {{ end }}
+
   {{ range .RegularPages }}
     {{- partial "article-preview.html" . -}}
   {{ end }}

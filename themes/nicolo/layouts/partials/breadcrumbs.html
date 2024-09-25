@@ -1,32 +1,16 @@
 {{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}
-  <span class="select-none pointer-events-none">/</span
-  ><a
+  <span class="text-zinc-600 dark:text-zinc-500 select-none pointer-events-none mx-1">»</span
+    ><a
     href="{{ .RelPermalink }}"
-    class="hover:text-emerald-600 dark:hover:text-emerald-400"
-    >{{- lower (path.Base $elem.RelPermalink) -}}</a
-  >
+    class="text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 dark:hover:text-emerald-400"
+    >{{- lower (path.Base $elem.RelPermalink) -}}</a>
 {{- end -}}
 
 {{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
-  <span class="select-none pointer-events-none">/</span
-  ><a
+  <span class="text-zinc-600 dark:text-zinc-500 select-none pointer-events-none mx-1">»</span
+    ><a
     aria-current="page"
     href="{{ .RelPermalink }}"
-    class="hover:text-emerald-600 dark:hover:text-emerald-400 break-all"
-    >{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a
-  >
+    class="text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 dark:hover:text-emerald-400 break-all"
+    >{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a>
 {{- end -}}
-
-
-<span
-  class="prose dark:prose-invert leading-none select-none pointer-events-none text-sm sm:text-base"
-  >$</span
-><span
-  class="prose dark:prose-invert leading-none select-none pointer-events-none text-sm sm:text-base break-all"
->
-  {{ if .Slug }}
-    cat {{ .Slug }}.md
-  {{ else }}
-    ls
-  {{ end }}
-</span>

@@ -1,47 +1,29 @@
 <header
   class="mx-auto w-screen max-w-screen-md px-6 sm:px-7 xl:px-8 2xl:px-10 py-6"
 >
-  <nav class="flex flex-col text-sm sm:text-base">
+  <nav class="flex flex-col">
     <div class="flex justify-between items-start gap-2">
       <div>
         <a
           href="{{ .Site.Home.Permalink }}"
           class="text-emerald-700 dark:text-emerald-400 hover:underline font-bold"
-          >{{ .Site.Title }}@com</a
-        ><span
-          class="prose dark:prose-invert leading-none select-none pointer-events-none text-sm sm:text-base"
-          >:</span
-        ><span class="select-none pointer-events-none">~</span
-        >{{- partial "breadcrumbs.html" . -}}
+          >
+            {{ .Site.Title }}.com
+        </a>
+        {{- partial "breadcrumbs.html" . -}}
       </div>
     </div>
 
-    <ul class="flex flex-wrap gap-x-3">
-      {{ range .Sections.ByWeight }}
+    <ul class="flex flex-wrap gap-x-3 text-zinc-950 dark:text-zinc-50">
+      {{ range site.Sections.ByWeight }}
         <li>
           <a
             href="{{ .Permalink }}"
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
+            class="{{ if or (.IsAncestor $) (eq $ .) }}text-emerald-600 dark:text-emerald-400{{ end }} hover:text-emerald-600 dark:hover:text-emerald-400"
           >
-            {{ path.Base .CurrentSection.Path | lower | safeHTML }}/
+            {{ path.Base .CurrentSection.Path | lower | safeHTML }}
           </a>
         </li>
-      {{ end }}
-
-      {{/* show social media profiles only on the "about" page */}}
-      {{ if in (where site.Pages ".TranslationKey" "about") . }}
-        {{ with .Site.Params.social.profiles }}
-          {{ range . }}
-            <li>
-              <a
-                href="{{ .url }}"
-                class="hover:text-emerald-800 dark:hover:text-emerald-200"
-              >
-                {{ .name }}/
-              </a>
-            </li>
-          {{ end }}
-        {{ end }}
       {{ end }}
     </ul>
   </nav>

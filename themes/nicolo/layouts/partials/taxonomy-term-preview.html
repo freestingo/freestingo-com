@@ -1,11 +1,11 @@
 <article
-  class="justify-self-center mb-3 mx-auto prose prose-sm sm:prose-base dark:prose-invert max-w-screen-md prose-a:text-emerald-700 dark:prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline"
+  class="justify-self-center mb-3 mx-auto"
 >
   <div
     class="flex flex-row gap-3 items-baseline justify-items-start"
   >
-    <a class="text-sm sm:text-base mb-0" href="{{ .Permalink }}">{{ .Title | lower }}</a>
-    <span class="select-none pointer-events-none text-xs sm:text-sm text-zinc-400 dark:text-zinc-600">
+    <a class="mb-0" href="{{ .Permalink }}">{{ .Title | lower }}</a>
+    <span class="select-none pointer-events-none">
       {{ "pages" | T }}: {{ .Pages | len }}
     </span>
     </div>
