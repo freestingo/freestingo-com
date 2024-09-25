@@ -1,0 +1,37 @@
+{{ $id := .Get "id" }}
+{{ $text := .Get "text" }}
+
+<div class="fixed top-1/2 left-2/4 -translate-y-1/2 -translate-x-1/2 w-screen text-7xl font-display text-nowrap overflow-hidden">
+  <div class="text-zinc-50 animate-[mobile-scroller_23s_linear_infinite] lg:animate-[desktop-scroller_25s_linear_infinite] 2xl:animate-[wide-scroller_25s_linear_infinite]">
+    {{ $text | lower }}
+  </div>
+</div>
+
+<style>
+  @keyframes wide-scroller {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes desktop-scroller {
+    0% {
+      transform: translateX(110%);
+    }
+    100% {
+      transform: translateX(-180%);
+    }
+  }
+
+  @keyframes mobile-scroller {
+    0% {
+      transform: translateX(200%);
+    }
+    100% {
+      transform: translateX(-450%);
+    }
+  }
+</style>

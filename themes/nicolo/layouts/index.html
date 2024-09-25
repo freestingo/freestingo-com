@@ -1,22 +1,3 @@
 {{ define "main" }}
-  <article
-    class="justify-self-center mx-auto"
-  >
-    <div>
-      {{ .Content }}
-    </div>
-
-    {{/*  {{ with (where .Sections ".TranslationKey" "ne" "about") }}
-      {{ range . }}
-        <section class="last:mb-14">
-          <h2>{{ .Title }}</h2>
-          {{ with (where site.RegularPages ".Section" (lower .Title)) }}
-            {{ range . }}
-              {{- partial "article-preview.html" . -}}
-            {{ end }}
-          {{ end }}
-        </section>
-      {{ end }}
-    {{ end }}  */}}
-  </article>
+  {{ .Content }}
 {{ end }}

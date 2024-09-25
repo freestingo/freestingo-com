@@ -6,4 +6,4 @@ description: Home page
 keywords: [home]
 ---
 
-{{< typewriter class="home-disclaimer" duration=3 lines="Niente cookies, niente ads.|Solo contenuti." >}}
+{{< scroller id="home-disclaimer-scroller" text="Niente cookies, niente ads. Solo contenuti." >}}
