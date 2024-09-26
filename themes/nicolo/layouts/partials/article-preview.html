@@ -1,16 +1,15 @@
-<article
-  class="justify-self-center mb-7 sm:mb-3 mx-auto"
->
+<div class="not-prose grid grid-cols-1">
   <div
-    class="grid grid-cols-1 sm:grid-cols-5 sm:gap-2 items-baseline justify-items-start"
+    class="grid grid-cols-1 gap-2 py-5"
   >
-    <div class="sm:col-span-1">
-      {{ time.Format "2006-01-02" .Date }}
-    </div>
-    <a class="sm:col-span-4 mb-0" href="{{ .Permalink }}">
+    <a href="{{ .Permalink }}" class="font-display text-3xl leading-8 hover:text-emerald-600 dark:hover:text-emerald-400">
       {{ .Title }}
     </a>
-    <div class="sm:col-span-1"></div>
-    <div class="sm:col-span-4 mt-1 sm:mt-0">{{ .Summary }}</div>
+    <span class="text-base leading-tight">
+      {{ .Summary }}
+    </span>
+    <div class="text-xs justify-self-end">
+      {{ time.Format "2006-01-02" .Date }}
+    </div>
   </div>
-</article>
+</div>

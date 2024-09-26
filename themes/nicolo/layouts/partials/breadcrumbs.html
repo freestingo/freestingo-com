@@ -1,5 +1,5 @@
 {{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}
-  <span class="text-zinc-600 dark:text-zinc-500 select-none pointer-events-none mx-1">»</span
+  <span class="text-zinc-600 dark:text-zinc-500 select-none pointer-events-none">/</span
     ><a
     href="{{ .RelPermalink }}"
     class="text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 dark:hover:text-emerald-400"
@@ -7,7 +7,7 @@
 {{- end -}}
 
 {{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
-  <span class="text-zinc-600 dark:text-zinc-500 select-none pointer-events-none mx-1">»</span
+  <span class="text-zinc-600 dark:text-zinc-500 select-none pointer-events-none">/</span
     ><a
     aria-current="page"
     href="{{ .RelPermalink }}"

@@ -1,24 +1,24 @@
 {{ define "main" }}
   {{ with .Sections.ByWeight}}
-    <div class="flex flex-col gap-y-8">
+    <div class="not-prose grid grid-cols-1 divide-y">
       {{ range . }}
-        <div class="flex flex-col">
-          <a
-            href="{{ .Permalink }}"
-            class="font-display text-5xl"
-          >
-            {{ path.Base .CurrentSection.Path | lower | safeHTML }}
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 items-center gap-2 py-5"
+        >
+          <a href="{{ .Permalink }}" class="font-display text-5xl hover:text-emerald-600 dark:hover:text-emerald-400">
+              {{ path.Base .CurrentSection.Path | lower | safeHTML }}
           </a>
-          <span class="text-base">
-            {{ .Description | lower }}
+          <span class="text-base leading-tight">
+            {{ .Description }}
           </span>
         </div>
-
       {{ end }}
     </div>
   {{ end }}
 
-  {{ range .RegularPages }}
-    {{- partial "article-preview.html" . -}}
-  {{ end }}
+  <div class="divide-y">
+    {{ range .RegularPages }}
+      {{- partial "article-preview.html" . -}}
+    {{ end }}
+  </div>
 {{ end }}
