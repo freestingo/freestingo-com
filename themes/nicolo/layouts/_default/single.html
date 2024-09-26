@@ -14,7 +14,7 @@
           {{ lower (site.GetPage $taxonomy).LinkTitle }}:
           {{ range $k, $_ := . -}}
             {{ if $k }},{{ end }}
-            <a href="{{ .RelPermalink }}">{{ lower .LinkTitle }}</a>
+            <a href="{{ .RelPermalink }}" class="not-prose font-semibold hover:text-emerald-600 dark:hover:text-emerald-400">{{ lower .LinkTitle }}</a>
           {{- end }}
         </p>
       {{ end }}
