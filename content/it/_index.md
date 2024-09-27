@@ -6,4 +6,6 @@ description: Home page
 keywords: [home]
 ---
 
-{{< scroller id="home-disclaimer-scroller" text="Niente cookies, niente ads. Solo contenuti." >}}
+Benvenuto nel mio diario digitale e nel tuo eremo senza javascript né cookies!  
+Mi chiamo Nicolò, piacere.
+Clicca su una delle sezioni qui sopra e inizia ad esplorare!

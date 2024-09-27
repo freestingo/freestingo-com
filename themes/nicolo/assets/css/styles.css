@@ -137,20 +137,6 @@
     src: url("../fonts/TTFirsNeue-ThinItalic.otf");
   }
 
-  @font-face {
-    font-display: swap;
-    font-family: "G2 Ciao";
-    font-style: normal;
-    src: url("../fonts/G2Ciao-SharpSharp.otf");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "G2 Ciao";
-    font-weight: bold;
-    src: url("../fonts/G2Ciao-SharpSharp.otf");
-  }
-
   html {
     --emerald-800: rgb(6 95 70);
   }

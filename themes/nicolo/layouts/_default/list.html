@@ -1,11 +1,11 @@
 {{ define "main" }}
   {{ with .Sections.ByWeight}}
-    <div class="not-prose grid grid-cols-1 divide-y divide-zinc-950 dark:divide-zinc-50">
+    <div class="not-prose grid grid-cols-1 divide-y divide-zinc-950 dark:divide-zinc-50 text-zinc-950 dark:text-zinc-50">
       {{ range . }}
         <div
           class="grid grid-cols-1 sm:grid-cols-2 items-center gap-2 py-5"
         >
-          <a href="{{ .Permalink }}" class="font-display text-5xl hover:text-emerald-600 dark:hover:text-emerald-400">
+          <a href="{{ .Permalink }}" class="font-bold text-5xl hover:text-emerald-600 dark:hover:text-emerald-400">
               {{ path.Base .CurrentSection.Path | lower | safeHTML }}
           </a>
           <span class="text-base leading-tight">
@@ -16,7 +16,7 @@
     </div>
   {{ end }}
 
-  <div class="divide-y divide-zinc-950 dark:divide-zinc-50">
+  <div class="divide-y divide-zinc-950 dark:divide-zinc-50 text-zinc-950 dark:text-zinc-50">
     {{ range .RegularPages }}
       {{- partial "article-preview.html" . -}}
     {{ end }}
