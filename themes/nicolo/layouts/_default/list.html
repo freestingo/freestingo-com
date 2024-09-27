@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ with .Sections.ByWeight}}
-    <div class="not-prose grid grid-cols-1 divide-y">
+    <div class="not-prose grid grid-cols-1 divide-y divide-zinc-950 dark:divide-zinc-50">
       {{ range . }}
         <div
           class="grid grid-cols-1 sm:grid-cols-2 items-center gap-2 py-5"
@@ -16,7 +16,7 @@
     </div>
   {{ end }}
 
-  <div class="divide-y">
+  <div class="divide-y divide-zinc-950 dark:divide-zinc-50">
     {{ range .RegularPages }}
       {{- partial "article-preview.html" . -}}
     {{ end }}
