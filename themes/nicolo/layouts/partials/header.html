@@ -20,7 +20,7 @@
             href="{{ .Permalink }}"
             class="{{ if or (.IsAncestor $) (eq $ .) }}text-emerald-700 dark:text-emerald-400{{ end }} hover:text-emerald-700 dark:hover:text-emerald-400"
           >
-            {{ path.Base .CurrentSection.Path | lower | safeHTML }}
+            {{ .Name | lower | safeHTML }}
           </a>
         </li>
       {{ end }}
