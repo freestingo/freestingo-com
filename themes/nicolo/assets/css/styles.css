@@ -145,6 +145,11 @@
     font-family: "TT Firs Neue", sans-serif;
   }
 
+  /* block scrolling whenever the section menu is open */
+  body:has(#sections-toggle:checked) { 
+    overflow: hidden;
+  }
+
   a:focus {
     outline: none;
     text-decoration-line: underline;

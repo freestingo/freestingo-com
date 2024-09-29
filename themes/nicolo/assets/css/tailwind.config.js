@@ -6,7 +6,11 @@ module.exports = {
     "./content/**/*.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionTimingFunction: {
+        'out-gentle': 'cubic-bezier(.29,.52,.46,1)',
+      }
+    },
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),

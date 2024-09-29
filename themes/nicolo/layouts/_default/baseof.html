@@ -3,12 +3,12 @@
   {{ partial "head.html" . }}
 
   <body
-    class="flex flex-col min-h-[calc(100dvh)] bg-zinc-50 dark:bg-zinc-950 selection:bg-emerald-800 selection:text-zinc-50"
+    class="flex flex-col min-h-[calc(100dvh)] bg-zinc-50 dark:bg-zinc-950 selection:bg-emerald-700 selection:text-zinc-50"
   >
     {{/* {{- partial "dev/dev-tools.html" . -}} */}}
     {{- partial "header.html" . -}}
     <main
-      class="flex-1 grow mx-auto w-screen max-w-screen-md px-6 pt-2 sm:pt-5 prose sm:prose-xl leading-normal dark:prose-invert prose-p:text-zinc-950 dark:prose-p:text-zinc-50 prose-li:text-zinc-950 dark:prose-li:text-zinc-50 prose-h1:text-4xl md:prose-h1:text-6xl prose-h2:text-xl md:prose-h2:text-2xl prose-a:text-emerald-600 dark:prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-blockquote:font-light prose-code:before:content-none prose-code:after:content-none"
+      class="flex-1 grow mx-auto w-screen max-w-screen-md px-6 pt-2 sm:pt-5 prose sm:prose-xl leading-normal dark:prose-invert prose-p:text-zinc-950 dark:prose-p:text-zinc-50 prose-li:text-zinc-950 dark:prose-li:text-zinc-50 prose-h1:text-4xl md:prose-h1:text-6xl prose-h2:text-xl md:prose-h2:text-2xl prose-a:text-emerald-700 dark:prose-a:text-emerald-400 prose-a:no-underline hover:prose-a:underline prose-blockquote:font-light prose-code:before:content-none prose-code:after:content-none"
     >
       {{- block "main" . }}{{- end }}
     </main>

@@ -6,6 +6,5 @@ description: Home page
 keywords: [home]
 ---
 
-Benvenuto nel mio diario digitale e nel tuo eremo senza javascript né cookies!  
+Benvenuto nel mio diario digitale!  
 Mi chiamo Nicolò, piacere.
-Clicca su una delle sezioni qui sopra e inizia ad esplorare!

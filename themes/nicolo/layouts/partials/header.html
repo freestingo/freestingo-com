@@ -2,28 +2,66 @@
   class="mx-auto w-screen max-w-screen-md px-6 py-6"
 >
   <nav class="flex flex-col">
-    <div class="flex justify-between items-start gap-2">
-      <div>
+    <div class="flex justify-between gap-2">
+      <div class="z-10">
         <a
           href="{{ .Site.Home.Permalink }}"
-          class="text-emerald-700 dark:text-emerald-400 hover:underline font-bold"
+          class="text-emerald-700 dark:text-emerald-400 hover:text-zinc-950 hover:dark:text-zinc-50 font-bold"
           >
-            {{ .Site.Title }}.com</a
-          >{{- partial "breadcrumbs.html" . -}}
+            {{ .Site.Title }}.com
+        </a>
+      </div>
+      <div class="flex flex-col gap-2">
+        {{ $pageURL := .Permalink | safeURL }}
+        {{/* urlquery is undocumented, but maybe should be used here instead */}}
+        {{ $pageTitle := .Title | safeHTML }}
+        <input id="sections-toggle" type="checkbox" class="hidden peer" />
+        <label
+          for="sections-toggle"
+          class="group h-full flex flex-col justify-around text-zinc-400 dark:text-zinc-600 hover:text-emerald-600 dark:hover:text-emerald-400 z-10 hover:cursor-pointer"
+        >
+          <span class="w-6 h-[3px] bg-zinc-950 dark:bg-zinc-50 group-hover:bg-emerald-700 group-hover:dark:bg-emerald-400 peer-checked:group-[]:origin-center peer-checked:group-[]:rotate-45 peer-checked:group-[]:translate-y-1.5 transition-transform duration-1000 ease-out-gentle"></span>
+          <span class="w-6 h-[3px] bg-zinc-950 dark:bg-zinc-50 group-hover:bg-emerald-700 group-hover:dark:bg-emerald-400 peer-checked:group-[]:origin-center peer-checked:group-[]:-rotate-45 peer-checked:group-[]:-translate-y-1.5 transition-transform duration-1000 ease-out-gentle"></span>
+        </label>
+        <div id="sections-menu" class="flex justify-center absolute -top-full peer-checked:top-0 group left-0 w-screen h-screen bg-zinc-50 dark:bg-zinc-950 z-[5] text-zinc-950 dark:text-zinc-50 transition-[top] duration-1000 ease-out-gentle">
+          <div class="flex flex-col justify-center h-full w-full">
+            <div class="flex justify-center items-baseline">
+              <a
+                href="{{ site.Home.Permalink }}"
+                class="relative text-4xl sm:text-6xl font-semibold hover:text-emerald-700 hover:dark:text-emerald-600 transition-opacity duration-700 ease-out-gentle delay-[400ms] opacity-0 peer-checked:group-[]:opacity-100"
+              >
+                <div>
+                  {{ "home" | T | upper }}
+                </div>
+                {{ if eq site.Home . }}
+                  <div class="text-emerald-700 dark:text-emerald-600 absolute bottom-0 -left-3 sm:-left-5 select-none pointer-events-none">
+                    >
+                  </div>
+                {{ end }}
+              </a>
+            </div>
+            {{ range $i, $section := site.Sections.ByWeight }}
+              {{ $staggeredAnimationDelay := printf "%d00ms" (add 6 (mul $i 2)) }}
+              <div class="flex justify-center items-baseline">
+                <a
+                  href="{{ $section.Permalink }}"
+                  class="relative text-4xl sm:text-6xl font-semibold hover:text-emerald-700 hover:dark:text-emerald-600 transition-opacity duration-700 ease-out-gentle opacity-0 peer-checked:group-[]:opacity-100"
+                  style="transition-delay: {{ $staggeredAnimationDelay }}"
+                >
+                  <div>
+                    {{ $section.Name | upper | safeHTML }}
+                  </div>
+                  {{ if or (.IsAncestor $) (eq $ .) }}
+                    <div class="text-emerald-700 dark:text-emerald-600 absolute bottom-0 -left-3 sm:-left-5 select-none pointer-events-none">
+                      >
+                    </div>
+                  {{ end }}
+                </a>
+              </div>
+            {{ end }}
+          </div>
+        </div>
       </div>
     </div>
-
-    <ul class="flex flex-wrap gap-x-3 text-zinc-950 dark:text-zinc-50">
-      {{ range site.Sections.ByWeight }}
-        <li>
-          <a
-            href="{{ .Permalink }}"
-            class="{{ if or (.IsAncestor $) (eq $ .) }}text-emerald-700 dark:text-emerald-400{{ end }} hover:text-emerald-700 dark:hover:text-emerald-400"
-          >
-            {{ .Name | lower | safeHTML }}
-          </a>
-        </li>
-      {{ end }}
-    </ul>
   </nav>
 </header>
