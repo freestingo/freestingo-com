@@ -37,7 +37,8 @@
   {{ end }}
 
   {{ range $taxonomyName, $taxonomy := ($.Site.Taxonomies) }}
-    {{ if eq ($.Parent.Title | lower) $taxonomyName}}
+    {{ $translatedTaxonomyName := (site.GetPage $taxonomyName).Params.url }}
+    {{ if eq ($.Parent.Title | lower) $translatedTaxonomyName}}
       <div class="flex flex-wrap gap-x-5 text-base leading-snug">
         {{ range $key, $value := $taxonomy }}
           {{ $taxonomyPages := $value.Pages }}

@@ -12,7 +12,7 @@
 
   <div class="text-zinc-950 dark:text-zinc-50">
     {{ range site.RegularPages }}
-      {{ if gt ((.GetTerms ($.Title | lower)) | len) 1 }}
+      {{ if gt (.GetTerms $.Type | len) 1 }}
         {{ partial "article-preview.html" . }}
       {{ end }}
     {{ end }}
