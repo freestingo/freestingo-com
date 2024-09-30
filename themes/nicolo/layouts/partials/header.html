@@ -22,12 +22,12 @@
           <span class="w-6 h-[3px] bg-zinc-950 dark:bg-zinc-50 group-hover:bg-emerald-700 group-hover:dark:bg-emerald-400 peer-focus:group-[]:bg-emerald-700 peer-focus:group-[]:dark:bg-emerald-400 peer-checked:group-[]:origin-center peer-checked:group-[]:rotate-45 peer-checked:group-[]:translate-y-1.5 transition-transform duration-1000 ease-out-gentle"></span>
           <span class="w-6 h-[3px] bg-zinc-950 dark:bg-zinc-50 group-hover:bg-emerald-700 group-hover:dark:bg-emerald-400 peer-focus:group-[]:bg-emerald-700 peer-focus:group-[]:dark:bg-emerald-400 peer-checked:group-[]:origin-center peer-checked:group-[]:-rotate-45 peer-checked:group-[]:-translate-y-1.5 transition-transform duration-1000 ease-out-gentle"></span>
         </label>
-        <div id="sections-menu" class="flex justify-center invisible peer-checked:visible absolute -top-full peer-checked:top-0 group left-0 w-full h-screen bg-zinc-50 dark:bg-zinc-950 z-[5] text-zinc-950 dark:text-zinc-50 [transition:top_1s_cubic-bezier(.29,.52,.46,1),visibility_1s_1s] peer-checked:[transition:top_1s_cubic-bezier(.29,.52,.46,1)]">
+        <div id="sections-menu" class="flex justify-center invisible peer-checked:visible absolute -top-full peer-checked:top-0 group left-0 w-full h-screen bg-zinc-50 dark:bg-zinc-950 z-[5] text-zinc-950 dark:text-zinc-50 [transition:top_1s_cubic-bezier(.08,.52,0,1),visibility_1s_1s] peer-checked:[transition:top_1s_cubic-bezier(.08,.52,0,1)]">
           <div class="flex flex-col justify-center h-full w-full">
             <div class="flex justify-center items-baseline">
               <a
                 href="{{ site.Home.Permalink }}"
-                class="relative text-4xl sm:text-6xl font-semibold hover:text-emerald-700 hover:dark:text-emerald-600 transition-opacity duration-700 ease-out-gentle delay-[400ms] opacity-0 peer-checked:group-[]:opacity-100"
+                class="relative text-4xl sm:text-6xl font-semibold hover:text-emerald-700 hover:dark:text-emerald-600 transition-opacity duration-700 ease-in-out delay-[400ms] opacity-0 peer-checked:group-[]:opacity-100"
               >
                 <div>
                   {{ "home" | T | upper }}
@@ -44,7 +44,7 @@
               <div class="flex justify-center items-baseline">
                 <a
                   href="{{ $section.Permalink }}"
-                  class="relative text-4xl sm:text-6xl font-semibold hover:text-emerald-700 hover:dark:text-emerald-600 transition-opacity duration-700 ease-out-gentle opacity-0 peer-checked:group-[]:opacity-100"
+                  class="relative text-4xl sm:text-6xl font-semibold hover:text-emerald-700 hover:dark:text-emerald-600 transition-opacity duration-700 ease-in-out opacity-0 peer-checked:group-[]:opacity-100"
                   style="transition-delay: {{ $staggeredAnimationDelay }}"
                 >
                   <div>

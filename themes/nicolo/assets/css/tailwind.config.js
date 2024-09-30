@@ -8,8 +8,9 @@ module.exports = {
   theme: {
     extend: {
       transitionTimingFunction: {
-        'out-gentle': 'cubic-bezier(.29,.52,.46,1)',
-      }
+        // 'out-gentle': 'cubic-bezier(.29,.52,.46,1)',
+        "out-gentle": "cubic-bezier(.08,.52,0,1)",
+      },
     },
   },
   plugins: [
