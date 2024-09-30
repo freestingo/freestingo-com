@@ -40,7 +40,7 @@
               </a>
             </div>
             {{ range $i, $section := site.Sections.ByWeight }}
-              {{ $staggeredAnimationDelay := printf "%d00ms" (add 6 (mul $i 2)) }}
+              {{ $staggeredAnimationDelay := printf "%d00ms" (add 5 $i) }}
               <div class="flex justify-center items-baseline">
                 <a
                   href="{{ $section.Permalink }}"

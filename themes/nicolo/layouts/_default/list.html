@@ -1,7 +1,40 @@
 {{ define "main" }}
-  <div class="text-zinc-500">current section path: {{ .CurrentSection.Path }}</div>
+  {{ $currentSectionTitle := .CurrentSection.Title }}
+  {{/*  <div class="text-zinc-500">current section: {{ .CurrentSection.Title }}</div>
+  <div class="text-zinc-500">current section path: {{ .CurrentSection.Path }}</div>  */}}
 
-  {{ range $taxonomyName, $taxonomy := $.Site.Taxonomies }}
+  {{ if .Sections.ByWeight }}
+    <div class="flex gap-3">
+      {{ range .Sections.ByWeight }}
+        <div class="flex gap-2 items-baseline">
+          <a href="{{ .RelPermalink }}" class="not-prose font-semibold text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 hover:dark:text-emerald-400">{{ .Title | lower }}</a>
+          <div class="text-xs">{{ .RegularPages | len }}</div>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="text-zinc-950 dark:text-zinc-50">
+      {{ range .Sections.ByWeight }}
+        {{ with .RegularPages }}
+          {{ range . }}
+            {{- partial "article-preview.html" . -}}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="flex gap-3">
+      {{ range .Parent.Sections.ByWeight }}
+        {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}
+        <div class="flex gap-2 items-baseline">
+          <a href="{{ if $isCurrentSection }}{{ .Parent.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}" class="not-prose font-semibold {{ if $isCurrentSection }} text-emerald-600 dark:text-emerald-400 {{ else }} text-zinc-950 dark:text-zinc-50 {{ end }} hover:text-emerald-600 hover:dark:text-emerald-400">{{ .Title | lower }}</a>
+          <div class="text-xs">{{ .RegularPages | len }}</div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  {{/*  {{ range $taxonomyName, $taxonomy := $.Site.Taxonomies }}
     {{ if eq "topics" $taxonomyName }}
       <div class="flex gap-3">
         {{ range $key, $value := $taxonomy }}
@@ -16,26 +49,9 @@
         {{ end }}
       </div>
     {{ end }}
-  {{ end }}
+  {{ end }}  */}}
 
-  {{ with .Sections.ByWeight}}
-    <div class="not-prose grid grid-cols-1 divide-y divide-zinc-950 dark:divide-zinc-50 text-zinc-950 dark:text-zinc-50">
-      {{ range . }}
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 items-center gap-2 py-5"
-        >
-          <a href="{{ .Permalink }}" class="font-bold text-5xl hover:text-emerald-700 dark:hover:text-emerald-600">
-              {{ path.Base .CurrentSection.Path | lower | safeHTML }}
-          </a>
-          <span class="text-base leading-tight">
-            {{ .Description }}
-          </span>
-        </div>
-      {{ end }}
-    </div>
-  {{ end }}
-
-  <div class="divide-y divide-zinc-950 dark:divide-zinc-50 text-zinc-950 dark:text-zinc-50">
+  <div class="text-zinc-950 dark:text-zinc-50">
     {{ range .RegularPages }}
       {{- partial "article-preview.html" . -}}
     {{ end }}
