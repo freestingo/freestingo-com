@@ -1,5 +1,20 @@
 {{ define "main" }}
-  {{ range .Pages.ByTitle }}
-    {{- partial "taxonomy-term-preview.html" . -}}
-  {{ end }}
+  <div class="flex flex-wrap gap-x-5 text-base leading-snug">
+    {{ range .Pages.ByTitle }}
+      <div class="flex items-baseline relative">
+        <a href="{{ .RelPermalink }}" class="not-prose font-semibold text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 hover:dark:text-emerald-400">
+          {{ .Title | lower }}
+        </a>
+        <div class="absolute -right-2 text-xs font-semibold select-none pointer-events-none">{{ .Pages | len }}</div>
+      </div>
+    {{ end }}
+  </div>
+
+  <div class="text-zinc-950 dark:text-zinc-50">
+    {{ range site.RegularPages }}
+      {{ if gt ((.GetTerms ($.Title | lower)) | len) 1 }}
+        {{ partial "article-preview.html" . }}
+      {{ end }}
+    {{ end }}
+  </div>
 {{ end }}
