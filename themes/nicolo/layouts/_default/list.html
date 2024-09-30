@@ -1,4 +1,23 @@
 {{ define "main" }}
+  <div class="text-zinc-500">current section path: {{ .CurrentSection.Path }}</div>
+
+  {{ range $taxonomyName, $taxonomy := $.Site.Taxonomies }}
+    {{ if eq "topics" $taxonomyName }}
+      <div class="flex gap-3">
+        {{ range $key, $value := $taxonomy }}
+          {{ $currentSectionTaxonomies := where $value.Pages ".CurrentSection.Path" $.CurrentSection.Path }}
+          {{ if ge $currentSectionTaxonomies 1 }}
+            <div class="flex gap-2 items-baseline">
+              {{ $taxonomyPermalink := (index (where ((index $currentSectionTaxonomies 0).GetTerms "topics") ".LinkTitle" (title $key)) 0).RelPermalink }}
+              <a href="{{ $taxonomyPermalink }}">{{ $key }}</a>
+              <div class="text-xs">{{ $currentSectionTaxonomies | len }}</div>
+            </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  {{ end }}
+
   {{ with .Sections.ByWeight}}
     <div class="not-prose grid grid-cols-1 divide-y divide-zinc-950 dark:divide-zinc-50 text-zinc-950 dark:text-zinc-50">
       {{ range . }}
