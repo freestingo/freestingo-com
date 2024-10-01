@@ -14,7 +14,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 600;
-    src: url("../fonts/TTFirsNeue-DemiBold.otf");
+    src: url("../fonts/TTFirsNeue-DemiBold.woff2") format("woff2");
   }
 
   @font-face {
@@ -22,7 +22,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 600;
-    src: url("../fonts/TTFirsNeue-DemiBoldItalic.otf");
+    src: url("../fonts/TTFirsNeue-DemiBoldItalic.woff2") format("woff2");
   }
 
   @font-face {
@@ -30,7 +30,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: bold;
-    src: url("../fonts/TTFirsNeue-Bold.otf");
+    src: url("../fonts/TTFirsNeue-Bold.woff2") format("woff2");
   }
 
   @font-face {
@@ -38,7 +38,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: bold;
-    src: url("../fonts/TTFirsNeue-BoldItalic.otf");
+    src: url("../fonts/TTFirsNeue-BoldItalic.woff2") format("woff2");
   }
 
   @font-face {
@@ -46,7 +46,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 800;
-    src: url("../fonts/TTFirsNeue-ExtraBold.otf");
+    src: url("../fonts/TTFirsNeue-ExtraBold.woff2") format("woff2");
   }
 
   @font-face {
@@ -54,7 +54,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 800;
-    src: url("../fonts/TTFirsNeue-ExtraBoldItalic.otf");
+    src: url("../fonts/TTFirsNeue-ExtraBoldItalic.woff2") format("woff2");
   }
 
   @font-face {
@@ -62,7 +62,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: normal;
-    src: url("../fonts/TTFirsNeue-Regular.otf");
+    src: url("../fonts/TTFirsNeue-Regular.woff2") format("woff2");
   }
 
   @font-face {
@@ -70,7 +70,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: normal;
-    src: url("../fonts/TTFirsNeue-Italic.otf");
+    src: url("../fonts/TTFirsNeue-Italic.woff2") format("woff2");
   }
 
   @font-face {
@@ -78,7 +78,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 500;
-    src: url("../fonts/TTFirsNeue-Medium.otf");
+    src: url("../fonts/TTFirsNeue-Medium.woff2") format("woff2");
   }
 
   @font-face {
@@ -86,7 +86,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 500;
-    src: url("../fonts/TTFirsNeue-MediumItalic.otf");
+    src: url("../fonts/TTFirsNeue-MediumItalic.woff2") format("woff2");
   }
 
   @font-face {
@@ -94,7 +94,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 300;
-    src: url("../fonts/TTFirsNeue-Light.otf");
+    src: url("../fonts/TTFirsNeue-Light.woff2") format("woff2");
   }
 
   @font-face {
@@ -102,7 +102,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 300;
-    src: url("../fonts/TTFirsNeue-LightItalic.otf");
+    src: url("../fonts/TTFirsNeue-LightItalic.woff2") format("woff2");
   }
 
   @font-face {
@@ -110,7 +110,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 200;
-    src: url("../fonts/TTFirsNeue-ExtraLight.otf");
+    src: url("../fonts/TTFirsNeue-ExtraLight.woff2") format("woff2");
   }
 
   @font-face {
@@ -118,7 +118,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 200;
-    src: url("../fonts/TTFirsNeue-ExtraLightItalic.otf");
+    src: url("../fonts/TTFirsNeue-ExtraLightItalic.woff2") format("woff2");
   }
 
   @font-face {
@@ -126,7 +126,7 @@
     font-family: "TT Firs Neue";
     font-style: normal;
     font-weight: 100;
-    src: url("../fonts/TTFirsNeue-Thin.otf");
+    src: url("../fonts/TTFirsNeue-Thin.woff2") format("woff2");
   }
 
   @font-face {
@@ -134,7 +134,7 @@
     font-family: "TT Firs Neue";
     font-style: italic;
     font-weight: 100;
-    src: url("../fonts/TTFirsNeue-ThinItalic.otf");
+    src: url("../fonts/TTFirsNeue-ThinItalic.woff2") format("woff2");
   }
 
   html {
