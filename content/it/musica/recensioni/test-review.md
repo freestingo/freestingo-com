@@ -6,6 +6,7 @@ description: Prova review
 slug: prova-review
 translationKey: test-review
 date: 2024-03-24
+topics: [critica musicale]
 draft: true
 ---
 

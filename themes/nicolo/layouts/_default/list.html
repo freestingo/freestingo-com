@@ -44,7 +44,7 @@
           {{ $taxonomyPages := $value.Pages }}
           <div class="flex items-baseline relative">
             {{ $isCurrentSection := eq ($.CurrentSection.Title | lower) $key }}
-            {{ $taxonomyPermalink := (index (where ((index $taxonomyPages 0).GetTerms $taxonomyName) ".LinkTitle" (title $key)) 0).RelPermalink }}
+            {{ $taxonomyPermalink := (index (where ((index $taxonomyPages 0).GetTerms $taxonomyName) ".LinkTitle" $key) 0).RelPermalink }}
             {{ if $isCurrentSection }}
               {{ $taxonomyPermalink = path.Dir (path.Clean $taxonomyPermalink) }}
             {{ end }}

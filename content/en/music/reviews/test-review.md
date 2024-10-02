@@ -6,7 +6,7 @@ description: Musings about the test review
 slug: test-review
 translationKey: test-review
 draft: true
-topics: [test]
+topics: [music criticism]
 date: 2024-03-24
 ---
 
