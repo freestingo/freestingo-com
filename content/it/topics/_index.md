@@ -1,5 +1,5 @@
 ---
 title: Argomenti
-description: Lista degli argomenti trattati
+description: tutto quello di cui ho trattato in questo sito
 url: argomenti
 ---

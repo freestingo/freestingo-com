@@ -1,6 +1,6 @@
 ---
 title: Programming
-description: Articles about programming
+description: everything I know about ones, zeroes and coffee
 translationKey: programming
 weight: 10
 ---

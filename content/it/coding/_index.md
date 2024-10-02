@@ -1,6 +1,6 @@
 ---
 title: Coding
-description: La mia rubrica di programmazione
+description: Tutto quello che so sugli uni, gli zeri e il caffè
 translationKey: programming
 weight: 10
 ---

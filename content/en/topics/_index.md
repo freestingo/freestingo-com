@@ -1,5 +1,5 @@
 ---
 title: Topics
-description: List of all discussed topics
+description: everything I've discussed in this website
 url: topics
 ---

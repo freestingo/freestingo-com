@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $currentSectionTitle := .CurrentSection.Title }}
+  {{ partial "list-view-title.html" . }}
 
   {{ if .Sections.ByWeight }}
     <div class="flex flex-wrap gap-x-5 text-base leading-snug">

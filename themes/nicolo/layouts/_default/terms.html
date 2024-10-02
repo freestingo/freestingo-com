@@ -1,4 +1,6 @@
 {{ define "main" }}
+  {{ partial "list-view-title.html" . }}
+
   <div class="flex flex-wrap gap-x-5 text-base leading-snug">
     {{ range .Pages.ByTitle }}
       <div class="flex items-baseline relative">
