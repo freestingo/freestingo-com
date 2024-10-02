@@ -25,18 +25,16 @@
     </div>
   </article>
 
+  {{ partial "share-buttons" . }}
+
   {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
   <div
-    class="not-prose grid grid-cols-3 mb-8 justify-between items-baseline"
+    class="not-prose grid grid-cols-2 mb-8 justify-between items-baseline"
   >
     <div class="flex justify-start">
       {{ with $pages.Prev . }}
         <a href="{{ .RelPermalink }}" class="leading-none font-black p-2 hover:pl-0 hover:text-emerald-700 hover:dark:text-emerald-400 transition-[padding] ease-out-gentle duration-500 text-center">←</a>
       {{ end }}
-    </div>
-
-    <div>
-      {{ partial "share-buttons" . }}
     </div>
 
     <div class="flex justify-end">
