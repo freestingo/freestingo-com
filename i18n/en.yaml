@@ -1,11 +1,12 @@
 pages: pages
 openMenu: Open menu
 closeMenu: Close menu
+cookiesDisclaimer: no cookies, no ads. just content.
 pageNotFound: Page not found :(
 backToHome: Back to Home
 home: Home
 previous: previous
 next: next
 shareCallToAction: share on
-translateLinkLabel: traduci in italiano
+translateLinkLabel: italiano
 youAreHere: You are here

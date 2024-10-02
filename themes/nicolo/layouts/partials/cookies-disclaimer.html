@@ -1,0 +1,32 @@
+<span class="typewriter select-none pointer-events-none">
+  <span>
+    {{ "cookiesDisclaimer" | T }}
+  </span>
+</span>
+
+<style>
+  .typewriter {
+    display:inline-flex;
+  }
+
+  .typewriter span {
+    word-break: break-all;
+    height: 1.2em;
+    width: 0%;
+    overflow: hidden;
+    animation: t 8s linear infinite alternate;
+  }
+  .typewriter span:before {
+    content: " ";
+    display: inline-block;
+  }
+
+  @keyframes t {
+    0%, 20% {
+      width: 0%;
+    }
+    60%, 100% {
+      width: 100%;
+    }
+  }
+</style>

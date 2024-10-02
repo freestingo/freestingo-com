@@ -1,9 +1,10 @@
 <footer
   class="flex justify-between items-center bottom-0 mx-auto w-screen max-w-screen-md px-6 py-4 text-xs text-zinc-400 dark:text-zinc-600"
 >
-  <div class="select-none pointer-events-none">
-    © {{ now.Year }} freestingo
+  <div>
+    {{ partial "cookies-disclaimer.html" . }}
   </div>
+
   <div class="flex gap-3">
     {{- partial "languages.html" . -}}
   </div>
