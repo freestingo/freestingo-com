@@ -98,7 +98,7 @@ anyway, [did not fare any better](https://james-iry.blogspot.com/2009/05/brief-i
 
 This is a command-line program for viewing text files. Why the name **less**? It's because it's
 meant to be [an expansion and a replacement](https://man7.org/linux/man-pages/man1/less.1.html "'less' Linux manual page")
-for **more**, the old pager with limited features.  Hence, the name — **less** is **more**. Get it? (unfortunately, we all do)
+for **more**, the old pager with limited features. Hence, the name — **less** is **more**. Get it? (unfortunately, we all do)
 
 ### scrot
 
@@ -134,7 +134,7 @@ on IRC, and got this answer:
 > philsturgeon, the token name was kept around because conservative people felt that removing
 > it would be too much of a change, and might confuse users.
 
-Wait, are these the same "conservative people" that are now occupying the West Bank? Have they started ***colon***izing
+Wait, are these the same "conservative people" that are now occupying the West Bank? Have they started **_colon_**izing
 code bases too? Should the open source community be worried? Does the USA know about this? In 2010, some guy
 aptly named Chad launched a terrorist attack aimed at the **PHP Internals** headquarters, asking if the
 exotically named token could please be translated to English (you can find the whole, delirious discussion

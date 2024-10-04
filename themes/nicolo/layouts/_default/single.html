@@ -1,7 +1,5 @@
 {{ define "main" }}
-  <article
-    class="justify-self-center mx-auto mb-10"
-  >
+  <article class="justify-self-center mx-auto mb-10">
     <h1 class="!mb-2 sm:!mb-4">{{ .Title }}</h1>
     <h2 class="!mt-3 !mb-4 sm:!mb-5">
       {{ .Summary }}
@@ -12,7 +10,10 @@
       {{ with .GetTerms $taxonomy }}
         <div class="flex flex-wrap">
           {{ range . -}}
-            <a href="{{ .RelPermalink }}" class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 grow hover:grow-[2] transition-[flex-grow] ease-out-gentle duration-700 text-center">
+            <a
+              href="{{ .RelPermalink }}"
+              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 grow hover:grow-[2] transition-[flex-grow] ease-out-gentle duration-700 text-center"
+            >
               <div>{{ .LinkTitle }}</div>
             </a>
           {{- end }}
@@ -29,18 +30,24 @@
 
   {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
   {{ if or ($pages.Prev .) ($pages.Next .) }}
-    <div
-      class="not-prose grid grid-cols-2 mb-8 justify-between items-baseline"
-    >
+    <div class="not-prose grid grid-cols-2 mb-8 justify-between items-baseline">
       <div class="flex justify-start">
         {{ with $pages.Prev . }}
-          <a href="{{ .RelPermalink }}" class="leading-none font-black p-2 hover:pl-0 hover:text-emerald-700 hover:dark:text-emerald-400 transition-[padding] ease-out-gentle duration-500 text-center">←</a>
+          <a
+            href="{{ .RelPermalink }}"
+            class="leading-none font-black p-2 hover:pl-0 hover:text-emerald-700 hover:dark:text-emerald-400 transition-[padding] ease-out-gentle duration-500 text-center"
+            >←</a
+          >
         {{ end }}
       </div>
 
       <div class="flex justify-end">
         {{ with $pages.Next . }}
-          <a href="{{ .RelPermalink }}" class="leading-none font-black p-2 hover:pr-0 hover:text-emerald-700 hover:dark:text-emerald-400 transition-[padding] ease-out-gentle duration-500 text-center">→</a>
+          <a
+            href="{{ .RelPermalink }}"
+            class="leading-none font-black p-2 hover:pr-0 hover:text-emerald-700 hover:dark:text-emerald-400 transition-[padding] ease-out-gentle duration-500 text-center"
+            >→</a
+          >
         {{ end }}
       </div>
     </div>

@@ -6,10 +6,11 @@
   {{ $pageTitle := .Title | safeHTML }}
   {{ $shareCallToAction := default ("shareCallToAction" | T) .Params.social.share.callToAction }}
 
-  <div class="flex flex-col gap-2 sm:gap-0 leading-none text-xs sm:text-sm pb-8">
-    <div>
-      {{ $shareCallToAction }}:
-    </div>
+
+  <div
+    class="flex flex-col gap-2 sm:gap-0 leading-none text-xs sm:text-sm pb-8"
+  >
+    <div>{{ $shareCallToAction }}:</div>
     <div class="flex flex-wrap gap-2">
       {{ if in .Site.Params.social.share.networks "facebook" }}
         <div>

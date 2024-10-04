@@ -7,4 +7,4 @@ keywords: [home]
 ---
 
 Welcome to my digital diary!  
-I'm Nicolò, nice to meet you.  
+I'm Nicolò, nice to meet you.

@@ -1,10 +1,10 @@
-const themeDir = __dirname + '/../../';
+const themeDir = __dirname + "/../../";
 
-module.exports = {    
-    plugins: [
-        require('tailwindcss')(themeDir + 'assets/css/tailwind.config.js'),
-        require('autoprefixer')({
-            path: [themeDir]
-        })
-    ]
-}
+module.exports = {
+  plugins: [
+    require("tailwindcss")(themeDir + "assets/css/tailwind.config.js"),
+    require("autoprefixer")({
+      path: [themeDir],
+    }),
+  ],
+};

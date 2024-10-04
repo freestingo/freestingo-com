@@ -1,8 +1,13 @@
 {{ $id := .Get "id" }}
 {{ $text := .Get "text" }}
 
-<div class="fixed top-1/2 left-2/4 -translate-y-1/2 -translate-x-1/2 w-screen text-7xl py-5 text-nowrap overflow-hidden select-none pointer-events-none">
-  <div class="text-zinc-950 dark:text-zinc-50 animate-[mobile-scroller_23s_linear_infinite] lg:animate-[desktop-scroller_25s_linear_infinite] 2xl:animate-[wide-scroller_25s_linear_infinite]">
+
+<div
+  class="fixed top-1/2 left-2/4 -translate-y-1/2 -translate-x-1/2 w-screen text-7xl py-5 text-nowrap overflow-hidden select-none pointer-events-none"
+>
+  <div
+    class="text-zinc-950 dark:text-zinc-50 animate-[mobile-scroller_23s_linear_infinite] lg:animate-[desktop-scroller_25s_linear_infinite] 2xl:animate-[wide-scroller_25s_linear_infinite]"
+  >
     {{ $text | lower }}
   </div>
 </div>

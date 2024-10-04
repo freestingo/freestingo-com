@@ -146,7 +146,7 @@
   }
 
   /* block scrolling whenever the section menu is open */
-  body:has(#sections-toggle:checked) { 
+  body:has(#sections-toggle:checked) {
     overflow: hidden;
   }
 

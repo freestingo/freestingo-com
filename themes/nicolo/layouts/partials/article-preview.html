@@ -1,8 +1,9 @@
 <div class="not-prose grid grid-cols-1">
-  <div
-    class="grid grid-cols-1 gap-2 py-5"
-  >
-    <a href="{{ .Permalink }}" class="font-bold text-3xl leading-8 hover:text-emerald-600 dark:hover:text-emerald-400">
+  <div class="grid grid-cols-1 gap-2 py-5">
+    <a
+      href="{{ .Permalink }}"
+      class="font-bold text-3xl leading-8 hover:text-emerald-600 dark:hover:text-emerald-400"
+    >
       {{ .Title }}
     </a>
     <span class="text-base leading-tight mb-1">
@@ -12,7 +13,10 @@
       {{ with .GetTerms "topics" }}
         <div class="flex flex-wrap">
           {{ range . -}}
-            <a href="{{ .RelPermalink }}" class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center">
+            <a
+              href="{{ .RelPermalink }}"
+              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
+            >
               <div>{{ .LinkTitle }}</div>
             </a>
           {{- end }}
