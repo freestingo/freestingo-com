@@ -138,7 +138,7 @@ nella IRC, e gli hanno risposto così:
 > that removing it would be too much of a change, and might confuse users.
 
 Aspetta, per caso stiamo parlando degli stessi _conservative people_ che hanno
-pure colonie nella West Bank? Hanno iniziato a **_colon_**izzare anche i progetti
+pure colonie nella West Bank? Hanno iniziato a **colon**izzare anche i progetti
 open source ora? Dobbiamo allarmarci? Gli Stati Uniti in tutto questo cosa dicono?
 Nel 2010 un tale Chad, di nome e di fatto, orchestrò un attacco terroristico a
 danni dei **PHP Internals** chiedendo se fosse possibile tradurre in inglese il

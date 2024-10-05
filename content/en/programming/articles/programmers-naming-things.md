@@ -134,7 +134,7 @@ on IRC, and got this answer:
 > philsturgeon, the token name was kept around because conservative people felt that removing
 > it would be too much of a change, and might confuse users.
 
-Wait, are these the same "conservative people" that are now occupying the West Bank? Have they started **_colon_**izing
+Wait, are these the same "conservative people" that are now occupying the West Bank? Have they started **colon**izing
 code bases too? Should the open source community be worried? Does the USA know about this? In 2010, some guy
 aptly named Chad launched a terrorist attack aimed at the **PHP Internals** headquarters, asking if the
 exotically named token could please be translated to English (you can find the whole, delirious discussion

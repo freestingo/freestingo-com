@@ -6,29 +6,48 @@
       {{ .Summary }}
     </h2>
 
-    <div class="mb-5 sm:mb-7">
+    <div class="text-sm mb-5 sm:mb-7">
       {{ $taxonomy := "topics" }}
       {{ with .GetTerms $taxonomy }}
-        <p>
-          {{ lower (site.GetPage $taxonomy).LinkTitle }}:
-          {{ range $k, $_ := . -}}
-            {{ if $k }},{{ end }}
-            <a href="{{ .RelPermalink }}">{{ lower .LinkTitle }}</a>
+        <div class="flex flex-wrap">
+          {{ range . -}}
+            <a
+              href="{{ .RelPermalink }}"
+              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 grow hover:grow-[2] transition-[flex-grow] ease-out-gentle duration-700 text-center"
+            >
+              <div>{{ .LinkTitle }}</div>
+            </a>
           {{- end }}
-        </p>
+        </div>
       {{ end }}
     </div>
 
-    {{ with .Site.Params.social.profiles }}
-      <div class="flex flex-col gap-x-3">
+    <div class="sm:leading-snug">
+      {{ .Content }}
+    </div>
+  </article>
+
+  {{ with .Site.Params.social.profiles }}
+    <div
+      class="flex flex-col gap-2 sm:gap-0 leading-none text-xs sm:text-sm pb-8"
+    >
+      <div>{{ "personalSocialCallToAction" | T }}:</div>
+      <div class="flex flex-wrap gap-2">
         {{ range . }}
-          <a href="{{ .url }}">
-            {{ .name }}
-          </a>
+          <div>
+            <a
+              class="hover:text-emerald-600 dark:hover:text-emerald-400"
+              href="{{ .url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label=""
+              title="{{ .name }}"
+            >
+              {{ .name }}
+            </a>
+          </div>
         {{ end }}
       </div>
-    {{ end }}
-
-    {{ .Content }}
-  </article>
+    </div>
+  {{ end }}
 {{ end }}
