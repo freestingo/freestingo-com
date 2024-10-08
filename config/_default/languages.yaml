@@ -8,6 +8,10 @@ en:
   weight: 1
   permalinks:
     topics: /topics/:slug/
+    artists: /artists/:slug/
+    release-years: /release-years/:slug/
+    genres: /genres/:slug/
+    votes: /votes/:slug/
 
 it:
   contentDir: content/it
@@ -19,3 +23,7 @@ it:
   weight: 2
   permalinks:
     topics: /argomenti/:slug/
+    artists: /artisti/:slug/
+    release-years: /anni-di-rilascio/:slug/
+    genres: /generi/:slug/
+    votes: /voti/:slug/

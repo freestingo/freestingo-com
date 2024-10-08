@@ -8,18 +8,8 @@
           <a href="{{ .RelPermalink }}" class="not-prose font-semibold text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 hover:dark:text-emerald-400">
             {{ .Title | lower }}
           </a>
-          <div class="absolute -right-2 text-xs font-semibold select-none pointer-events-none">{{ .RegularPages | len }}</div>
+          <div class="absolute -right-2 text-xs font-semibold select-none pointer-events-none">{{ .RegularPagesRecursive | len }}</div>
         </div>
-      {{ end }}
-    </div>
-
-    <div class="text-zinc-950 dark:text-zinc-50">
-      {{ range .Sections.ByWeight }}
-        {{ with .RegularPages }}
-          {{ range . }}
-            {{- partial "article-preview.html" . -}}
-          {{ end }}
-        {{ end }}
       {{ end }}
     </div>
   {{ else if ne .Parent site.Home }}
@@ -30,26 +20,33 @@
           <a href="{{ if $isCurrentSection }}{{ .Parent.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}" class="not-prose font-semibold {{ if $isCurrentSection }} text-emerald-600 dark:text-emerald-400 {{ else }} text-zinc-950 dark:text-zinc-50 {{ end }} hover:text-emerald-600 hover:dark:text-emerald-400">
             {{ .Title | lower }}
           </a>
-          <div class="absolute -right-2 text-xs font-semibold select-none pointer-events-none">{{ .RegularPages | len }}</div>
+          <div class="absolute -right-2 text-xs font-semibold select-none pointer-events-none">{{ .RegularPagesRecursive | len }}</div>
         </div>
       {{ end }}
     </div>
   {{ end }}
 
-  {{ range $taxonomyName, $taxonomy := ($.Site.Taxonomies) }}
+  {{ range $taxonomyName, $taxonomy := $.Site.Taxonomies }}
     {{ $translatedTaxonomyName := (site.GetPage $taxonomyName).Params.url }}
-    {{ if eq ($.Parent.Title | lower) $translatedTaxonomyName}}
+    {{ if eq $.Parent.Params.url $translatedTaxonomyName}}
       <div class="flex flex-wrap gap-x-5 text-base leading-snug">
         {{ range $key, $value := $taxonomy }}
           {{ $taxonomyPages := $value.Pages }}
           <div class="flex items-baseline relative">
-            {{ $isCurrentSection := eq ($.CurrentSection.Title | lower) $key }}
-            {{ $taxonomyPermalink := (index (where ((index $taxonomyPages 0).GetTerms $taxonomyName) ".LinkTitle" $key) 0).RelPermalink }}
+            {{/* votes have the denominator in the title but not in the slug/$key.
+                 this means we have to check both (we could be in the "votes" taxonomy section or any other taxononmy section) */}}
+            {{ $isCurrentSection := or (eq ($.CurrentSection.Title | lower) $key) (eq $.CurrentSection.Slug $key) }}
+            {{ $taxonomyTermPages := (index $taxonomyPages 0).GetTerms $taxonomyName }}
+            {{ $linkTitleFilter := where $taxonomyTermPages ".LinkTitle" $key }}
+            {{ $slugFilter := where $taxonomyTermPages ".Slug" $key }}
+            {{ $currentTaxonomyTermPages := append $linkTitleFilter $slugFilter }}
+            {{ $currentTaxonomyPage := index $currentTaxonomyTermPages 0 }}
+            {{ $taxonomyPermalink := $currentTaxonomyPage.RelPermalink }}
             {{ if $isCurrentSection }}
               {{ $taxonomyPermalink = path.Dir (path.Clean $taxonomyPermalink) }}
             {{ end }}
             <a href="{{ $taxonomyPermalink }}" class="not-prose font-semibold {{ if $isCurrentSection }} text-emerald-600 dark:text-emerald-400 {{ else }} text-zinc-950 dark:text-zinc-50 {{ end }} hover:text-emerald-600 hover:dark:text-emerald-400">
-              {{ $key }}
+              {{ $currentTaxonomyPage.Title }}
             </a>
             <div class="absolute -right-2 text-xs font-semibold select-none pointer-events-none">{{ $taxonomyPages | len }}</div>
           </div>
@@ -78,8 +75,12 @@
   {{ end }}  */}}
 
   <div class="text-zinc-950 dark:text-zinc-50">
-    {{ range .RegularPages }}
-      {{- partial "article-preview.html" . -}}
+    {{ range .RegularPagesRecursive }}
+      {{ if eq .Type "music-reviews" }}
+        {{- partial "music-review-preview.html" . -}}
+      {{ else }}
+        {{- partial "article-preview.html" . -}}
+      {{ end }}
     {{ end }}
   </div>
 {{ end }}

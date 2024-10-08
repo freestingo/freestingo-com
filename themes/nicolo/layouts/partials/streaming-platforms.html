@@ -1,0 +1,23 @@
+{{ with .Params.streamingPlatforms }}
+  <div
+    class="flex gap-x-1 leading-none text-sm sm:text-base pb-8"
+  >
+    <div>{{ "listenOn" | T }}:</div>
+    <div class="flex flex-wrap gap-2">
+      {{ range . }}
+        <div>
+          <a
+            class="hover:text-emerald-600 dark:hover:text-emerald-400"
+            href="{{ .url }}"
+            target="_blank"
+            rel="noopener"
+            aria-label=""
+            title="{{ .name }}"
+          >
+            {{ .name }}
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

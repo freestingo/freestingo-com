@@ -1,7 +1,6 @@
 ---
 title: Musica
-description: La mia rubrica musicale
+description: articoli, recensioni, curiosità
 translationKey: music
 weight: 20
-draft: true
 ---

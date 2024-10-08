@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{ partial "list-view-title.html" . }}
+
+  <div class="flex flex-wrap gap-x-5 text-base leading-snug">
+    {{ range .Parent.Sections.ByWeight }}
+      {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}
+      <div class="flex items-baseline relative">
+        <a href="{{ if $isCurrentSection }}{{ .Parent.RelPermalink }}{{ else }}{{ .RelPermalink }}{{ end }}" class="not-prose font-semibold {{ if $isCurrentSection }} text-emerald-600 dark:text-emerald-400 {{ else }} text-zinc-950 dark:text-zinc-50 {{ end }} hover:text-emerald-600 hover:dark:text-emerald-400">
+          {{ .Title | lower }}
+        </a>
+        <div class="absolute -right-2 text-xs font-semibold select-none pointer-events-none">{{ .RegularPagesRecursive | len }}</div>
+      </div>
+    {{ end }}
+  </div>
+
+  <div class="text-zinc-950 dark:text-zinc-50">
+    {{ range .RegularPagesRecursive }}
+      {{- partial "music-review-preview.html" . -}}
+    {{ end }}
+  </div>
+{{ end }}

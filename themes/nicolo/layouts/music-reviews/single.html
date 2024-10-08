@@ -1,0 +1,73 @@
+{{ define "main" }}
+  {{ $artists := .GetTerms "artists" }}
+  {{ $genres := .GetTerms "genres" }}
+  {{ $releaseYears := .GetTerms "release-years" }}
+  {{ $votes := .GetTerms "votes" }}
+  <article class="justify-self-center mx-auto mb-10">
+    <h1 class="!mb-2 sm:!mb-4">{{ .Title }}</h1>
+    <h2 class="flex gap-x-1 !mt-3 !mb-4 sm:!mb-5">
+      {{ range $artists }}
+        <a
+          href="{{ .RelPermalink }}"
+          class="not-prose dark:text-zinc-50 hover:text-emerald-600 dark:hover:text-emerald-400"
+        >
+          <div>{{ .Title }}</div>
+        </a>
+      {{ end }}
+    </h2>
+
+    <div class="flex justify-between items-center text-sm mb-5 sm:mb-7">
+      <div class="flex flex-wrap">
+        {{ range append $releaseYears $genres }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
+          >
+            <div>{{ .LinkTitle }}</div>
+          </a>
+        {{- end }}
+      </div>
+      <div>
+        {{ range $votes }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="not-prose text-2xl dark:text-zinc-50 font-semibold hover:text-emerald-600 dark:hover:text-emerald-400"
+          >
+            <div>{{ .LinkTitle }}</div>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="sm:leading-snug">
+      {{ .Content }}
+    </div>
+  </article>
+
+  {{ partial "streaming-platforms" . }}
+
+  {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
+  {{ if or ($pages.Prev .) ($pages.Next .) }}
+    <div class="not-prose grid grid-cols-2 mb-8 justify-between items-baseline">
+      <div class="flex justify-start">
+        {{ with $pages.Prev . }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="leading-none font-black hover:text-emerald-700 hover:dark:text-emerald-400 text-center"
+            >←</a
+          >
+        {{ end }}
+      </div>
+
+      <div class="flex justify-end">
+        {{ with $pages.Next . }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="leading-none font-black hover:text-emerald-700 hover:dark:text-emerald-400 text-center"
+            >→</a
+          >
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
