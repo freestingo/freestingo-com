@@ -8,7 +8,7 @@ translationKey: about
 weight: 100
 ---
 
-## The name
+### The name
 
 The _fristingo_ is a [traditional sweet dish](https://www.atuttagola.com/firstingo-o-bostrengo-dolce-tipico-marchigiano/ "a fristingo recipe")
 made from figs, nuts and grape must. Families usually bake it and serve it to their children's delight during
@@ -16,7 +16,7 @@ Christmas time in the Marche region of Italy. It's very tasty and yet relatively
 anywhere else — a great, fool-proof recipe for whenever I need to impress someone or just a unique
 moniker nobody else has ever used before.
 
-## The philosophy
+### The philosophy
 
 The philosophy behind this website is very simple, a natural product of the synthesis between
 two of my biggest necessities (only apparently not related to each other):

@@ -1,19 +1,23 @@
 {{ define "main" }}
   {{/* exploiting lookup orders to use this layout both for the English and Italian "about" section URLs https://gohugo.io/templates/lookup-order/ */}}
   <article class="justify-self-center mx-auto mb-10">
-    <h1 class="!mb-2 sm:!mb-4">{{ .Title }}</h1>
-    <h2 class="!mt-3 !mb-4 sm:!mb-5">
+    <h1
+      class="not-prose text-xl text-zinc-950 dark:text-zinc-50 font-bold leading-snug mt-3"
+    >
+      {{ .Title }}
+    </h1>
+    <h2 class="not-prose text-zinc-950 dark:text-zinc-50 leading-snug">
       {{ .Summary }}
     </h2>
 
-    <div class="text-sm mb-5 sm:mb-7">
+    <div class="not-prose text-sm mt-2 mb-5">
       {{ $taxonomy := "topics" }}
       {{ with .GetTerms $taxonomy }}
         <div class="flex flex-wrap">
           {{ range . -}}
             <a
               href="{{ .RelPermalink }}"
-              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
+              class="not-prose text-xs dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-0.5 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
             >
               <div>{{ .LinkTitle }}</div>
             </a>
@@ -22,32 +26,28 @@
       {{ end }}
     </div>
 
-    <div class="sm:leading-snug">
+    <div class="leading-[1.35rem] sm:leading-snug">
       {{ .Content }}
     </div>
   </article>
 
   {{ with .Site.Params.social.profiles }}
-    <div
-      class="flex flex-col gap-2 sm:gap-0 leading-none text-xs sm:text-sm pb-8"
-    >
+    <div class="flex flex-wrap gap-1 leading-none text-xs sm:text-sm pb-8">
       <div>{{ "personalSocialCallToAction" | T }}:</div>
-      <div class="flex flex-wrap gap-2">
-        {{ range . }}
-          <div>
-            <a
-              class="hover:text-emerald-600 dark:hover:text-emerald-400"
-              href="{{ .url }}"
-              target="_blank"
-              rel="noopener"
-              aria-label=""
-              title="{{ .name }}"
-            >
-              {{ .name }}
-            </a>
-          </div>
-        {{ end }}
-      </div>
+      {{ range . }}
+        <div>
+          <a
+            class="hover:text-emerald-600 dark:hover:text-emerald-400"
+            href="{{ .url }}"
+            target="_blank"
+            rel="noopener"
+            aria-label=""
+            title="{{ .name }}"
+          >
+            {{ .name }}
+          </a>
+        </div>
+      {{ end }}
     </div>
   {{ end }}
 {{ end }}

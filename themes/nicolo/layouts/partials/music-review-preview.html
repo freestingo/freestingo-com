@@ -1,8 +1,8 @@
 <div class="not-prose grid grid-cols-1">
-  <div class="grid grid-cols-1 gap-2 py-5">
+  <div class="grid grid-cols-1 gap-1 py-2">
     <a
       href="{{ .Permalink }}"
-      class="font-bold text-3xl leading-8 hover:text-emerald-600 dark:hover:text-emerald-400"
+      class="font-bold text-lg leading-tight hover:text-emerald-600 dark:hover:text-emerald-400"
     >
       {{ .Title }}
     </a>
@@ -24,7 +24,7 @@
           {{ range . -}}
             <a
               href="{{ .RelPermalink }}"
-              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
+              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-0.5 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
             >
               <div>{{ .Title }}</div>
             </a>
@@ -34,7 +34,7 @@
           {{ range . -}}
             <a
               href="{{ .RelPermalink }}"
-              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
+              class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-0.5 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
             >
               <div>{{ .Title }}</div>
             </a>

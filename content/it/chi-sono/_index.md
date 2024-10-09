@@ -9,14 +9,14 @@ layout: about
 weight: 100
 ---
 
-## Il nome
+### Il nome
 
 Il fristingo è un tipico [dolce natalizio marchigiano](https://www.atuttagola.com/firstingo-o-bostrengo-dolce-tipico-marchigiano/ "ricetta del fristingo")
 a base di fichi, mosto e frutta secca. È molto buono ma ancora relativamente poco conosciuto a livello
 nazionale, il che lo rende un perfetto candidato per quando si vuole sorprendere qualcuno o si ha bisogno
 di un moniker particolare mai usato prima.
 
-## La filosofia
+### La filosofia
 
 La filosofia alla base di questo sito è molto semplice, la naturale conseguenza della sintesi
 di due mie grandi necessità solo in apparenza non collegate tra loro:

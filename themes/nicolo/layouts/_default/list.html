@@ -2,7 +2,7 @@
   {{ partial "list-view-title.html" . }}
 
   {{ if .Sections.ByWeight }}
-    <div class="flex flex-wrap gap-x-5 text-base leading-snug">
+    <div class="flex flex-wrap gap-x-5 mb-2 text-base leading-snug">
       {{ range .Sections.ByWeight }}
         <div class="flex items-baseline relative">
           <a href="{{ .RelPermalink }}" class="not-prose font-semibold text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 hover:dark:text-emerald-400">
@@ -13,7 +13,7 @@
       {{ end }}
     </div>
   {{ else if ne .Parent site.Home }}
-    <div class="flex flex-wrap gap-x-5 text-base leading-snug">
+    <div class="flex flex-wrap gap-x-5 mb-2 text-base leading-snug">
       {{ range .Parent.Sections.ByWeight }}
         {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}
         <div class="flex items-baseline relative">
@@ -29,7 +29,7 @@
   {{ range $taxonomyName, $taxonomy := $.Site.Taxonomies }}
     {{ $translatedTaxonomyName := (site.GetPage $taxonomyName).Params.url }}
     {{ if eq $.Parent.Params.url $translatedTaxonomyName}}
-      <div class="flex flex-wrap gap-x-5 text-base leading-snug">
+      <div class="flex flex-wrap gap-x-5 mb-2 text-base leading-snug">
         {{ range $key, $value := $taxonomy }}
           {{ $taxonomyPages := $value.Pages }}
           <div class="flex items-baseline relative">

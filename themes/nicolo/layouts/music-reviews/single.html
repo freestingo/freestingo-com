@@ -4,24 +4,30 @@
   {{ $releaseYears := .GetTerms "release-years" }}
   {{ $votes := .GetTerms "votes" }}
   <article class="justify-self-center mx-auto mb-10">
-    <h1 class="!mb-2 sm:!mb-4">{{ .Title }}</h1>
-    <h2 class="flex gap-x-1 !mt-3 !mb-4 sm:!mb-5">
+    <h1
+      class="not-prose text-xl text-zinc-950 dark:text-zinc-50 font-bold leading-snug mt-3"
+    >
+      {{ .Title }}
+    </h1>
+    <h2
+      class="flex gap-x-1 not-prose font-semibold text-zinc-950 dark:text-zinc-50 leading-snug"
+    >
       {{ range $artists }}
         <a
           href="{{ .RelPermalink }}"
-          class="not-prose dark:text-zinc-50 hover:text-emerald-600 dark:hover:text-emerald-400"
+          class="not-prose text-zinc-950 dark:text-zinc-50 leading-snug"
         >
           <div>{{ .Title }}</div>
         </a>
       {{ end }}
     </h2>
 
-    <div class="flex justify-between items-center text-sm mb-5 sm:mb-7">
+    <div class="flex justify-between items-center not-prose text-sm mt-2 mb-5">
       <div class="flex flex-wrap">
         {{ range append $releaseYears $genres }}
           <a
             href="{{ .RelPermalink }}"
-            class="not-prose dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-1 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
+            class="not-prose text-xs dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-0.5 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
           >
             <div>{{ .LinkTitle }}</div>
           </a>
@@ -31,7 +37,7 @@
         {{ range $votes }}
           <a
             href="{{ .RelPermalink }}"
-            class="not-prose text-2xl dark:text-zinc-50 font-semibold hover:text-emerald-600 dark:hover:text-emerald-400"
+            class="not-prose text-base dark:text-zinc-50 font-semibold hover:text-emerald-600 dark:hover:text-emerald-400"
           >
             <div>{{ .LinkTitle }}</div>
           </a>

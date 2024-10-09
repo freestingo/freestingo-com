@@ -1,14 +1,12 @@
 <div class="mb-5">
-  <h1
-    class="not-prose text-zinc-950 dark:text-zinc-50 text-5xl font-bold leading-snug"
+  {{/*  <h1
+    class="not-prose text-lg text-zinc-950 dark:text-zinc-50 font-bold leading-snug"
   >
     {{ .FirstSection.Title }}
-  </h1>
+  </h1>  */}}
   {{ with or .Description .FirstSection.Description }}
-    <h4
-      class="not-prose text-zinc-950 dark:text-zinc-50 text-lg font-semibold leading-snug"
-    >
+    <h1 class="not-prose text-base text-zinc-950 dark:text-zinc-50 leading-snug">
       {{ . }}
-    </h4>
+    </h1>
   {{ end }}
 </div>

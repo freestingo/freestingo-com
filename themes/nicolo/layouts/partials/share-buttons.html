@@ -7,182 +7,178 @@
   {{ $shareCallToAction := default ("shareCallToAction" | T) .Params.social.share.callToAction }}
 
 
-  <div
-    class="flex flex-col gap-2 sm:gap-0 leading-none text-xs sm:text-sm pb-8"
-  >
+  <div class="flex flex-wrap gap-1 leading-none text-xs sm:text-sm pb-8">
     <div>{{ $shareCallToAction }}:</div>
-    <div class="flex flex-wrap gap-2">
-      {{ if in .Site.Params.social.share.networks "facebook" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://facebook.com/sharer/sharer.php?u={{ $pageURL }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-            title="Facebook"
-          >
-            facebook
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "facebook" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://facebook.com/sharer/sharer.php?u={{ $pageURL }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+          title="Facebook"
+        >
+          facebook
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "twitter" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://twitter.com/intent/tweet/?text={{ $pageTitle }}&amp;url={{ $pageURL }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-            title="Twitter"
-          >
-            twitter
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "twitter" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://twitter.com/intent/tweet/?text={{ $pageTitle }}&amp;url={{ $pageURL }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+          title="Twitter"
+        >
+          twitter
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "tumblr" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title={{ $pageTitle }}&amp;caption={{ $pageTitle }}&amp;content={{ $pageURL }}&amp;canonicalUrl={{ $pageURL }}&amp;shareSource=tumblr_share_button"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            tumblr
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "tumblr" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title={{ $pageTitle }}&amp;caption={{ $pageTitle }}&amp;content={{ $pageURL }}&amp;canonicalUrl={{ $pageURL }}&amp;shareSource=tumblr_share_button"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          tumblr
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "email" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="mailto:?subject={{ $pageTitle }}&amp;body={{ $pageURL }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-            title="E-Mail"
-          >
-            email
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "email" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="mailto:?subject={{ $pageTitle }}&amp;body={{ $pageURL }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+          title="E-Mail"
+        >
+          email
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "pinterest" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://pinterest.com/pin/create/button/?url={{ $pageURL }}&amp;media={{ $pageURL }}&amp;description={{ $pageTitle }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            pinterest
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "pinterest" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://pinterest.com/pin/create/button/?url={{ $pageURL }}&amp;media={{ $pageURL }}&amp;description={{ $pageTitle }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          pinterest
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "linkedin" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $pageURL }}&amp;title={{ $pageTitle }}&amp;summary={{ $pageTitle }}&amp;{{ $pageURL }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            linkedin
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "linkedin" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $pageURL }}&amp;title={{ $pageTitle }}&amp;summary={{ $pageTitle }}&amp;{{ $pageURL }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          linkedin
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "reddit" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://reddit.com/submit/?url={{ $pageURL }}&amp;resubmit=true&amp;title={{ $pageTitle }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-            title="Reddit"
-          >
-            reddit
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "reddit" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://reddit.com/submit/?url={{ $pageURL }}&amp;resubmit=true&amp;title={{ $pageTitle }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+          title="Reddit"
+        >
+          reddit
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "xing" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://www.xing.com/app/user?op=share;url={{ $pageURL }};title={{ $pageTitle }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            xing
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "xing" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://www.xing.com/app/user?op=share;url={{ $pageURL }};title={{ $pageTitle }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          xing
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "whatsapp" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="whatsapp://send?text={{ $pageTitle }}%20{{ $pageURL }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            whatsapp
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "whatsapp" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="whatsapp://send?text={{ $pageTitle }}%20{{ $pageURL }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          whatsapp
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "hackernews" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://news.ycombinator.com/submitlink?u={{ $pageURL }}&amp;t={{ $pageTitle }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            hacker news
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "hackernews" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://news.ycombinator.com/submitlink?u={{ $pageURL }}&amp;t={{ $pageTitle }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          hacker news
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "vk" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="http://vk.com/share.php?title={{ $pageTitle }}&amp;url={{ $pageURL }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            vkontakte
-          </a>
-        </div>
-      {{ end }}
+    {{ if in .Site.Params.social.share.networks "vk" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="http://vk.com/share.php?title={{ $pageTitle }}&amp;url={{ $pageURL }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          vkontakte
+        </a>
+      </div>
+    {{ end }}
 
-      {{ if in .Site.Params.social.share.networks "telegram" }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="https://telegram.me/share/url?text={{ $pageTitle }}&amp;url={{ $pageURL }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-          >
-            telegram
-          </a>
-        </div>
-      {{ end }}
-    </div>
+    {{ if in .Site.Params.social.share.networks "telegram" }}
+      <div>
+        <a
+          class="hover:text-emerald-600 dark:hover:text-emerald-400"
+          href="https://telegram.me/share/url?text={{ $pageTitle }}&amp;url={{ $pageURL }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+        >
+          telegram
+        </a>
+      </div>
+    {{ end }}
   </div>
 {{ end }}
