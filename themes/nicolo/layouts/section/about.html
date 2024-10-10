@@ -1,53 +1,46 @@
 {{ define "main" }}
   {{/* exploiting lookup orders to use this layout both for the English and Italian "about" section URLs https://gohugo.io/templates/lookup-order/ */}}
-  <article class="justify-self-center mx-auto mb-10">
-    <h1
-      class="not-prose text-xl text-zinc-950 dark:text-zinc-50 font-bold leading-snug mt-3"
-    >
+  <article>
+    <strong>
       {{ .Title }}
-    </h1>
-    <h2 class="not-prose text-zinc-950 dark:text-zinc-50 leading-snug">
+    </strong>
+    <div>
       {{ .Summary }}
-    </h2>
+    </div>
 
-    <div class="not-prose text-sm mt-2 mb-5">
+    <fieldset>
       {{ $taxonomy := "topics" }}
       {{ with .GetTerms $taxonomy }}
-        <div class="flex flex-wrap">
+        <legend>{{ "topics" | T }}</legend>
+        <div>
           {{ range . -}}
-            <a
-              href="{{ .RelPermalink }}"
-              class="not-prose text-xs dark:text-zinc-50 border border-zinc-950 dark:border-zinc-50 px-2 py-0.5 font-semibold hover:bg-emerald-800 hover:text-zinc-50 hover:dark:bg-emerald-700 text-center"
-            >
+            <a href="{{ .RelPermalink }}">
               <div>{{ .LinkTitle }}</div>
             </a>
           {{- end }}
         </div>
       {{ end }}
-    </div>
+    </fieldset>
 
-    <div class="leading-[1.35rem] sm:leading-snug">
+    <div>
       {{ .Content }}
     </div>
   </article>
 
   {{ with .Site.Params.social.profiles }}
-    <div class="flex flex-wrap gap-1 leading-none text-xs sm:text-sm pb-8">
-      <div>{{ "personalSocialCallToAction" | T }}:</div>
+    <p class="cta-links">
+      <span>{{ "personalSocialCallToAction" | T }}:</span>
       {{ range . }}
-        <div>
-          <a
-            class="hover:text-emerald-600 dark:hover:text-emerald-400"
-            href="{{ .url }}"
-            target="_blank"
-            rel="noopener"
-            aria-label=""
-            title="{{ .name }}"
-          >
-            {{ .name }}
-          </a>
-        </div>
+        <a
+          href="{{ .url }}"
+          target="_blank"
+          rel="noopener"
+          aria-label=""
+          title="{{ .name }}"
+        >
+          {{ .name }}
+        </a>
       {{ end }}
-    </div>
+    </p>
   {{ end }}
 {{ end }}

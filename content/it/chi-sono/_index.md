@@ -1,8 +1,8 @@
 ---
 title: Chi sono
 date: 2024-06-03
-description: la storia di freestingo.com, o "Come Ho Imparato A Non Preoccuparmi E Ad Amare CSS"
-summary: la storia di freestingo.com, o "Come Ho Imparato A Non Preoccuparmi E Ad Amare CSS"
+description: La storia di freestingo.com, o "Come Ho Imparato A Non Preoccuparmi E Ad Amare CSS"
+summary: La storia di freestingo.com, o "Come Ho Imparato A Non Preoccuparmi E Ad Amare CSS"
 topics: [web design, social media, capitalismo di sorveglianza]
 translationKey: about
 layout: about

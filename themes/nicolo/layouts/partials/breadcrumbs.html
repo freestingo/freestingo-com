@@ -1,40 +1,24 @@
 {{- if eq site.Home . -}}
-  <div class="flex flex-wrap gap-x-2">
+  <div class="breadcrumbs">
     {{ range $i, $section := site.Sections.ByWeight }}
-      <div class="shrink-0">
-        <span
-          class="text-zinc-400 dark:text-zinc-500 select-none pointer-events-none"
-          >/</span
-        ><a
-          href="{{ $section.Permalink }}"
-          class="not-prose text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 hover:dark:text-emerald-500"
-          >{{ $section.Name | lower }}</a
-        >
-      </div>
+      <span>
+        <span>/</span><a href="{{ $section.Permalink }}">{{ $section.Name | lower }}</a>
+      </span>
     {{ end }}
   </div>
 {{- else -}}
   {{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}
     {{- if $elem.RelPermalink -}}
-      <span
-        class="text-zinc-400 dark:text-zinc-500 select-none pointer-events-none"
-        >/</span
-      ><a
-        href="{{ .RelPermalink }}"
-        class="shrink-0 text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 dark:hover:text-emerald-400"
+      <span>/</span
+      ><a href="{{ .RelPermalink }}"
         >{{- lower (path.Base $elem.RelPermalink) -}}</a
       >
     {{- end -}}
   {{- end -}}
 
   {{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
-    <span
-      class="text-zinc-400 dark:text-zinc-500 select-none pointer-events-none"
-      >/</span
-    ><a
-      aria-current="page"
-      href="{{ .RelPermalink }}"
-      class="shrink-0 text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 dark:hover:text-emerald-400 break-all"
+    <span>/</span
+    ><a aria-current="page" href="{{ .RelPermalink }}"
       >{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a
     >
   {{- end -}}

@@ -1,11 +1,11 @@
-<footer
-  class="flex justify-between items-center bottom-0 mx-auto w-screen max-w-screen-md px-3 py-4 text-xs text-zinc-400 dark:text-zinc-600"
->
+<footer>
+  <hr />
   <div>
-    {{ partial "cookies-disclaimer.html" . }}
-  </div>
-
-  <div class="flex gap-3">
-    {{- partial "languages.html" . -}}
+    <div>
+      {{- partial "languages.html" . -}}
+    </div>
+    <div>
+      {{ partial "cookies-disclaimer.html" . }}
+    </div>
   </div>
 </footer>

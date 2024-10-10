@@ -1,8 +1,8 @@
 ---
 title: About
 date: 2024-06-03
-description: the history of freestingo.com, or "How I Learned To Stop Worrying And Love CSS"
-summary: the history of freestingo.com, or "How I Learned To Stop Worrying And Love CSS"
+description: The history of freestingo.com, or "How I Learned To Stop Worrying And Love CSS"
+summary: The history of freestingo.com, or "How I Learned To Stop Worrying And Love CSS"
 topics: [web design, social media, surveillance capitalism]
 translationKey: about
 weight: 100

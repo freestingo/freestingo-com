@@ -1,157 +1,150 @@
-/* TailwindCSS base styles */
-/* see https://tailwindcss.com/docs/functions-and-directives#tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@tailwind variants;
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 768px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
-/* Site Specific */
-/* put site specific css styles here using the @layer directive */
-/* see https://tailwindcss.com/docs/functions-and-directives#layer */
-@layer components {
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: 600;
-    src: url("../fonts/TTFirsNeue-DemiBold.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: 600;
-    src: url("../fonts/TTFirsNeue-DemiBoldItalic.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: bold;
-    src: url("../fonts/TTFirsNeue-Bold.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: bold;
-    src: url("../fonts/TTFirsNeue-BoldItalic.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: 800;
-    src: url("../fonts/TTFirsNeue-ExtraBold.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: 800;
-    src: url("../fonts/TTFirsNeue-ExtraBoldItalic.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: normal;
-    src: url("../fonts/TTFirsNeue-Regular.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: normal;
-    src: url("../fonts/TTFirsNeue-Italic.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: 500;
-    src: url("../fonts/TTFirsNeue-Medium.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: 500;
-    src: url("../fonts/TTFirsNeue-MediumItalic.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: 300;
-    src: url("../fonts/TTFirsNeue-Light.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: 300;
-    src: url("../fonts/TTFirsNeue-LightItalic.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: 200;
-    src: url("../fonts/TTFirsNeue-ExtraLight.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: 200;
-    src: url("../fonts/TTFirsNeue-ExtraLightItalic.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: normal;
-    font-weight: 100;
-    src: url("../fonts/TTFirsNeue-Thin.woff2") format("woff2");
-  }
-
-  @font-face {
-    font-display: swap;
-    font-family: "TT Firs Neue";
-    font-style: italic;
-    font-weight: 100;
-    src: url("../fonts/TTFirsNeue-ThinItalic.woff2") format("woff2");
-  }
-
-  html {
-    --emerald-800: rgb(6 95 70);
-  }
-
+@media (min-width: 768px) {
   body {
-    font-family: "TT Firs Neue", sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+a {
+  color: rgb(6 78 59);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+    color: white;
   }
 
-  /* block scrolling whenever the section menu is open */
-  body:has(#sections-toggle:checked) {
-    overflow: hidden;
+  a {
+    color: rgb(52 211 153);
   }
+}
 
-  a:focus {
-    outline: none;
-    text-decoration-line: underline;
+main {
+  flex: 1 1 0%;
+}
+
+header {
+  padding-top: 0.5rem;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3rem;
+}
+
+footer > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  font-size: smaller;
+}
+
+h3 {
+  position: relative;
+}
+
+h3 > span {
+  overflow-wrap: break-word;
+}
+
+h3 > a {
+  position: absolute;
+  top: 0.15rem;
+  bottom: 0px;
+  padding-left: 0.5rem;
+}
+
+@media (min-width: 840px) {
+  h3 > a {
+    left: -1.75rem;
+    padding-left: 0px;
   }
+}
+
+fieldset {
+  display: inline;
+  font-size: 95%;
+  border-width: 1px;
+  margin-top: 0.5rem;
+  padding-top: 0px;
+  padding-bottom: 0.5rem;
+}
+
+fieldset > div {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3rem;
+}
+
+.cta-links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.3rem;
+}
+
+.sub-sections {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5rem;
+}
+
+.sub-section {
+  display: flex;
+}
+
+sup {
+  font-size: small;
+  font-weight: bold;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+.list-items {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.preview-date {
+  font-size: small;
+}
+
+.list-view-title {
+  margin-bottom: 1rem;
+}
+
+.navigation-arrows {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.navigation-arrows > .previous {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navigation-arrows > .next {
+  display: flex;
+  justify-content: flex-end;
 }

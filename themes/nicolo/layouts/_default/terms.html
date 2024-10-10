@@ -1,26 +1,17 @@
 {{ define "main" }}
-  {{ partial "list-view-title.html" . }}
-
-
-  <div class="flex flex-wrap gap-x-5 mb-2 text-base leading-snug">
+  <div class="sub-sections">
     {{ range .Pages.ByTitle }}
-      <div class="flex items-baseline relative">
-        <a
-          href="{{ .RelPermalink }}"
-          class="not-prose font-semibold text-zinc-950 dark:text-zinc-50 hover:text-emerald-600 hover:dark:text-emerald-400"
-        >
-          {{ .Title }}
-        </a>
-        <div
-          class="absolute -right-2 text-xs font-semibold select-none pointer-events-none"
-        >
-          {{ .Pages | len }}
-        </div>
+      <div class="sub-section">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a
+        ><sup>{{ .Pages | len }}</sup>
       </div>
     {{ end }}
   </div>
 
-  <div class="text-zinc-950 dark:text-zinc-50">
+  {{ partial "list-view-title.html" . }}
+
+
+  <div class="list-items">
     {{ range append (site.GetPage "about") site.RegularPages }}
       {{ if gt (.GetTerms $.Type | len) 0 }}
         {{ if eq .Type "music-reviews" }}

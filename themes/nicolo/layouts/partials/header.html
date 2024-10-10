@@ -1,13 +1,10 @@
-<header class="mx-auto w-screen max-w-screen-md px-3 pt-3 pb-1">
-  <nav class="flex flex-col">
-    <div class="sm:flex sm:justify-between z-10 leading-snug">
-      <a
-        href="{{ .Site.Home.Permalink }}"
-        class="text-emerald-700 dark:text-emerald-400 hover:text-zinc-950 hover:dark:text-zinc-50 font-bold"
-        >{{ .Site.Title }}.com</a
-      ><span>
-        {{- partial "breadcrumbs.html" . -}}
-      </span>
-    </div>
+<header>
+  <nav>
+    <a href="{{ .Site.Home.Permalink }}"
+      ><strong>{{ .Site.Title }}.com</strong></a
+    ><span>
+      {{- partial "breadcrumbs.html" . -}}
+    </span>
   </nav>
+  <hr />
 </header>

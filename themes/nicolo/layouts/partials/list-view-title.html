@@ -1,12 +1,5 @@
-<div class="mb-5">
-  {{/*  <h1
-    class="not-prose text-lg text-zinc-950 dark:text-zinc-50 font-bold leading-snug"
-  >
-    {{ .FirstSection.Title }}
-  </h1>  */}}
-  {{ with or .Description .FirstSection.Description }}
-    <h1 class="not-prose text-base text-zinc-950 dark:text-zinc-50 leading-snug">
-      {{ . }}
-    </h1>
-  {{ end }}
-</div>
+{{ with or .Description .FirstSection.Description }}
+  <div class="list-view-title">
+    {{ . }}
+  </div>
+{{ end }}

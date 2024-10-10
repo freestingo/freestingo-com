@@ -1,35 +1,27 @@
 {{ define "main" }}
-  {{ partial "list-view-title.html" . }}
-
-
-  <div class="flex flex-wrap gap-x-5 mb-2 text-base leading-snug">
+  <div class="sub-sections">
     {{ range .Parent.Sections.ByWeight }}
       {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}
-      <div class="flex items-baseline relative">
+      <div class="sub-section">
         <a
           href="{{ if $isCurrentSection }}
             {{ .Parent.RelPermalink }}
           {{ else }}
             {{ .RelPermalink }}
           {{ end }}"
-          class="not-prose font-semibold {{ if $isCurrentSection }}
-            text-emerald-600 dark:text-emerald-400
-          {{ else }}
-            text-zinc-950 dark:text-zinc-50
-          {{ end }} hover:text-emerald-600 hover:dark:text-emerald-400"
+          class="{{ if $isCurrentSection }}font-bold{{ end }}"
         >
           {{ .Title | lower }}
         </a>
-        <div
-          class="absolute -right-2 text-xs font-semibold select-none pointer-events-none"
-        >
-          {{ .RegularPagesRecursive | len }}
-        </div>
+        <sup>{{ .RegularPagesRecursive | len }}</sup>
       </div>
     {{ end }}
   </div>
 
-  <div class="text-zinc-950 dark:text-zinc-50">
+  {{ partial "list-view-title.html" . }}
+
+
+  <div class="list-items">
     {{ range .RegularPagesRecursive }}
       {{- partial "music-review-preview.html" . -}}
     {{ end }}
