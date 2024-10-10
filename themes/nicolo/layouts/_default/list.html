@@ -12,7 +12,7 @@
         </div>
       {{ end }}
     </div>
-  {{ else if ne .Parent site.Home }}
+  {{ else if and (ne .Parent site.Home) (.Parent.Sections.ByWeight) }}
     <div class="flex flex-wrap gap-x-5 mb-2 text-base leading-snug">
       {{ range .Parent.Sections.ByWeight }}
         {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}

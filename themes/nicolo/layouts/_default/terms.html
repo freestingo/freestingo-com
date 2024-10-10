@@ -1,7 +1,8 @@
 {{ define "main" }}
   {{ partial "list-view-title.html" . }}
 
-  <div class="flex flex-wrap gap-x-5 text-base leading-snug">
+
+  <div class="flex flex-wrap gap-x-5 mb-2 text-base leading-snug">
     {{ range .Pages.ByTitle }}
       <div class="flex items-baseline relative">
         <a
@@ -20,7 +21,7 @@
   </div>
 
   <div class="text-zinc-950 dark:text-zinc-50">
-    {{ range site.RegularPages }}
+    {{ range append (site.GetPage "about") site.RegularPages }}
       {{ if gt (.GetTerms $.Type | len) 0 }}
         {{ if eq .Type "music-reviews" }}
           {{- partial "music-review-preview.html" . -}}

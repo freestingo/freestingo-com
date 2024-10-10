@@ -68,12 +68,12 @@ sul perché l'ho incluso, o sul perché il nome è così terribile. Buon diverti
 
 ### CoC
 
-**CoC** è un plugin di autocompletamento testuale per [vim](https://www.vim.org/ "vim home-page"),
-un editor di testo da linea di comando. **CoC** sembra un acronimo, e infatti lo è!
-Significa **Conquer Of Completion**. Non saprei cos'è peggio: il nome completo che
+CoC è un plugin di autocompletamento testuale per [vim](https://www.vim.org/ "vim home-page"),
+un editor di testo da linea di comando. CoC sembra un acronimo, e infatti lo è!
+Significa Conquer Of Completion. Non saprei cos'è peggio: il nome completo che
 sembra il titolo di un gioco flash alla Call of Duty dei primi anni 2000, o l'acronimo
 stesso che pare proprio [quella parola lì](https://www.youtube.com/watch?v=YA8l2POQ1No "'The Office - Cock' su YouTube").
-Questo è uno dei motivi per cui la gente normale pensa che gli utenti di **vim** siano strani.
+Questo è uno dei motivi per cui la gente normale pensa che gli utenti di vim siano strani.
 
 ### GIMP
 
@@ -84,24 +84,24 @@ Se non capite perché dovrebbe essere un nome così strano, provate a inserire `
 
 ### JavaScript
 
-**JavaScript** è la vera lingua franca del web contemporaneo. Gira in tutti i browser ed è
+JavaScript è la vera lingua franca del web contemporaneo. Gira in tutti i browser ed è
 ciò che consente ai siti web di caricare dati in maniera dinamica. Ora è davvero dappertutto,
-ma le sue origini sono umili: all'epoca, **Java** era il linguaggio più chiacchierato.
-A giudicare dal nome, **JavaScript** sarebbe una sorta di spin-off di **Java**. Sbagliato.
-I due linguaggi non hanno praticamente nulla in comune. L'unico motivo per cui **JavaScript**
-contiene **Java** nel suo nome è perché **Java** a quei tempi suonava figo. Una pura operazione
+ma le sue origini sono umili: all'epoca, Java era il linguaggio più chiacchierato.
+A giudicare dal nome, JavaScript sarebbe una sorta di spin-off di Java. Sbagliato.
+I due linguaggi non hanno praticamente nulla in comune. L'unico motivo per cui JavaScript
+contiene Java nel suo nome è perché Java a quei tempi suonava figo. Una pura operazione
 di marketing, clout-chasing potremmo dire. In fondo è lo stesso motivo per cui oggi, nel 2024,
 anche l'app più semplice e basilare viene descritta come
 ["AI-Powered"](https://www.scaruffi.com/singular/sin00.html "Intelligence is not Artificial, introduzione al libro")
-da qualche parte nel sito aziendale. Il ribattezzamento successivo in **ECMAScript**, comunque,
+da qualche parte nel sito aziendale. Il ribattezzamento successivo in ECMAScript, comunque,
 [non migliorò per niente la situazione](https://james-iry.blogspot.com/2009/05/brief-incomplete-and-mostly-wrong.html#:~:text=1995%20%2D%20Brendan%20Eich,is%20renamed%20ECMAScript. "A brief, incomplete, and mostly wrong history of programming languages").
 
 ### less
 
-**less** è un programma eseguibile da linea di comando per visualizzare file di testo.
-Perché il nome **less**? Perché il programma
+`less` è un programma eseguibile da linea di comando per visualizzare file di testo.
+Perché il nome `less`? Perché il programma
 [è stato pensato come sostituto](https://man7.org/linux/man-pages/man1/less.1.html "manuale Linux per 'less'")
-di **more**, il vecchio paginatore con meno funzionalità. Da qui, il nome — _**less** is **more**_. Capìta?
+di `more`, il vecchio paginatore con meno funzionalità. Da qui, il nome — _**less** is **more**_. Capìta?
 
 ### scrot
 
@@ -118,17 +118,17 @@ _Eh?_ Non preoccuparti, [i mobili della tua cucina sono al sicuro](https://www.y
 La [documentazione ufficiale](https://www.php.net/manual/en/language.oop5.paamayim-nekudotayim.php "Scope Resolution Operator (::)")
 ci dice:
 
-> The Scope Resolution Operator (also called _**Paamayim Nekudotayim**_) or in simpler terms,
+> The Scope Resolution Operator (also called _Paamayim Nekudotayim_) or in simpler terms,
 > the double colon, is a token that allows access to a constant, static property,
 > or static method of a class or one of its parents.
 
-Ok, quindi sarebbero praticamente i due punti doppi. Bene. Ma perché dovrebbe "_anche chiamarsi **Paamayim Nekudotayim**_"?
+Ok, quindi sarebbero praticamente i due punti doppi. Bene. Ma perché dovrebbe "_anche chiamarsi Paamayim Nekudotayim_"?
 
-> _**Paamayim Nekudotayim**_ would, at first, seem like a strange choice for naming a double-colon.
+> _Paamayim Nekudotayim_ would, at first, seem like a strange choice for naming a double-colon.
 > However, while writing the Zend Engine 0.5 (which powers PHP 3), that's what the Zend team
 > decided to call it. It actually does mean double-colon - in Hebrew!
 
-Ah, capito. O meglio, non ho capito niente. Perché non usare un semplice **T_DOUBLE_COLON**
+Ah, capito. O meglio, non ho capito niente. Perché non usare un semplice `T_DOUBLE_COLON`
 in inglese, come tutti gli altri _error codes_? Perché PHP mi costringe a decifrare
 lo slang ebraico quando sto solo cercando di debuggare il mio codice?
 [Phil Sturgeon si è fatto la stessa domanda](https://philsturgeon.com/wtf-is-t-paamayim-nekudotayim/ "WTF is T_PAAMAYIM_NEKUDOTAYIM")
@@ -141,17 +141,17 @@ Aspetta, per caso stiamo parlando degli stessi _conservative people_ che hanno
 pure colonie nella West Bank? Hanno iniziato a **colon**izzare anche i progetti
 open source ora? Dobbiamo allarmarci? Gli Stati Uniti in tutto questo cosa dicono?
 Nel 2010 un tale Chad, di nome e di fatto, orchestrò un attacco terroristico a
-danni dei **PHP Internals** chiedendo se fosse possibile tradurre in inglese il
+danni dei PHP Internals chiedendo se fosse possibile tradurre in inglese il
 token (trovate l'archivio dell'intera, delirante discussione
 [qui](https://web.archive.org/web/20221209141424/https://grokbase.com/t/php/php-internals/10ayegjgg4/rename-t-paamayim-nekudotayim-to-t-double-colon/10ay7h1f2a "[PHP-INTERNALS] rename T_PAAMAYIM_NEKUDOTAYIM to T_DOUBLE_COLON")).
 Seguì una lunga negoziazione: ad oggi, più di dieci anni dopo, non è ancora cambiato nulla.
 
 ### YAML
 
-In realtà **YAML** non è poi così tremendo, ma comunque lo includo a mo' di capro
+In realtà YAML non è poi così tremendo, ma comunque lo includo a mo' di capro
 espiatorio per tutti gli [acronimi ricorsivi](https://www.techopedia.com/definition/21636/recursive-acronym "Recursive Acronym definition su Techopedia")
 in giro per il mondo tech. La ricorsione è buffa per circa dieci o quindici secondi;
-da lì in poi diventa solo fastidiosa. Nel nostro caso, **YAML** è doppiamente "buffo":
-sta per **YAML Ain't Markup Language**, anche se in realtà
+da lì in poi diventa solo fastidiosa. Nel nostro caso, YAML è doppiamente "buffo":
+sta per **Y**AML **A**in't **M**arkup **L**anguage, anche se in realtà
 [è proprio un _markup language_](https://www.redhat.com/en/topics/automation/what-is-yaml "'What is YAML?' su Red Hat").
 Lo so, molto divertente.
