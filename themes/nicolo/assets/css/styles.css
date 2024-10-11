@@ -63,12 +63,12 @@ h3 > a {
   position: absolute;
   top: 0.15rem;
   bottom: 0px;
-  padding-left: 0.5rem;
+  padding-left: 0.3rem;
 }
 
 @media (min-width: 840px) {
   h3 > a {
-    left: -1.75rem;
+    left: -1.5rem;
     padding-left: 0px;
   }
 }
@@ -77,9 +77,11 @@ fieldset {
   display: inline;
   font-size: 95%;
   border-width: 1px;
-  margin-top: 0.5rem;
+  margin-top: -0.3rem;
+  margin-bottom: 0.5rem;
   padding-top: 0px;
   padding-bottom: 0.5rem;
+  justify-content: flex-end;
 }
 
 fieldset > div {
@@ -147,4 +149,31 @@ ul {
 .navigation-arrows > .next {
   display: flex;
   justify-content: flex-end;
+}
+
+.article-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article-title {
+  margin-bottom: 0.5rem;
+}
+
+.article-fieldset {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .article-header {
+    flex-direction: row;
+    column-gap: 0.3rem;
+  }
+
+  .article-fieldset {
+    justify-content: flex-end;
+  }
 }

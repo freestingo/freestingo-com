@@ -2,7 +2,7 @@
   <div class="breadcrumbs">
     {{ range $i, $section := site.Sections.ByWeight }}
       <span>
-        <span>/</span><a href="{{ $section.Permalink }}">{{ $section.Name | lower }}</a>
+        <span>/</span><a href="{{ $section.Permalink }}">{{ path.Base $section.RelPermalink }}</a>
       </span>
     {{ end }}
   </div>

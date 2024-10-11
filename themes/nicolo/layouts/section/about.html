@@ -1,26 +1,8 @@
 {{ define "main" }}
   {{/* exploiting lookup orders to use this layout both for the English and Italian "about" section URLs https://gohugo.io/templates/lookup-order/ */}}
   <article>
-    <strong>
-      {{ .Title }}
-    </strong>
-    <div>
-      {{ .Summary }}
-    </div>
+    {{ partial "article-header.html" . }}
 
-    <fieldset>
-      {{ $taxonomy := "topics" }}
-      {{ with .GetTerms $taxonomy }}
-        <legend>{{ "topics" | T }}</legend>
-        <div>
-          {{ range . -}}
-            <a href="{{ .RelPermalink }}">
-              <div>{{ .LinkTitle }}</div>
-            </a>
-          {{- end }}
-        </div>
-      {{ end }}
-    </fieldset>
 
     <div>
       {{ .Content }}

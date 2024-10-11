@@ -1,0 +1,25 @@
+<div class="article-header">
+  <div class="article-title">
+    <strong>
+      {{ .Title }}
+    </strong>
+    <div>
+      {{ .Summary }}
+    </div>
+  </div>
+  <div class="article-fieldset">
+    <fieldset>
+      {{ $taxonomy := "topics" }}
+      {{ with .GetTerms $taxonomy }}
+        <legend>{{ "topics" | T }}</legend>
+        <div>
+          {{ range . -}}
+            <a href="{{ .RelPermalink }}">
+              {{ .LinkTitle }}
+            </a>
+          {{- end }}
+        </div>
+      {{ end }}
+    </fieldset>
+  </div>
+</div>

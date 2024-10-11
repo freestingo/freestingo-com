@@ -1,17 +1,19 @@
-pages: pages
-openMenu: Open menu
+backToHome: Back to Home
 closeMenu: Close menu
 cookiesDisclaimer: no cookies, no ads. just content.
-pageNotFound: this page does not exist here.
-backToHome: Back to Home
+genres: genres
 home: Home
 listenOn: listen on
-previous: previous
-releasedIn: released in
 next: next
+openMenu: Open menu
+pageNotFound: this page does not exist here.
+pages: pages
 personalSocialCallToAction: follow me on
+previous: previous
+released: released
 shareCallToAction: share on
 topics: topics
 translateLinkLabel: italiano
 vote: vote
+welcomeHome: Welcome to my digital diary!
 youAreHere: You are here

@@ -1,25 +1,7 @@
 {{ define "main" }}
   <article>
-    <strong>
-      {{ .Title }}
-    </strong>
-    <div>
-      {{ .Summary }}
-    </div>
+    {{ partial "article-header.html" . }}
 
-    <fieldset>
-      {{ $taxonomy := "topics" }}
-      {{ with .GetTerms $taxonomy }}
-        <legend>{{ "topics" | T }}</legend>
-        <div>
-          {{ range . -}}
-            <a href="{{ .RelPermalink }}">
-              {{ .LinkTitle }}
-            </a>
-          {{- end }}
-        </div>
-      {{ end }}
-    </fieldset>
 
     <div>
       {{ .Content }}

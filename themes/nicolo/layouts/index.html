@@ -1,7 +1,5 @@
 {{ define "main" }}
-  <div
-    class="not-prose text-zinc-950 dark:text-zinc-50 leading-snug text-xl sm:text-2xl mt-3"
-  >
-    {{ .Content }}
-  </div>
+  <strong>{{ "welcomeHome" | T }}</strong>
+
+  {{ .Content }}
 {{ end }}

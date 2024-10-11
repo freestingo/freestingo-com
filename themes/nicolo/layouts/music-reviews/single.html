@@ -4,34 +4,47 @@
   {{ $releaseYears := .GetTerms "release-years" }}
   {{ $votes := .GetTerms "votes" }}
   <article>
-    <strong>
-      {{ range $artists }}
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      {{ end }}
-    </strong>
-    -
-    <strong>
-      {{ .Title }}
-    </strong>
-    (
-    {{- range $i, $item := append $releaseYears $genres -}}
-      {{- if $i -}}
-        ,
-      {{ end }}<a href="{{ $item.RelPermalink }}">{{- $item.LinkTitle -}}</a>
-    {{- end -}}
-    )
-
-    <div>
-      <fieldset>
-        <legend>{{ "vote" | T }}</legend>
+    <div class="article-header">
+      <div class="article-title">
+        <strong>
+          {{ range $artists }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ end }}
+        </strong>
+        -
+        <strong>
+          {{ .Title }}
+        </strong>
         <div>
-          {{ range $votes -}}
-            <a href="{{ .RelPermalink }}">
-              {{ .LinkTitle }}
-            </a>
-          {{- end }}
+          <span>{{ "genres" | T }}:</span>
+          {{ range $i, $item := $genres }}
+            {{- if $i -}}
+              ,
+            {{ end }}<a href="{{ $item.RelPermalink }}"
+              >{{- $item.LinkTitle -}}</a
+            >
+          {{- end -}}
+          <div>
+            <span>{{ "released" | T }}:</span>
+            {{ range $releaseYears }}
+              <a href="{{ .RelPermalink }}">{{- .LinkTitle -}}</a>
+            {{- end -}}
+          </div>
         </div>
-      </fieldset>
+      </div>
+
+      <div class="article-fieldset">
+        <fieldset>
+          <legend>{{ "vote" | T }}</legend>
+          <div>
+            {{ range $votes -}}
+              <a href="{{ .RelPermalink }}">
+                {{ .LinkTitle }}
+              </a>
+            {{- end }}
+          </div>
+        </fieldset>
+      </div>
     </div>
 
     <div>

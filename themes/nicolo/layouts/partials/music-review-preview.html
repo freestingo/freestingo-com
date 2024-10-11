@@ -4,7 +4,7 @@
   </span>
   {{ with .GetTerms "artists" }}
     {{ range . }}
-      {{ .Title }}
+      <a href="{{ .RelPermalink }}">{{- .Title -}}</a>
     {{ end }}
   {{ end }}
   - <a href="{{ .Permalink }}">{{ .Title }}</a>
