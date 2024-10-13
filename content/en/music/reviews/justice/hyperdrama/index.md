@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: Hyperdrama
 summary: album review
 description: album review

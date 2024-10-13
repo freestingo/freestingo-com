@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: Programmers naming things
 summary: and not being very good at it, to be honest
 slug: programmers-naming-things

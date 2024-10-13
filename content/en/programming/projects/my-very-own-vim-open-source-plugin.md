@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: My very own Vim open source plugin
 summary: and how it changed my life
 slug: my-very-own-vim-open-source-plugin

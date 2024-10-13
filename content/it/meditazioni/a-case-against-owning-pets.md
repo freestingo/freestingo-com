@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: Contro gli animali domestici
 summary: L'etica (ancora poco discussa) del possesso di animali da compagnia
 description: L'etica (ancora poco discussa) del possesso di animali da compagnia

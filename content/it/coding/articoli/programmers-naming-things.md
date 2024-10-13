@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: Programmatori che nominano cose
 summary: e nemmeno troppo bene, a dir la verità
 slug: programmatori-che-nominano-cose

@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: The Dance Is A Circle Whose Centre Is The Devil, And In It All Turn To The Left
 summary: recensione album
 description: recensione album

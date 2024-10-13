@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: Will people ever stop mentioning the mixing/mastering process in their reviews?
 summary: Musings about the futility of production jargon in music criticism
 description: Musings about the futility of production jargon in music criticism

@@ -1,8 +1,8 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: Orphan
-summary: recensione album 
-description: recensione album 
+summary: recensione album
+description: recensione album
 slug: orphan
 translationKey: orphan
 date: 2024-10-08

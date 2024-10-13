@@ -1,5 +1,5 @@
 ---
-author: Nicolo Traini
+author: Nicolò Traini
 title: A case against owning pets
 summary: The (still rarely discussed) ethics of pet ownership
 description: The (still rarely discussed) ethics of pet ownership
