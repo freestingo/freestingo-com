@@ -1,25 +1,15 @@
-{{- if eq site.Home . -}}
-  <div class="breadcrumbs">
-    {{ range $i, $section := site.Sections.ByWeight }}
-      <span>
-        <span>/</span><a href="{{ $section.Permalink }}">{{ path.Base $section.RelPermalink }}</a>
-      </span>
-    {{ end }}
-  </div>
-{{- else -}}
-  {{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}
-    {{- if $elem.RelPermalink -}}
-      <span>/</span
-      ><a href="{{ .RelPermalink }}"
-        >{{- lower (path.Base $elem.RelPermalink) -}}</a
-      >
-    {{- end -}}
-  {{- end -}}
-
-  {{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
+{{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}
+  {{- if $elem.RelPermalink -}}
     <span>/</span
-    ><a aria-current="page" href="{{ .RelPermalink }}"
-      >{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a
+    ><a href="{{ .RelPermalink }}"
+      >{{- lower (path.Base $elem.RelPermalink) -}}</a
     >
   {{- end -}}
+{{- end -}}
+
+{{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
+  <span>/</span
+  ><a aria-current="page" href="{{ .RelPermalink }}"
+    >{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a
+  >
 {{- end -}}

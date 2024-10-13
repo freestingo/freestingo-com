@@ -2,4 +2,16 @@
   <strong>{{ "welcomeHome" | T }}</strong>
 
   {{ .Content }}
+
+
+  <div class="sections">
+    {{ range $i, $section := site.Sections.ByWeight }}
+      <div>
+        <span>/</span
+        ><a href="{{ $section.Permalink }}"
+          >{{ path.Base $section.RelPermalink }}</a
+        >
+      </div>
+    {{ end }}
+  </div>
 {{ end }}
