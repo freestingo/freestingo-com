@@ -5,8 +5,9 @@ genres: generi
 home: Home
 listenOn: ascolta su
 next: avanti
+nonexistingPage: questa pagina non fa parte del mio website.
 openMenu: Apri menu
-pageNotFound: questa pagina non fa parte del mio website.
+pageNotFound: Pagina non trovata!
 pages: pagine
 personalSocialCallToAction: seguimi su
 previous: indietro

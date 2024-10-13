@@ -5,8 +5,9 @@ genres: genres
 home: Home
 listenOn: listen on
 next: next
+nonexistingPage: this page does not exist here.
 openMenu: Open menu
-pageNotFound: this page does not exist here.
+pageNotFound: Page not found!
 pages: pages
 personalSocialCallToAction: follow me on
 previous: previous

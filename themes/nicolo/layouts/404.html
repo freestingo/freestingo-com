@@ -1,12 +1,8 @@
 {{ define "main" }}
-  <article class="justify-self-center mx-auto">
-    <h1
-      class="not-prose text-xl text-zinc-950 dark:text-zinc-50 font-bold leading-snug mt-3"
-    >
-      404
-    </h1>
-    <h2 class="not-prose text-zinc-950 dark:text-zinc-50 leading-snug">
-      {{ "pageNotFound" | T }}
-    </h2>
-  </article>
+  <strong>
+    {{ "pageNotFound" | T }}
+  </strong>
+  <div>
+    {{ "nonexistingPage" | T }}
+  </div>
 {{ end }}
