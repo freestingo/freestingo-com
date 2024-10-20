@@ -1,10 +1,12 @@
 {{ define "main" }}
   <div class="sub-sections">
     {{ range .Pages.ByTitle }}
-      <div class="sub-section">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a
-        ><sup>{{ .Pages | len }}</sup>
-      </div>
+      {{ if .Pages }}
+        <div class="sub-section">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a
+          ><sup>{{ .Pages | len }}</sup>
+        </div>
+      {{ end }}
     {{ end }}
   </div>
 

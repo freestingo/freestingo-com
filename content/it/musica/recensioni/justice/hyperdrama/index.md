@@ -5,7 +5,7 @@ summary: recensione album
 description: recensione album
 slug: hyperdrama
 translationKey: hyperdrama
-date: 2024-10-13
+date: 2024-04-26
 artists: [Justice]
 release-years: [2024]
 genres: [synthwave]
