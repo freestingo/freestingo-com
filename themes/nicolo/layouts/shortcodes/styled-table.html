@@ -1,0 +1,3 @@
+{{- $tableStyle := resources.Get "css/table.css" | minify | fingerprint -}}
+<style>{{ $tableStyle.Content | safeCSS }}</style>
+{{- .Inner | markdownify -}}
