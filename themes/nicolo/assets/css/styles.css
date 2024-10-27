@@ -56,13 +56,6 @@ h3 > a {
   padding-left: 0.3rem;
 }
 
-@media (min-width: 840px) {
-  h3 > a {
-    left: -1.5rem;
-    padding-left: 0px;
-  }
-}
-
 fieldset {
   display: inline;
   font-size: 95%;
