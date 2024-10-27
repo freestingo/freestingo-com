@@ -5,7 +5,8 @@ summary: simple and effective ways to better manage your work time
 slug: easy-productivity-boosts
 translationKey: easy-productivity-boosts
 description: A summary of easy productivity boosts to better manage your work time.
-keywords: [programming, productivity, window manager, vim, WPM, typing, bottleneck]
+keywords:
+  [programming, productivity, window manager, vim, WPM, typing, bottleneck]
 date: 2024-10-22
 topics: [debugging]
 draft: true
@@ -24,6 +25,7 @@ column and a related peripheral skill on the right column:
 | thinking about your own code  | navigating your codebase                                    |
 | reviewing other people's code | managing source control (branches, commits, pull requests)  |
 | etc...                        |                                                             |
+
 {{< /styled-table >}}
 
 Most people, when prompted about improving their own productivity at work, will start reasoning
@@ -31,26 +33,25 @@ about how to be faster in high cognitive skills, aka the core skills, the ones t
 In my opinion, this line of thinking is unfruitful and problematic for (at least) four reasons:
 
 - Getting faster at core skills is a very long and strenuous path. It usually takes years of
-hands-on experience and/or very good mentoring before one starts noticing significant improvements.
-Reducing time spent in low cognitive activities is instead mostly painless, a very mechanical
-process with very few or no added mental burden, and some of the results can be as fast as
-instantaneous;
+  hands-on experience and/or very good mentoring before one starts noticing significant improvements.
+  Reducing time spent in low cognitive activities is instead mostly painless, a very mechanical
+  process with very few or no added mental burden, and some of the results can be as fast as
+  instantaneous;
 - As the introduction states, everybody working on their productivity naturally aims for their core
-skill set. Improving your core skills puts you in a race which not only is very long and hard, but
-also features many, many other racers aiming for your same goals. On the contrary, almost nobody
-trains for peripheral skills or low cognitive activities! They are generally considered as a given,
-stuff you should be only "good enough" at. This virtually means that actively focusing on those
-kinds of activities is not only easier, but it will also make you stand out way more and set you
-apart from everybody else;
+  skill set. Improving your core skills puts you in a race which not only is very long and hard, but
+  also features many, many other racers aiming for your same goals. On the contrary, almost nobody
+  trains for peripheral skills or low cognitive activities. They are generally considered as a
+  given, something everybody already knows how to do, stuff you already are "good enough" at.
+  This virtually means that actively focusing on those kinds of activities is not only easier, but
+  it will also make you stand out way more and set you apart from everybody else;
+- By never practicing low cognitive activities, they will never become "muscle memory" and their
+  mental toll will inevitably be higher than in needs to be. Hunt-and-peck typing or a single
+  browser instance with a hundred tabs open, for example, represent distractions and require
+  precious brain power that could instead be entirely reserved for complex activities;
 - Core skills are highly domain-specific, while the same peripheral skills are usually helpful in
-multiple disciplines, even when they come from wildly different domains and contexts. Being able to
-debug faster will only make me a better programmer, while being able to type faster will make me a
-better programmer, accountant, writer, content editor, marketer, manager...
-- if you never train low-effort activities, they will never become "muscle memory" and their mental
-toll will actually be very similar to the one required for high-effort activities, making your
-whole work harder than it needs to be; hunt-and-peck typing or a single browser instance with a
-hundred tabs open, for example, represent distractions and require precious thought that could
-instead be used exclusively for things that "really matter"
+  multiple disciplines, even when they come from wildly different domains and contexts. Being able to
+  debug faster will only make me a better programmer, while being able to type faster will make me a
+  better programmer, accountant, writer, content editor, marketer, manager...
 
 These are all the low-effort production boosts that I know and use every day on Ubuntu and Windows
 at work. They are all grouped by topic and ranked according to these goal types:
