@@ -105,10 +105,9 @@ effortlessly so I felt like I could completely focus on a given task without hav
 unrelated things (such as the position of the letter `B` on my keyboard); I could communicate much
 more clearly to my teammates and more often achieve what I was aiming for because I could easily
 type long, in-depth messages in the same amount of time in which I used to be able to write just two
-short messages... These are just some examples of what I noticed I could do both faster and better
-than before, but hopefully by now I have convinced you that downplaying fast typing is complete
-nonsense and you should definitely focus on improving your typing speed. If you are unsure on which
-peripheral skill to start training first, start here.
+short messages... hopefully by now I have convinced you that downplaying fast typing is complete
+nonsense and you should instead definitely focus on improving your typing speed. If you are unsure
+on which peripheral skill to start training first, start here.
 
 #### Short-term typing improvements
 
@@ -126,14 +125,14 @@ third-party script or tool.
 
 In addition, if you are not from an English-speaking country, your default keyboard layout will most
 likely be different than the English one. Italian keyboard layouts, for example, prioritize easy
-access to very common Italian characters such as accented vowels at the expense of less common or
-niche punctuation symbols, such as `@` or square or curly brackets. This is good news for all
-Italians except for programmers, which most likely will never use `ò` in their source files while
-employing hundreds of `[]`, `{}` and so on. The easiest fix I found is to just use the English
-keyboard layout, and rely on your `COMPOSE` key for the rare time you actually need to write a
-non-English character. Using three separate keystrokes (`COMPOSE` + `o` + `` ` ``) instead of one
-for an `ò` once or twice a day is way faster than using two modifier keys (`ALT GR` + `SHIFT` + `[`)
-instead of none every time you want to open a curly bracket.
+access to very common Italian characters such as accented vowels, at the expense of less common or
+niche punctuation symbols such as `@` or square and curly brackets. This is good news for all
+Italians except for Italian programmers, which most likely will never use `ò` in their source files.
+The easiest fix I found is to just use the English keyboard layout, and rely on your `COMPOSE` key
+for the rare time you actually need to write a non-English character. Using three separate
+keystrokes (`COMPOSE` + `o` + `` ` ``) instead of one for an `ò` once or twice a day is way faster
+than using two modifier keys (`ALT GR` + `SHIFT` + `[`) instead of one every time you want to open
+or close a curly bracket.
 
 Another quick and easy keyboard tweak is to just shorten the key repeat delay time and increase the
 key repeat rate. These two settings control how long you need to press down a single key before the
@@ -148,61 +147,95 @@ that this tweak is a config smell because you should never rely too much on hold
 to do stuff—you should just know the correct keyboard shortcut instead. While I agree with this
 sentiment, I still think that tweaking your key repeat settings is always worth doing. First of all,
 nothing is stopping you to investigate and learn the proper keyboard shortcuts even after you did
-the tweak. Second, there actually are some tasks for which there are no other mouse-free solutions
-other than holding down a single key, such as deleting a certain amount of letters from a long word
-or a certain amount of words from a long sentence. It is true that you can execute intricate
-commands like "delete the previous thirteen words from the current caret position" inside text
-editors such as Vim, but that implies you have spent some time counting the exact number of words
-that need to be deleted and inputting the correct key sequence to execute said command. In my
-experience, after applying the key repeat tweak, holding down `CTRL` + `BACKSPACE` until I delete
-thirteen words is way faster than making sure I need to delete exactly thirteen words and then
-typing `d13b` in Vim's normal mode.
+the tweak. Second, there are some tasks for which there are no other mouse-free solutions other than
+holding down a single key, or the intended correct keyboard shortcut actually takes longer to
+execute. You can type intricate commands like "delete the previous thirteen words from the current
+caret position" inside text editors such as Vim, but that implies you have spent some time counting
+the exact number of words that need to be deleted and inputting the correct key sequence to execute
+said command. In my experience, after applying the key repeat tweak, holding down `CTRL` +
+`BACKSPACE` until I delete thirteen words is way faster than making sure I need to delete exactly
+thirteen words and then typing `d13b` in Vim's normal mode.
 
 #### Medium-term typing improvements
 
-Touch typing is virtually the "one weird trick" for reaching very fast typing speeds. Touch typing
-essentially means being able to type accurately on your keyboard without ever looking at it. The
-idea is to optimize the typing process by evenly distributing key presses among all of your fingers
-except for your thumbs, one of which has exclusive access to the spacebar. A touch typist, for
-example, does not need to see where the `P` key is before pressing it because they already know by
-heart that it is right above their right pinky finger, so they just press it with their pinky.
-Memorizing the position of all the keys on your keyboard sounds hard, because it undeniably is. The
-good news is that nowadays there are tons of websites dedicated to teaching touch typing, making it
-very easy to practice and master at your own preferred pace. I found [this](https://www.keybr.com/ "Keybr touch typing training website") website to be particularly helpful, for example, because it
-forces you to work on your weaknesses and avoid indulging in easy exercises, making your practice
-sessions more fruitful and efficient.
+Touch typing is the "one weird trick" for reaching very fast typing speeds. Touch typing essentially
+means typing accurately on your keyboard without ever looking at it. The idea is to optimize the
+typing process by evenly distributing key presses among all of your fingers except for your thumbs,
+one of which has exclusive access to the spacebar. A touch typist, for example, does not need to see
+where the `P` key is before pressing it because they already know by heart that it is right above
+their right pinky finger, so they just press it with their pinky. Memorizing the position of all the
+keys on your keyboard sounds hard, but in reality it is not that complicated; it is just a little
+awkward when you first practice it. The good news is that nowadays there are tons of websites
+dedicated to teaching touch typing offering excellent typing drills and mnemonic exercises, making
+it very easy for you to process and master your own keyboard in whatever way you see fit. I found
+[this](https://www.keybr.com/ "Keybr touch typing training website") website to be particularly
+helpful, for example, because it forces you to work on your weaknesses and avoid indulging in easy
+exercises, making your practice sessions both more fruitful and efficient.
 
-Somewhat counter-intuitively, mastering touch typing is a sufficient but not necessary condition of
-being able to type fast. Some people are able to reach very high WPM counts with just four fingers
-plus one thumb. If you do not want to bother learning touch typing, you can still [work on your
-sheer typing speed](https://monkeytype.com/ "Monkeytype") and even [challenge your
-friends](https://play.typeracer.com/ "TypeRacer - Play typing games and race friends") while you do
-it. In my opinion you should strive for reaching a typing speed of at least 100 WPM, but even 90 WPM
-or 80 WPM are well above average.
+Somewhat counter-intuitively, touch typing is a sufficient but not necessary condition of being able
+to type fast. Some people are able to reach very high WPM counts while still looking at their own
+keyboard and not distributing all keystrokes between all fingers in an even fashion. It is harder,
+but still doable. If for any particular reason you do not want to bother learning touch typing, you
+can still [work on your sheer typing speed](https://monkeytype.com/ "Monkeytype") and even
+[challenge your friends](https://play.typeracer.com/ "TypeRacer - Play typing games and race
+friends") while you do it. In my opinion you should strive for reaching a typing speed of at least
+100 WPM. How reasonable of a goal is it? It depends. Some days ago my girlfriend agreed to
+undertaking her first ever typing speed test. She is an example of someone I would consider having
+good enough familiarity with electronic devices without ever actively practicing typing on them; not
+really a geek, but not really a novice either. On her first run, she scored 60 WPM. She tried again,
+and scored 76 WPM on her second run. Keep in mind she is not a touch typist—she types with the
+index, middle and ring fingers on her left hand, and just the middle finger on the right hand—and
+the words she had to type in those two tests were in English, which is not her first language. So,
+basically, she managed to reach a good above-average speed in two minutes while typing very
+inefficiently and without relying on the muscle memory she would have had if the test was in
+Italian. The point I want to make with this example is not that my girlfriend nurtures some kind of
+hidden typing talents, but that your baseline speed is probably much higher than you think,
+especially if you have never actually measured it. I believe my girlfriend could very easily reach
+an average of 80 WPM with just an hour or two of practice without changing anything about the way
+she types; unfreezing one or two more fingers on her right hand would also most likely bring her
+already very close to 100 WPM. Alas, we will never know for sure since she could not care less about
+typing.
 
 #### Long-term typing improvements
 
 Why do computer keyboards follow the QWERTY layout? The answer has actually nothing to do with how
 computers work, and instead everything to do with—you guessed it—how typewriters used to work. This
 means there is literally no reason we should keep producing new computers with this layout, but we
-still do anyway because... who knows. People argue we are used to QWERTY and it would be hard to
-switch to a different layout. This is exactly like saying we are used to English as a _lingua
-franca_ and it would be hard to switch to a different language. In the real world, newborns have no
-concept of grammar and can learn to speak English as their first language just as easily as, say,
-Chinese. Similarly, people who have never seen a keyboard before have no concept of keyboard layouts
-and can learn to type in Dvorak just as easily as in QWERTY. I bet learning any post-QWERTY keyboard
-layout from scratch is actually easier than learning QWERTY from scratch, since post-QWERTY layouts
-are optimized for ease of typing while QWERTY is optimized for avoiding typewriter jamming. My
-opinion stems from the fact that I initially learned how to type with QWERTY and used it for the
-longest time, up until I decided to switch to the Colemak layout and re-learn how to touch type with
-it. The high initial level of friction and uncomfortableness was only due to the fact that I was
-virtually learning a second language for my fingers, but that is basically all there is to it; just
-after some days of practice I could already notice the sheer number of common words I was able to
-type without even moving my hands from the home rows.
+still do anyway. People argue we are used to QWERTY and it would be hard to switch to a different
+layout. This is like saying we are used to English as a _lingua franca_ and it would be hard to
+switch to a different language. In the real world, newborns have no concept of grammar and can learn
+to speak English as their first language just as easily as, say, Chinese. Similarly, people who have
+never seen a keyboard before have no concept of keyboard layouts and can learn to type in DVORAK
+just as easily as in QWERTY. I bet learning any post-QWERTY keyboard layout from scratch is actually
+easier than learning QWERTY from scratch, since post-QWERTY layouts are optimized for ease of typing
+while QWERTY is optimized for minimizing mechanical errors in typewriters. Unfortunately, my opinion
+is only supported by anecdotal evidence derived from my own personal experience and common sense. As
+far as I know, nobody has published a scientific study in which they review the process through
+which different people first learn to type with different layouts, and then compare the results (if
+you know one, please send it to me!). I can only find publications such as [this
+one](https://www.researchgate.net/publication/252214871_Comparing_Different_Keyboard_Layouts_Aspects_of_QWERTY_DVORAK_and_alphabetical_keyboards
+"ResearchGate - Comparing Different Keyboard Layouts: Aspects of QWERTY, DVORAK and alphabetical
+keyboards") that compare the results of making QWERTY-native typists use different keyboard layouts,
+which is totally useless. This is what this publication says about the "DVORAK Layout vs QWERTY"
+speed comparison:
 
+> Norman did controlled experiments where he compared performance on the QWERTY keyboard, the DVORAK
+> keyboard, the alphabetic keyboard and a random layout. They found that novice users performed
+> better (measured in typing speed, not number of errors) with the QWERTY layout than with the
+> [DVORAK layout]. This is probably caused by prior experience with the [QWERTY keyboard]—This is a
+> common problem in these experiments.
+
+- layout heat maps <https://www.keybr.com/layouts>
+- "Recent experiments by West indicate the same figures [27]. According to West’s findings the
+  QWERTY users reached a typing speed of 81.95 wpm and the DVORAK trained users achieved 84.90
+  wpm. This is a 4% superiority for Dvorak’s keyboard."
+- "hand movement" comparisons also heavily favor Dvorak, except for alternating hand sequences
+  - Colemak nullifies this handicap by heavily relying on finger rolls
 - home row and rolling movements optimizations are the focus for colemak
 - the more an action is repeated, the more minimizing movement is important: use economy of motion
   in guitar picking and fretting as metaphor
+- software updates and annoying UI reshuffling multiple times a year, but we can not update a layout
+  once?
 
 ### Managing open windows
 
