@@ -1,8 +1,8 @@
 ---
 title: The history of freestingo.com
 date: 2024-06-03
-description: or "How I Learned To Stop Worrying And Love CSS"
-summary: or "How I Learned To Stop Worrying And Love CSS"
+description: or "How I Learned To Stop Worrying And Love HTML"
+summary: or "How I Learned To Stop Worrying And Love HTML"
 topics: [web design, surveillance capitalism]
 translationKey: about
 weight: 100
@@ -26,7 +26,7 @@ to be true. Very low information density can look "minimal" or "trendy", but it 
 unnecessary friction to the usability of the website. Do I really have to
 scroll two screenfuls down before I can start reading an article? Do I really have to
 download a 1MB script for animating 3D abstract colorful blobs floating around in the background?
-In my opinion, forcing people to wait for all these graphics to load before entering your site 
+In my opinion, forcing people to wait for all these graphics to load before entering your site
 is a WAY worse user experience than just having them look at Times New Roman :-)
 
 The more you look into it, really, and the more you realize the only reason

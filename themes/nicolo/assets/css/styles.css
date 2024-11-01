@@ -95,10 +95,6 @@ sup {
   font-weight: bold;
 }
 
-ul {
-  padding-left: 1rem;
-}
-
 .list-items {
   display: flex;
   flex-direction: column;
@@ -134,29 +130,6 @@ ul {
   justify-content: flex-end;
 }
 
-.article-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .article-title {
   margin-bottom: 0.5rem;
-}
-
-.article-fieldset {
-  display: flex;
-  justify-content: start;
-  align-items: start;
-}
-
-@media (min-width: 640px) {
-  .article-header {
-    flex-direction: row;
-    column-gap: 0.3rem;
-  }
-
-  .article-fieldset {
-    justify-content: flex-end;
-  }
 }

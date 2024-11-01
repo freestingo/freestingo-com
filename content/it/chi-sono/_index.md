@@ -1,8 +1,8 @@
 ---
 title: La storia di freestingo.com
 date: 2024-06-03
-description: o "Come Ho Imparato A Non Preoccuparmi E Ad Amare CSS"
-summary: o "Come Ho Imparato A Non Preoccuparmi E Ad Amare CSS"
+description: o "Come Ho Imparato A Non Preoccuparmi E Ad Amare HTML"
+summary: o "Come Ho Imparato A Non Preoccuparmi E Ad Amare HTML"
 topics: [web design, capitalismo di sorveglianza]
 translationKey: about
 layout: about
@@ -27,7 +27,7 @@ Secondo la mia esperienza, è vero l'esatto opposto. Una bassissima densità di 
 anche un aspetto "minimal" o "trendy", ma aggiunge molto attrito superfluo all'usabilità
 del sito. Perché devo scrollare l'equivalente di due schermate prima di raggiungere
 l'inizio di un articolo? Perché devo scaricare uno script da 1MB per animare dei blob astratti
-colorati galleggianti sullo sfondo? Secondo me, far aspettare ai visitatori il caricamento 
+colorati galleggianti sullo sfondo? Secondo me, far aspettare ai visitatori il caricamento
 di tutte queste grafiche è una user experience MOLTO peggiore rispetto
 il far loro leggere del semplice testo in Times New Roman :-)
 
