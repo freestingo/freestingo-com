@@ -13,8 +13,8 @@ draft: true
 ---
 
 Every job consists of its own special set of core and peripheral skills. In the table below, I
-listed some that apply to software developers: for every row there's a core skill on the left
-column and a related peripheral skill on the right column:
+listed some of the ones related to software developing: for every row I put a core skill on the left
+column and a related peripheral skill on the right column.
 
 {{< styled-table >}}
 
@@ -28,24 +28,24 @@ column and a related peripheral skill on the right column:
 
 {{< /styled-table >}}
 
-Most people, when prompted about improving their own productivity at work, will start reasoning
-about how to be faster in core, high cognitive skills, aka the ones that "really matter". In my
-opinion, this line of thinking is misleading for at least four reasons:
+When they want to boost their own productivity, most people will start reasoning about how to be
+faster in core, high cognitive skills, aka the ones that "really matter". In my opinion, this line
+of thinking is misleading for at least four reasons:
 
 - Getting faster at core skills is a very long and strenuous path. It usually takes years of
   hands-on experience and/or very good mentoring before one starts noticing significant
   improvements. Reducing time spent in low cognitive activities is instead mostly painless, a very
   mechanical process with very few or no added mental burden, and some of the results can be as fast
-  as instantaneous;
+  as instantaneous.
 - Since most people think core skills are the only ones that "really matter", almost nobody trains
   for peripheral skills. They are generally considered as a given, or something you should just
   strive to be "good enough" at. This virtually means that actively focusing on low cognitive
   activities is not only easier, but it will also make you stand out way more from other developers
-  just because the competition is almost non-existent;
+  just because the competition is almost non-existent.
 - By never practicing low cognitive activities, they will never become muscle memory and their
   mental toll will inevitably be higher than in needs to be. Hunt-and-peck typing or a single
   browser instance with a hundred tabs open, for example, represent distractions and require
-  precious brain power that could instead be entirely reserved for complex activities;
+  precious brain power that could instead be entirely reserved for complex activities.
 - Core skills are highly domain-specific, while the same peripheral skills are usually helpful in
   multiple disciplines, even when they come from wildly different domains and contexts. Being able
   to debug faster will only make me a better programmer, while being able to type faster will make
@@ -64,12 +64,13 @@ frame:
   boosts usually noticeable after several weeks or months of practice.
 
 Many tips or tricks are missing simply because I have not stumbled upon them yet, or I have not yet
-had the chance to practice them. In my experience, though, incorporating even a small subset of the
-following tips is more than enough to noticeably improve your productivity. My personal
-recommendation is to try out each of these techniques as early as possible in your programming
-career in order to minimize the inherent friction of disrupting well-established routines and
-breaking setups (especially for long-term boosts), but they can just as easily apply to senior
-engineers as well—you just have to want to do it.
+had the chance to incorporate them into my workflow and verify their value firsthand. In my
+experience, though, applying even a small subset of the following tips is more than enough to
+noticeably improve your productivity. My personal recommendation is to try out each of these
+techniques as early as possible in your programming career in order to minimize the inherent
+friction of disrupting well-established routines and breaking setups (especially when going for
+long-term boosts), but they can just as easily apply to senior engineers as well—you just have to
+want to do it.
 
 ### Typing
 
@@ -225,7 +226,7 @@ speed comparison:
 > common problem in these experiments.
 
 What all these kind of publications have in common, though, is the sheer amount of quantitative data
-embarrassingly putting the QWERTY layout far behind pretty much any other post-QWERTY layout in
+embarrassingly putting the QWERTY layout far behind pretty much any other alternative layout in
 terms of economy of motion. As most musicians and sportspeople know, economy of motion is crucial
 when trying to add a dozen BPMs to your scale exercise or shave off an extra second from your lap
 time. In typing, economy of motion is achieved in two ways: 1) maximizing the usage of home row
@@ -247,74 +248,119 @@ So far I have only talked about the measured advantages of non-QWERTY layouts, a
 utopic scenario in which QWERTY and its obsolete idiosyncrasies are forever abandoned for a more
 ergonomic, typewriter-agnostic experience. But what about real life? What about people who already
 know how to type in QWERTY, and would need to re-learn everything from scratch in case they would
-switch to a different keyboard layout? Is the whole process worth it? It depends. How much do you
-care about economy of finger motion? If you are like the absolute vast majority of people, you do
+switch to a different keyboard layout? Is the whole process worth it? It depends on how much do you
+care about economy of finger motion. If you are like the absolute vast majority of people, you do
 not care at all. You probably did not even know other keyboard layouts existed until you started
-reading this article—I understand. The question is: should you care? We know that professionals
-involved in finger-centric activities such as guitarists and pianists care a lot about economy of
-finger motion. They in fact care so much that they devote entire afternoons to practicing the same
-motions over and over, identifying and correcting excess movement to reduce and hopefully eliminate
-all unnecessary stress and muscle tension. They do all this in order to develop good technique that
-will both reduce the chance of injury and allow them to glide through the fretboard/keyboard more
-efficiently. If people pay you to spend time in front of a computer, I argue you also are part of
-the "professionals involved in finger-centric activities" set and should care about economy of
-finger motion. In isolation, learning touch typing has a much more positive effect on economy of
-motion than just switching to a non-QWERTY layout. If you are a <70 WPM non-touch typist, I think
-you should seriously consider switching layouts. You would still have to go through a re-training
-process anyway when learning touch typing, but switching also gives you the added advantage of
-unlocking higher potential speed caps and achieving a more confortable technique that no amount of
-QWERTY practicing will ever bring you. If you are a ~100 WPM QWERTY touch typist, I still think it
-is worth switching but the ROI time frame will be longer simply because it will take more time to
-reach your old QWERTY typing speed. Therefore, the sooner you switch, the better.
+reading this article—that is understandable. The question is: should you care? We know that
+professionals involved in finger-centric activities such as guitarists and pianists care a lot about
+economy of finger motion. They in fact care so much that they devote entire afternoons to practicing
+the same motions over and over, identifying and correcting excess movement to reduce and hopefully
+eliminate all unnecessary stress and muscle tension. They do all this in order to develop good
+technique that will both reduce the chance of injury and allow them to glide through the
+fretboard/keyboard more efficiently. If people pay you to spend time in front of a computer, I argue
+you are also part of the "professionals involved in finger-centric activities" group and should care
+about economy of finger motion.
+
+In isolation, learning touch typing has a much more positive effect on economy of motion than just
+switching to a non-QWERTY layout. Usually, though, people who switch to alternative layouts will
+also be forced to learn how to touch type. If you are a <70 WPM non-touch typist, I think you should
+seriously consider switching layouts. You would still have to go through a re-training process
+anyway for touch typing alone, but layout switching also gives you the added advantage of unlocking
+higher potential speed caps and achieving a more confortable technique that no amount of QWERTY
+practicing will ever bring you. If you are a ~100 WPM QWERTY touch typist, I still think it is worth
+switching but the ROI time frame will be longer, simply because it will take more time to reach your
+old QWERTY typing speed. Therefore, the sooner you switch, the better.
 
 I switched from QWERTY to Colemak on 2021 and so far I have not had any reason to regret it. Before
-the switch, I was already able to type ~110 WPM with QWERTY. It took me around six months (30m/1h of
-everyday practice) to reach and eventually surpass that speed using the new layout, but the
-improvements in finger comfort and relieved tension were noticeable since the beginning. I am still
-able to type in QWERTY on my computer keyboard even though my top QWERTY speed has now significantly
-decreased to an average of 70 WPM, but it is not clear how much of this decline is only due to the
-layout switching or simply from the fact that I have not practiced QWERTY anymore for all these
-years. My QWERTY thumb-typing abilities on phone screens has not changed at all. A Colemak-specific
-advantage for QWERTY-native typists I only realized _in medias res_ is that your most common
-keyboard shortcuts will look the same in both layouts. Even after switching, you will still be able
-to copy (`CTRL + C`), cut (`CTRL + X`), paste (`CTRL + V`), select all (`CTRL + A`), undo (`CTRL +
-Z`) and close windows (`CTRL + W`) without re-training your muscle memory. To be completely honest,
-I still have yet to come across a valid argument against learning alternative keyboard layouts.
-I will quote some of the ones I most commonly found being thrown around down below alongside my own
-response to them, in order to let you make you own mind up about this whole switching matter by
-also hearing "the other side" of the argument:
+the switch, I was already able to type 110 WPM with QWERTY. It took me around six months (~30
+minutes of everyday practice) to reach and eventually surpass that speed using the new layout, but
+the improvements in finger comfort and the amounts of relieved tension were noticeable since the
+beginning. I am still able to type in QWERTY on my computer keyboard even though my top QWERTY speed
+has now significantly decreased to an average of 70 WPM, but it is not clear how much of this
+decline is only due to the layout switching or simply from the fact that I have not been practicing
+QWERTY anymore since 2021. My QWERTY thumb-typing abilities on phone screens have remained
+completely intact. A Colemak-specific advantage for QWERTY-native typists I only realized _in medias
+res_ is that your most common keyboard shortcuts will look the same in both layouts. Even after
+switching, you will still be able to copy (`CTRL + C`), cut (`CTRL + X`), paste (`CTRL + V`), select
+all (`CTRL + A`), undo (`CTRL + Z`) and close windows (`CTRL + W`) without re-training your muscle
+memory. To be completely honest, I still have yet to come across a valid argument against learning
+alternative keyboard layouts. I will quote some of the ones I most commonly found being thrown
+around down below alongside my own response to them, in order to let you make you own mind up about
+this whole switching matter by also hearing the other side of the argument.
 
-- QWERTY is faster because most of the fastest typists use QWERTY.
-  - This is like saying men are able to create compose much better classical music than women
-    because most of the best classical composers are men. The reason is purely statistical and has
-    nothing to do with the merits of the layouts themselves. Most of the fastest typist use QWERTY
-    simply because the vast majority of people use QWERTY.
-- If [alternative layout] is actually better than QWERTY, then [alternative layout] would have long
-  become the new standard.
-  - This statement is very popular because it sounds logical, but history teaches us the world
-    rarely follows logical reasoning. Most times normality is very far from what would be considered
-    "logical". For example, since the overall population gender distribution is roughly 50% male and
-    50% female, it would make sense for a company striving to only hire the absolute best people to
-    be consisted of 50% male and 50% female employees. What happens instead is that companies prefer
-    hiring uncapable men to perfectly competent women to the point that some states explicitly have
-    to force companies to hire women, and people (mostly men) are convinced this coercing practice
-    superimposed by the law makes it very unfair for the men that are left out. Go figure.
-- Even if [alternative layout] is better, the comfort/speed improvement rate compared to QWERTY is
-  too slim to make the switching effort worth it.
-  - Again, nobody that I know of has yet done any kind of fair or accurate comparative study about
-    keyboard layout usage and how they relate to comfort/speed improvements—this kind of
-    discussion will inevitably draw from anecdotical evidence and/or personal past experience with
-    the topic—but let's just assume that we know for a fact the alternative layout X is slightly
-    faster than QWERTY by, say, 4%.
-  - Typing is a very repetitive activity and all the advantages, however slim, add up to significant
-    amounts very quickly.
+> Fallacy: _QWERTY is faster because most of the fastest typists use QWERTY._
+
+This is like saying men are able to create compose much better classical music than women
+because most of the best classical composers are men. The reason is purely statistical and has
+nothing to do with the merits of the layouts themselves. Most of the fastest typist use QWERTY
+simply because the vast majority of people use QWERTY.
+
+> Fallacy: _If [alternative layout] is actually better than QWERTY, then [alternative layout] would
+> have long become the new standard._
+
+This statement is very popular because it sounds logical, but history teaches us the world
+rarely follows logical reasoning. Most times normality is very far from what would be considered
+"logical". For example, since the overall population gender distribution is roughly 50% male and
+50% female, it would make sense for a company striving to only hire the absolute best people to
+be consisted of 50% male and 50% female employees. What happens instead is that companies prefer
+hiring uncapable men to perfectly competent women to the point that some states explicitly have
+to force companies to hire women, and people (mostly men) are convinced this coercing practice
+superimposed by the law makes it very unfair for the men that are left out. Go figure.
+
+> Fallacy: _Even if [alternative layout] is better, the comfort/speed improvement rate compared to
+> QWERTY is too slim to make the switching effort worth it._
+
+Again, nobody that I know of has yet done any kind of fair or accurate comparative study about
+keyboard layout usage and how they relate to comfort/speed improvements—this kind of discussion
+will inevitably draw from anecdotical evidence and/or personal past experience with the topic.
+But for the sake of the argument, let's just assume we know for a fact that switching to DVORAK
+gives typists an average 4% increase in speed over QWERTY. In fact, this is exactly what the
+above-mentioned publication reports, before reaching the same conclusion:
+
+> Dvorak trained students with his keyboard and they were said to “sweep the field”. [...] According
+> to West’s findings the QWERTY users reached a typing speed of 81.95 wpm and the DVORAK trained
+> users achieved 84.90 wpm. This is a 4% superiority for Dvorak’s keyboard. This does not sound like
+> “sweeping the field” and it is questionable whether QWERTY users will be persuaded by this small
+> gain to switch over to [DVORAK].
+
+A 4% speed increase does not seem worth the effort at first glance, but it starts sounding very
+enticing as soon as you realize that any kind of small gain, when repeated hundreds of thousands of
+times throughout the day, will start to add up and reach distinguishable mass very quickly. Let's
+say, as a highly conservative estimate, that the average employee spends a total of three hours out
+of their eight-hour work day just typing. From an employer perpective, this means your company could
+potentially benefit from almost two hours and a half of monthly additional work being done for free
+for each employee that switches to a 4% faster keyboard layout (180 minutes \* 4% saved typing time \* 5 work days \* 4 weeks = 144 saved minutes every month).
+
+I think that this result alone is plenty persuading for any employer, but let's not stop there.
+In my experience, a 4% speed increase is an artificially low value because it assumes that
+people were already great touch typists before the switch. What normally happens instead is that
+most employees are not touch typists, and will have to learn both touch typing and a new layout
+simultaneously during the re-training process. After a hypothetically long re-training during 24
+total hours, given a reasonable starting average WPM of 60 and a reasonable final average WPM of
+100, every employee will be not just 4%, but 67% more productive. The difference in impact is
+simply striking. Again, from an employer perspective this means that **every employee will then
+able to work one full work week more every month** compared to before (40.2 total hours of saved
+time) and the typing classes will have basically paid for themselves. From an employee
+perspective, this means you could potentially be able to slack off for one full week every month
+and get paid to do it, without any noticeable decrease in work performance. I suspect that as
+soon as CEOs realize this, there will be mandatory typing courses and custom keyboards with
+ergonomic layouts available for basically every kind of office job position that exists right
+now and will ever exist in the foreseeable future. Luckily for employees, CEOs do not seem to
+care about keyboards at all yet and prefer alternative ways of boosting productivity, such as
+fun team building activities.
 
 ### Managing open windows
 
-#### Short-term
+#### Short-term window managing improvements
 
 - short-term: use default keyboard shortcuts for switching/opening/closing windows
+
+#### Medium-term window managing improvements
+
 - medium-term: sort windows in dedicated virtual desktops/workspaces
+
+#### Long-term window managing improvements
+
 - long-term: use a custom tiling window manager
 
 In this case, medium- and long-term solutions almost manage to abstract away completely the number
