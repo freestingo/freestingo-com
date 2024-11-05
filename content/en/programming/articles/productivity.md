@@ -9,7 +9,6 @@ keywords:
   [programming, productivity, window manager, vim, WPM, typing, bottleneck]
 date: 2024-10-22
 topics: [debugging]
-draft: true
 ---
 
 Every job consists of its own special set of core and peripheral skills. In the table below, I
@@ -349,18 +348,12 @@ now and will ever exist in the foreseeable future. Luckily for employees, CEOs d
 care about keyboards at all yet and prefer alternative ways of boosting productivity, such as
 fun team building activities.
 
+## Everything below is still a work in progress and will be fleshed out sometime in the future.
+
 ### Managing open windows
 
-#### Short-term window managing improvements
-
 - short-term: use default keyboard shortcuts for switching/opening/closing windows
-
-#### Medium-term window managing improvements
-
 - medium-term: sort windows in dedicated virtual desktops/workspaces
-
-#### Long-term window managing improvements
-
 - long-term: use a custom tiling window manager
 
 In this case, medium- and long-term solutions almost manage to abstract away completely the number
@@ -384,21 +377,3 @@ of external screens you need to have in order to work productively.
   work in progress, etc.)
 - medium-term: use git aliases and github/gitlab CLI for creating pull requests
 - long-term: use a terminal-based git browser
-
-### Possible friction points for long-term optimizations
-
-A custom tailored programming environment can be a huge productivity boost for individual
-programmers, but nobody works in a vacuum. In some cases it could even introduce unnecessary
-friction and hurt the overall team's productivity. Some variables to be carefully taken in
-consideration before going down the heavy customization path are:
-
-- intra-company or intra-team IDE variance
-  - if you use a custom vim build but the whole team only knows and uses Visual Studio, for example,
-    your productivity will plummet the moment you encounter a problem that you don't know how to
-    solve and your team only knows how to solve through Visual Studio custom commands
-- amount of time you will spend pair programming
-  - looking at a completely foreign setup for a colleague can be daunting; you will risk spending
-    more time explaining your setup than actually doing the work you're supposed to
-
-A very simple way to neutralize this kind of friction is just to have all of your optimizations
-easily revertable at any time.
