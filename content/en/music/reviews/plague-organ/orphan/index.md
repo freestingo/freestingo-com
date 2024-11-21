@@ -9,7 +9,7 @@ date: 2024-10-08
 artists: [Plague Organ]
 release-years: [2020]
 genres: [post-metal]
-votes: [7.5]
+votes: [8]
 streamingPlatforms:
   - name: bandcamp
     url: https://sentientruin.bandcamp.com/album/orphan

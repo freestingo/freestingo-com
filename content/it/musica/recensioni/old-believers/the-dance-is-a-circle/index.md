@@ -9,7 +9,7 @@ date: 2024-10-07
 artists: [Old Believers]
 release-years: [2021]
 genres: [noise, drone]
-votes: [7.5]
+votes: [6.5]
 streamingPlatforms:
   - name: bandcamp
     url: https://theoldbelievers.bandcamp.com/album/the-dance-is-a-circle-whose-centre-is-the-devil-and-in-it-all-turn-to-the-left
