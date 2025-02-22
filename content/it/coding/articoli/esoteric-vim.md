@@ -18,7 +18,7 @@ chiuderlo: perché mai dovrei usare un editor di testo così strampalato?
 
 ### 1. Aggiungere valori numerici espliciti a una classe enum
 
-Dovevo esplicitare i valore di una enum C# chiamata `TranslationCodeId` come parte di un task. Era
+Un giorno a lavoro dovevo esplicitare i valore di una enum C# chiamata `TranslationCodeId`. Era
 necessario perché lasciarli impliciti avrebbe potuto permettere (nel nostro caso, ha permesso)
 l'aggiunta di nuovi valori nel mezzo della definizione, causando uno shift in tutti i campi
 successivi e quindi discrepanze nel caso in cui questi venissero anche salvati nella loro forma
@@ -68,88 +68,63 @@ public enum TranslationCodeId
 
 Si tratta di un _change_ allo stesso tempo concettualmente semplicissimo, ma tecnicamente infernale
 non appena la enum non contiene solo sei campi come qui sopra ma, ad esempio, 800. Un lavoro manuale
-di questo tipo diventa subito un compito lunghissimo e noiosissimo. Con Vim, puoi completarlo in
-cinque passaggi nel giro di venti secondi circa:
+di questo tipo diventa subito un compito lunghissimo e noiosissimo. Con Vim, puoi completarlo in tre
+passaggi:
 
-1. Usa un [_visual block_](https://vimhelp.org/visual.txt.html#visual-block "'visual-block' su vimhelp.org")
-   per inserire un {{< highlight csharp "hl_inline=true,style=github-dark" >}}0 {{< / highlight >}}
-   prima di ogni campo enum:
+1. Inserisci il primo {{< highlight csharp "hl_inline=true,style=github-dark" >}}0{{< / highlight >}}
+   a mano come una sorta di template da adattare automaticamente a tutti gli altri campi:
 
-   `<C-v>/}kI0 <Esc>`
+   `gg/,<Enter>i = 0<Esc>`
 
-   {{< details summary="Spiegazione" >}}
-   - _prerequisiti_: posiziona il cursore sul primo carattere del [primo campo enum]({{< ref
-     "#enum-pre-4" >}})
-   - `<C-v>` apre la selezione _visual block_
-   - `/}k` espande la selezione fino alla [graffa di chiusura]({{< ref "#enum-pre-16" >}}) e naviga
-     una linea verso l'alto, in modo da posizionare il cursore sulla [riga dell'ultimo campo
-     enum]({{< ref "#enum-pre-15" >}})
-   - `I0 <Esc>` inserisce lo {{< highlight csharp "hl_inline=true,style=github-dark" >}}0 {{< /
-     highlight >}} seguito da uno spazio prima di tutte le righe selezionate
-   {{< /details >}}
+   {{< details summary="Spiegazione" open=true >}}
 
-2. Lo step precedente purtroppo aggiunge lo {{< highlight csharp "hl_inline=true,style=github-dark"
-   >}}0 {{< / highlight >}} anche nelle righe contenenti commenti. Puoi rimuoverli facilmente col
-   comando [_substitute_](https://vimhelp.org/change.txt.html#%3Asubstitute "Documentazione del comando su vimhelp.org"):
+   - `gg/,<Enter>` posiziona il cursore prima all'inizio del file, poi sulla virgola più vicina
+     tramite la [ricerca per pattern](https://vimhelp.org/pattern.txt.html#%2F "'/' su vimhelp.org")
+   - `i = 0<Esc>` inserisce il nostro valore esplicito
+     {{< /details >}}
 
-   `:%s/0 \/\//\/\/`
+2. Inserisci un altro valore sul prossimo campo enum, ma questa volta registra tutte le tue azioni
+   in una [macro](https://vimhelp.org/repeat.txt.html#q "'q recording' su vimhelp.org") in modo da
+   poterli poi ri-eseguire automaticamente in futuro. Un modo semplice per farlo potrebbe essere
+   copiare il valore dal campo precedente, incollarlo alla destra del campo corrente e incrementarlo
+   di uno:
 
-   {{< details summary="Spiegazione" >}}
-   - `:%s/old/new` ad esempio sostituisce la parola `old` con `new` una volta per ogni riga nel tuo
-     file corrente. Noi vogliamo sostituire {{< highlight csharp "hl_inline=true,style=github-dark"
-     >}}0 //{{< / highlight >}} con {{< highlight csharp "hl_inline=true,style=github-dark"
-     >}}//{{< / highlight >}}, ma dobbiamo anteporre un _back-slash_ a ogni _forward-slash_ in
-     quanto il comando supporta la sintassi regex
-   {{< /details >}}
+   `nnqm<C-o>y2F <C-i>P<C-a>nnq`
 
-3. A questo punto dovresti avere uno {{< highlight csharp "hl_inline=true,style=github-dark" >}}0
-   {{< / highlight >}} appena prima di ogni campo enum. Puoi ora trasformare la colonna di zeri
-   negli reali valori di ciascun campo semplicemente [incrementandoli in modo
-   sequenziale](https://vimhelp.org/change.txt.html#CTRL-A "Documentazione del comando su vimhelp.org"):
+   {{< details summary="Spiegazione" open=true >}}
 
-   `vi}ojjg<C-a>`
+   - `nn` posiziona il cursore sulla virgola appena dopo il campo enum che stai per modificare,
+     perché stai dicendo a Vim di passare al prossimo risultato di ricerca due volte, e l'ultima
+     cosa cercata è il carattere `,`
+   - `qm` fa partire la registrazione della macro, salvandola sul tasto `m`. La nostra intenzione è
+     eseguire i comandi necessari sia per modificare il campo corrente, sia per piazzare il cursore
+     sul punto giusto alla fine della sequenza. Questo ultimo punto è di fondamentale importanza: ci
+     permetterà di iterare l'esecuzione della nostra macro a nostro piacimento, senza bisogno di
+     alcun intervento manuale
+   - `<C-o>y2F ` naviga alla [posizione precedente](https://vimhelp.org/motion.txt.html#CTRL-O "'jump list' su vimhelp.org")
+     e copia il testo alla sinistra del cursore fino al secondo spazio
+   - `<C-i>P` riposiziona il cursore alla sua posizione originaria prima del salto e incolla il
+     testo sulla sinistra del cursore
+   - `<C-a>` [incrementa](https://vimhelp.org/change.txt.html#CTRL-A "'C-a' su vimhelp.org") il
+     numero su cui risiede attualmente il tuo cursore
+   - `nnq` posiziona il cursore sulla virgola successiva, e chiude la registrazione macro
+     {{< /details >}}
 
-   {{< details summary="Spiegazione" >}}
-   - `vi}` seleziona tutto il testo all'interno delle parentesi graffe
-   - `ojj` sposta il cursore dall'ultima riga alla prima riga della tua selezione corrente, e naviga
-     due righe verso il basso in modo da escludere il primo campo enum dal _visual block_
-   - `g<C-a>` incrementa in modo sequenziale il primo numero in ciascuna delle righe attualmente
-     selezionate
-   {{< /details >}}
+3. Fai fare il lavoro sporco a Vim. Ad esempio, se la tua enum contiene 800 campi puoi fare:
 
-4. Ora dobbiamo solo far compilare il codice: registra una
-   [macro](https://vimhelp.org/repeat.txt.html#q "'q recording' su vimhelp.org") in cui aggiusti la
-   sintassi per la prima riga problematica. Una possibile sequenza di comandi utile a questo scopo
-   potrebbe essere:
+   `798@m`
 
-   `qfdf $i = <Esc>px/,<Enter>^q`
+   {{< details summary="Spiegazione" open=true >}}
 
-   {{< details summary="Spiegazione" >}}
-   - _prerequisiti_: posiziona il cursore di nuovo sul primo carattere del [primo campo enum]({{<
-     ref "#enum-pre-4" >}})
-   - `qf` fa partire la registrazione della nostra macro salvandola sul tasto `f`
-   - `df` rimuove tutti i caratteri fino al primo spazio nella riga (incluso)
-   - `$` posiziona il cursore sulla fine della riga
-   - `i = <Esc>` inserisce `=` appena prima della virgola
-   - `px` incolla i caratteri rimossi precedentemente con `df` nel posto giusto e rimuove lo spazio
-     bianco, ormai inutile
-   - `/,<Enter>^` naviga alla prossima virgola e posiziona il cursore all'inizio della riga, in modo
-     da tornare al punto di partenza e rendere la macro facilmente ripetibile in sequenza
-   - `q` completa la registrazione della macro
-   {{< /details >}}
-
-5. Esegui la macro tante volte quanto necessarie per aggiustare tutti i campi rimanenti. Ad esempio,
-   se la tua enum contiene 800 campi, puoi semplicemente fare:
-
-   `799@f`
-
-   {{< details summary="Spiegazione" >}}
-   - `799` dice a Vim di eseguire il comando successivo 799 volte. Perché 799? Perché hai 800 campi,
-     ma ti sei già occupato del primo nello step 4.
-   - `@f` esegue la macro salvata sul tasto `f`
-   {{< /details >}}
+   - [prefiggere un qualsiasi numero prima di un comando](https://vimhelp.org/intro.txt.html#count "'count' su vimhelp.org") farà eseguire il comando non una volta sola, ma esattamente tante
+     volte quante indicate dal numero stesso; in questo caso, 798 volte. Come mai 798? Perché ci
+     sono 800 campi in tutto, ma ti sei già occupato del primo nello step 1 e del secondo nello step
+     2
+   - `@m` esegue la macro precedentemente salvata sul tasto `m`
+     {{< /details >}}
 
 La tua enum ora dovrebbe mostrare correttamente tutti i valori numerici in maniera esplicita [in
 questo modo]({{< ref "#enum-post-1" >}}). Combinando diversi comandi abbastanza semplici presi
-singolarmente (_visual blocks_, sostituzioni regex, incrementi numerici sequenziali e macro) hai
-immediatamente completato quello che sarebbe altrimenti stato un pomeriggio di tedio.
+singolarmente (ricerca per pattern, navigazione della _jump list_, incrementi numerici sequenziali)
+puoi esprimere comportamenti molto complessi e portare a termine in venti secondi quello che sarebbe
+altrimenti stato un pomeriggio di tedio.

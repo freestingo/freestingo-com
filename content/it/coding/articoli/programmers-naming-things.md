@@ -8,6 +8,7 @@ description: Un compendio dei peggiori nomi mai dati da programmatori
 keywords: [il peggio di, programming, cache invalidation, javascript, vim, php]
 date: 2024-06-06
 topics: [il peggio di, debuggare, tristezze in php]
+draft: true
 ---
 
 > There are only two hard things in Computer Science: cache invalidation and naming things.
