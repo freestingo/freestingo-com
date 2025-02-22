@@ -68,63 +68,39 @@ public enum TranslationCodeId
 
 Si tratta di un _change_ allo stesso tempo concettualmente semplicissimo, ma tecnicamente infernale
 non appena la enum non contiene solo sei campi come qui sopra ma, ad esempio, 800. Un lavoro manuale
-di questo tipo diventa subito un compito lunghissimo e noiosissimo. Con Vim, puoi completarlo in tre
+di questo tipo diventa subito un compito lunghissimo e noiosissimo. Con Vim, puoi completarlo in due
 passaggi:
 
-1. Inserisci il primo {{< highlight csharp "hl_inline=true,style=github-dark" >}}0{{< / highlight >}}
-   a mano come una sorta di template da adattare automaticamente a tutti gli altri campi:
+1. Assegna `0` a ciascun campo:
 
-   `gg/,<Enter>i = 0<Esc>`
+   `:g/,$/v/\/\//norm $i = 0`
 
    {{< details summary="Spiegazione" open=true >}}
 
-   - `gg/,<Enter>` posiziona il cursore prima all'inizio del file, poi sulla virgola più vicina
-     tramite la [ricerca per pattern](https://vimhelp.org/pattern.txt.html#%2F "'/' su vimhelp.org")
-   - `i = 0<Esc>` inserisce il nostro valore esplicito
+   - `:g` esegue comandi sulle linee contenenti un determinato pattern, mentre `:v` esegue comandi
+     sulle linee NON contenenti un determinato pattern. Si può quindi innestare un `:v` dentro un
+     `:g` per [operare solo su linee contenenti `foo`, ma non `bar`](https://vimhelp.org/repeat.txt.html#multi-repeat "'multi-repeat' su vimhelp.org").
+     Possiamo sfruttare questa feature per isolare i campi enum e ignorare eventuali commenti
+     prima matchando le linee che finiscono con una virgola (`,$`), poi escludendo le linee che
+     contengono un doppio slash (`\/\/`)
+   - `norm $i = 0` è un comando [`normal`](https://vimhelp.org/various.txt.html#%3Anormal "':normal' su vimhelp.org")
+     con cui navighiamo alla fine della linea corrente e inseriamo `= 0` appena prima del cursore.
      {{< /details >}}
 
-2. Inserisci un altro valore sul prossimo campo enum, ma questa volta registra tutte le tue azioni
-   in una [macro](https://vimhelp.org/repeat.txt.html#q "'q recording' su vimhelp.org") in modo da
-   poterli poi ri-eseguire automaticamente in futuro. Un modo semplice per farlo potrebbe essere
-   copiare il valore dal campo precedente, incollarlo alla destra del campo corrente e incrementarlo
-   di uno:
+2. Incrementa tutti i valori numerici in maniera sequenziale:
 
-   `nnqm<C-o>y2F <C-i>P<C-a>nnq`
+   `vi}/0,$<Enter>ng<C-a>`
 
    {{< details summary="Spiegazione" open=true >}}
 
-   - `nn` posiziona il cursore sulla virgola appena dopo il campo enum che stai per modificare,
-     perché stai dicendo a Vim di passare al prossimo risultato di ricerca due volte, e l'ultima
-     cosa cercata è il carattere `,`
-   - `qm` fa partire la registrazione della macro, salvandola sul tasto `m`. La nostra intenzione è
-     eseguire i comandi necessari sia per modificare il campo corrente, sia per piazzare il cursore
-     sul punto giusto alla fine della sequenza. Questo ultimo punto è di fondamentale importanza: ci
-     permetterà di iterare l'esecuzione della nostra macro a nostro piacimento, senza bisogno di
-     alcun intervento manuale
-   - `<C-o>y2F ` naviga alla [posizione precedente](https://vimhelp.org/motion.txt.html#CTRL-O "'jump list' su vimhelp.org")
-     e copia il testo alla sinistra del cursore fino al secondo spazio
-   - `<C-i>P` riposiziona il cursore alla sua posizione originaria prima del salto e incolla il
-     testo sulla sinistra del cursore
-   - `<C-a>` [incrementa](https://vimhelp.org/change.txt.html#CTRL-A "'C-a' su vimhelp.org") il
-     numero su cui risiede attualmente il tuo cursore
-   - `nnq` posiziona il cursore sulla virgola successiva, e chiude la registrazione macro
-     {{< /details >}}
-
-3. Fai fare il lavoro sporco a Vim. Ad esempio, se la tua enum contiene 800 campi puoi fare:
-
-   `798@m`
-
-   {{< details summary="Spiegazione" open=true >}}
-
-   - [prefiggere un qualsiasi numero prima di un comando](https://vimhelp.org/intro.txt.html#count "'count' su vimhelp.org") farà eseguire il comando non una volta sola, ma esattamente tante
-     volte quante indicate dal numero stesso; in questo caso, 798 volte. Come mai 798? Perché ci
-     sono 800 campi in tutto, ma ti sei già occupato del primo nello step 1 e del secondo nello step
-     2
-   - `@m` esegue la macro precedentemente salvata sul tasto `m`
+   - `vi}` seleziona tutto il testo all'interno delle parentesi graffe
+   - `/0,$<Enter>` [naviga alla prima istanza](https://vimhelp.org/pattern.txt.html#%2F "'/' su vimhelp.org")
+     di uno zero seguito da una virgola posta a fine linea
+   - `n` naviga al prossimo risultato di ricerca. A questo punto dovresti aver selezionato tutti gli
+     zeri tranne il primo
+   - `g<C-a>` [incrementa sequenzialmente](https://vimhelp.org/change.txt.html#CTRL-A "'CTRL-A' su vimhelp.org")
+     tutti i numeri attualmente selezionati
      {{< /details >}}
 
 La tua enum ora dovrebbe mostrare correttamente tutti i valori numerici in maniera esplicita [in
-questo modo]({{< ref "#enum-post-1" >}}). Combinando diversi comandi abbastanza semplici presi
-singolarmente (ricerca per pattern, navigazione della _jump list_, incrementi numerici sequenziali)
-puoi esprimere comportamenti molto complessi e portare a termine in venti secondi quello che sarebbe
-altrimenti stato un pomeriggio di tedio.
+questo modo]({{< ref "#enum-post-1" >}}).

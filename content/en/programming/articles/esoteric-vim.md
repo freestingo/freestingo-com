@@ -69,64 +69,39 @@ public enum TranslationCodeId
 It is after all a conceptually very easy edit, but it can easily become a nightmare if your enum
 does not contain six values only, but, say, 800. Doing it manually would simply be unthinkable, or
 at the very least a painfully boring, incredibly time-consuming task. In Vim, you can do it all in
-three steps:
+two steps:
 
-1. Insert the first {{< highlight csharp "hl_inline=true,style=github-dark" >}}0{{< / highlight >}}
-   manually. This gives you a template you can then iterate and adapt automatically to all the other
-   fields:
+1. Assign `0` to all enum fields:
 
-   `gg/,<Enter>i = 0<Esc>`
+   `:g/,$/v/\/\//norm $i = 0`
 
    {{< details summary="Explanation" open=true >}}
 
-   - `gg/,<Enter>` first places your cursor at the start of the file, then on the nearest comma
-     character it finds through [pattern search](https://vimhelp.org/pattern.txt.html#%2F "'/' on vimhelp.org")
-   - `i = 0<Esc>` inserts the explicit value
+   - `:g` executes commands on all matching lines; `:v` executes commands on all non-matching lines.
+     You can nest `:v` into `:g` in order to [only operate on lines that match `foo`, but do not
+     match `bar`](https://vimhelp.org/repeat.txt.html#multi-repeat "'multi-repeat' on vimhelp.org").
+     We can leverage this feature to only target actual enum fields and skip all the code comments
+     by first matching all lines that end with a comma (`,$`), and then excluding all lines from the
+     previous match that contain two forward-slashes (`\/\/`)
+   - `norm $i = 0` is a [`normal`](https://vimhelp.org/various.txt.html#%3Anormal "':normal' on vimhelp.org")
+     command telling Vim to navigate to the end of the current line and insert `= 0` right before
+     the cursor
      {{< /details >}}
 
-2. Insert another value on the next field, but this time record all your actions into a Vim
-   [macro](https://vimhelp.org/repeat.txt.html#q "'q recording' on vimhelp.org") so that all changes
-   can be indefinitely executed automatically later. One simple way to do it could be just to copy
-   the value from the previous field, paste it next to the current field and increment it:
+2. Increment all numeric values sequentially:
 
-   `nnqm<C-o>y2F <C-i>P<C-a>nnq`
+   `vi}/0,$<Enter>ng<C-a>`
 
    {{< details summary="Explanation" open=true >}}
 
-   - `nn` places your cursor on the comma at the end of the next field you are about to edit,
-     because you are telling Vim to go to the next search result twice and the last thing you
-     searched was the `,` character.
-   - `qm` starts recording a macro, saving it on the `m` key. Our intention is to perform all
-     necessary commands in order to both update the current field and land the cursor on the right
-     spot at the end of our sequence; this last point is key because, when done right, it will
-     easily allow us to just iterate our macro executions without doing any further manual
-     adjustments
-   - `<C-o>y2F ` navigates to the [previous cursor
-     position](https://vimhelp.org/motion.txt.html#CTRL-O "jump list documentation on vimhelp.org")
-     and copies all text going backwards until the second whitespace character it finds
-   - `<C-i>P` navigates back to where we were before the previous jump and pastes our text right
-     before the cursor position
-   - `<C-a>` [increments](https://vimhelp.org/change.txt.html#CTRL-A "Command documentation on
-vimhelp.org") the number currently sitting under your cursor
-   - `nnq` again places your cursor at the end of the next field you are about to edit, and ends the
-     macro recording
-     {{< /details >}}
-
-3. Now you can just let Vim do all the work. For example, if your enum has 800 fields, you can just
-   do:
-
-   `798@m`
-
-   {{< details summary="Explanation" open=true  >}}
-
-   - [prefixing any number before a command](https://vimhelp.org/intro.txt.html#count "count documentation on vimhelp.org")
-     will execute said command not once but exactly that many amount of times. In this case, 798
-     times. Why 798? Because you have 800 enum fields, but you already
-     fixed the first one in step 1, and the second one in step 2
-   - `@m` executes the macro you previously saved on the `m` key
+   - `vi}` selects all text within curly brackets
+   - `/0,$<Enter>` [navigates to the first occurrence](https://vimhelp.org/pattern.txt.html#%2F "'/' on vimhelp.org")
+     of a zero followed by a comma at the end of a line
+   - `n` navigates to the next search result. At this point, all zeroes except the first one should
+     be selected
+   - `g<C-a>` [sequentially increments](https://vimhelp.org/change.txt.html#CTRL-A "Command documentation on vimhelp.org")
+     all numbers within the current selection
      {{< /details >}}
 
 Your enum class should now correctly show all of its explicit values [like this]({{< ref
-"#enum-post-1" >}}). By composing pretty simple commands (pattern search, jump list navigation,
-sequential number increments) you are quickly able to express complex behaviours and fulfill in
-twenty seconds what would otherwise have been a pretty tedious afternoon.
+"#enum-post-1" >}}).
