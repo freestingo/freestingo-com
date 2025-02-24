@@ -21,6 +21,26 @@ a {
   }
 }
 
+@media (prefers-color-scheme: light) {
+  pre {
+    background-color: whitesmoke !important;
+    color: black !important;
+  }
+
+  span[style*="color:#a5d6ff"],
+  span[style*="color:#79c0ff"] {
+    color: #0a3069 !important;
+  }
+  
+  span[style*="color:#ff7b72"] {
+    color: #cf222e !important;
+  }
+
+  span[style*="display:flex; background-color:#6e7681"] {
+    background-color: lightgray !important;
+  }
+}
+
 main {
   flex: 1 1 0%;
 }
@@ -39,14 +59,6 @@ footer > div {
   align-items: center;
   padding-bottom: 0.5rem;
   font-size: smaller;
-}
-
-h3 {
-  position: relative;
-}
-
-h3 > span {
-  overflow-wrap: break-word;
 }
 
 fieldset {
