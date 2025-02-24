@@ -130,3 +130,8 @@ sup {
 .article-title {
   margin-bottom: 0.5rem;
 }
+
+.highlight div,
+.highlight pre {
+  overflow-x: auto;
+}

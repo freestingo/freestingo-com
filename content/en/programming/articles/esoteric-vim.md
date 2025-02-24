@@ -48,7 +48,9 @@ incredibly time-consuming task. In Vim, you can do it all in two steps:
 
 #### 1.1. Assign `0` to all enum fields
 
-`:g/,$/v/\/\//norm $i = 0`
+```vim {style=github-dark}
+:g/,$/v/\/\//norm $i = 0
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -65,7 +67,9 @@ incredibly time-consuming task. In Vim, you can do it all in two steps:
 
 #### 1.2. Increment all numeric values sequentially
 
-`vi}/0,$<Enter>ng<C-a>`
+```vim {style=github-dark}
+vi}/0,$<Enter>ng<C-a>
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -137,7 +141,9 @@ context every time in order to correctly decide whether you must be replacing a 
 comma, or viceversa. With Vim, you can completely offload the mental burden of context evaluation to
 your editor instead, and fix everything in one go:
 
-`:/VALUES$/+,/^GO$/-2s/;$/,/ | /^GO$/-s/,$/;/`
+```vim {style=github-dark}
+:/VALUES$/+,/^GO$/-2s/;$/,/ | /^GO$/-s/,$/;/
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -224,7 +230,9 @@ and paste them into your file. It should look something like this:
 Discard everything besides the first and the fourth column, and format the result into a
 Vimscript dictionary:
 
-`` `[v`]:'<,'>s/\/\(\d\d\)\t.*\t255\(.*\)\t.*/'\1': '255\2',/<Enter>gv:'<,'>j<Enter>:s/\(.*\)/{ \1 }/ ``
+```vim {style=github-dark}
+`[v`]:'<,'>s/\/\(\d\d\)\t.*\t255\(.*\)\t.*/'\1': '255\2',/<Enter>gv:'<,'>j<Enter>:s/\(.*\)/{ \1 }/
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -245,7 +253,9 @@ Vimscript dictionary:
 
 Save your dictionary for later use and remove it from your file:
 
-`"mdd`
+```html {style=github-dark}
+"mdd
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -260,7 +270,9 @@ You can store parts of C# code that do not change between different `RestrictedI
 declarations each in its own separate register to be able to not only reduce future typing errors,
 but also retrieve them faster.
 
-`/new Re<Enter>"ayf";;"byf";;"cy$`
+```vim {style=github-dark}
+/new Re<Enter>"ayf";;"byf";;"cy$
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -301,7 +313,9 @@ XXX.XXX.XXX.XXX/23
 
 Remove all redundant empty lines from your pasted text before continuing:
 
-`` `[v`]:'<,'>g/^$/d ``
+```vim {id=empty-line-remover,style=github-dark}
+`[v`]:'<,'>g/^$/d
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -312,8 +326,9 @@ Remove all redundant empty lines from your pasted text before continuing:
 
 All the prep work is now done. Map all of your IPs into C# objects!
 
-`gv:'<,'>s/\(.*\)\/\(.*\)$/\='<C-r>a' . submatch(1) . '<C-r>b' . <C-r>m[submatch(2)] .  '<C-r>c'`
-{#mapping-command}
+```vim {id=mapping-command,style=github-dark}
+gv:'<,'>s/\(.*\)\/\(.*\)$/\='<C-r>a' . submatch(1) . '<C-r>b' . <C-r>m[submatch(2)] .  '<C-r>c'
+```
 
 {{< details summary="Explanation" open=true >}}
 
@@ -337,8 +352,9 @@ It is worth noting that you only ever need to do the above prep work once, makin
 particularly efficient for periodical tasks. Subnet mask cheat-sheets are not going to change in the
 foreseeable future—once you generate your vimscript dictionary and type out [the last mapping command]({{< ref "#mapping-command" >}}),
 you can just assign it directly to a keymap of your choice, for example `<leader>cidr`{{< footnote id="footnote-3-source" label="3" anchor="footnote-3-target" >}}.
-Given you have also assigned the empty-line-remover command to the `<leader>rel` keymap, for
-example, all you ever need to do next time you are sent a bunch of IPs to whitelist is:
+Given you have also assigned the [empty-line remover]({{< ref "#empty-line-remover" >}}) command to
+the `<leader>rel` keymap, for example, all you ever need to do next time you are sent a bunch of IPs
+to whitelist is:
 
 `p<leader>rel<leader>cidr`
 
