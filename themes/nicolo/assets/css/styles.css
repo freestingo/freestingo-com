@@ -88,6 +88,10 @@ sup {
   font-weight: bold;
 }
 
+.footnote {
+  font-weight: normal;
+}
+
 .list-items {
   display: flex;
   flex-direction: column;

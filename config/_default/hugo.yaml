@@ -3,3 +3,9 @@ title: freestingo
 theme: nicolo
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: true
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
+        title: true
