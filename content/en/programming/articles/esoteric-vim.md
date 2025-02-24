@@ -1,10 +1,10 @@
 ---
 author: Nicolò Traini
 title: Esoteric Vim
-summary: lesser-known features and their time-saving, real-life applications
+summary: niche features and their time-saving, real-life applications
 slug: esoteric-vim
 translationKey: esoteric-vim
-description: A list of lesser-known Vim features and their time-saving, real-life applications
+description: A list of niche Vim features and their time-saving, real-life applications
 keywords: [programming, productivity, vim]
 date: 2025-02-20
 topics: [vim]
@@ -12,11 +12,11 @@ topics: [vim]
 
 This is a compendium of useful yet lesser-known Vim idioms I actually use in my everyday editing,
 saving me dozens (if not hundreds) of hours of work. The article is meant both as a resource for the
-curious vimmer wanting to expand their skill set, and as an answer to the question puzzled
+curious vimmer wanting to expand their vocabulary, and as an answer to the question puzzled
 non-vimmers ask themselves whenever they accidentally open Vim and cannot figure out how to close
 it: why in the world do people even bother learning this weird text editor in the first place?
 
-### 1. Adding explicit number values to existing enum classes
+### 1. Assigning numbers to existing enum classes
 
 Enums with implicit values could allow programmers to silently add new values in the middle,
 effectively making all subsequent ones shift downward and possibly creating discrepancies if any of
@@ -42,7 +42,7 @@ public enum TranslationCodeId
 ```
 
 Your task is therefore to make all the values explicit. It is after all a very easy edit, but it can
-easily become a nightmare if your enum does not contain six values only, but, say, 800. A manual
+quickly become a nightmare if your enum does not contain six values only, but, say, 800. A manual
 update of every single line would simply be unthinkable, or at the very least a painfully boring,
 incredibly time-consuming task. In Vim, you can do it all in two steps:
 
@@ -209,7 +209,7 @@ Use subnet prefixes as keys, and `SubnetMask` addresses as values. This will com
 when constructing our mapping command. Copy all cells from the first table in [this cheat-sheet page](https://www.aelius.com/njh/subnet_sheet.html "Subnet Mask Cheat Sheet"),
 and paste them into your file. It should look something like this:
 
-```
+``` {style=github-dark}
 /30 4 2 255.255.255.252 1/64
 /29 8 6 255.255.255.248 1/32
 /28 16 14 255.255.255.240 1/16
@@ -356,7 +356,9 @@ Given you have also assigned the [empty-line remover]({{< ref "#empty-line-remov
 the `<leader>rel` keymap, for example, all you ever need to do next time you are sent a bunch of IPs
 to whitelist is:
 
-`p<leader>rel<leader>cidr`
+```vim {style=github-dark}
+p<leader>rel<leader>cidr
+```
 
 Enjoy your free time.
 
@@ -365,7 +367,9 @@ Enjoy your free time.
 1. It is also possible to do the whole thing on one pass:
    {#footnote-1-target}
 
-   `let n=0 | g/,$/v/\/\//execute "norm $i = " . n | let n=n+1`
+   ```vim {style=github-dark}
+   let n=0 | g/,$/v/\/\//execute "norm $i = " . n | let n=n+1
+   ```
 
    This version of the command basically replaces the hardcoded `0` with an appended custom variable
    that is incremented on every line.{{< footnote label="return" anchor="footnote-1-source" >}}
