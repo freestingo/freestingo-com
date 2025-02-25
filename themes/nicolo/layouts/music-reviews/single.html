@@ -59,10 +59,14 @@
     <p class="navigation-arrows">
       {{ with $pages.Prev . }}
         <a class="previous" href="{{ .RelPermalink }}">← {{ .Title }}</a>
+      {{ else }}
+        <span></span>
       {{ end }}
 
       {{ with $pages.Next . }}
         <a class="next" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
+      {{ else }}
+        <span></span>
       {{ end }}
     </p>
   {{ end }}
