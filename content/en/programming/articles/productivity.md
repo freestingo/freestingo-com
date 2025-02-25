@@ -9,6 +9,7 @@ keywords:
   [programming, productivity, window manager, vim, WPM, typing, bottleneck]
 date: 2024-10-22
 topics: [debugging]
+draft: true
 ---
 
 Every job consists of its own special set of core and peripheral skills. In the table below, I
