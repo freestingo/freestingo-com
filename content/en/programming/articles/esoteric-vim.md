@@ -201,7 +201,7 @@ table—usually, a lot. The only excitement you will ever get out of this is fin
 `SubnetMask` value for each subnet prefix length. Wouldn't it be great if there was a way to let
 your editor instantly do all the mapping instead? This way you would not even need to double check
 your results since any error-prone human intervention would be removed from the actual editing.
-If you use Vim, you can:
+In Vim you can, with some preparations beforehand:
 
 #### 3.1. Create a Vimscript dictionary
 
