@@ -220,7 +220,7 @@ Discard everything besides the first and the fourth column, and format the resul
 Vimscript dictionary:
 
 ```vim {style=github-dark}
-`[v`]:'<,'>s/\/\(\d\d\)\t.*\t255\(.*\)\t.*/'\1': '255\2',/<Enter>gv:'<,'>j<Enter>:s/\(.*\)/{ \1 }/
+`[v`]:'<,'>s/^.\(\d*\).\{-}\(255.*\)\t.*/'\1': '\2',/ | '<,'>j | s/.*/{ & }/
 ```
 
 - `` `[v`] `` selects all pasted text. `` `[ `` lets you jump to the start of the text you just
@@ -228,12 +228,11 @@ Vimscript dictionary:
 - `` :'<,'> `` is a range restricting the following command only to currently-selected lines. When
    entering a command from Visual mode you do not have to actually type the `'<,'>` part—Vim
    fills it in for you.
-- `:'<,'>s/\/\(\d\d\)\t.*\t255\(.*\)\t.*/'\1': '255\2',/` looks daunting but it is basically just
+- `'<,'>s/^.\(\d*\).\{-}\(255.*\)\t.*/'\1': '\2',` looks daunting but it is basically just
    a regex substitution in which we retain the first and fourth columns in capture groups, so that
    we can then format them to our liking.
-- `gv` re-selects your last selection.
-- `:'<,'>j` [collapses all selected lines into one line](https://vimhelp.org/change.txt.html#%3Ajoin "'join' on vimhelp.org").
-- `:s/\(.*\)/{ \1 }/` surrounds the current line in curly brackets.
+- `'<,'>j` [collapses all selected lines into one line](https://vimhelp.org/change.txt.html#%3Ajoin "'join' on vimhelp.org").
+- `s/.*/{ & }/` surrounds the current line in curly brackets.
 {#select-last-pasted-text}
 
 Save your dictionary for later use and remove it from your file:
