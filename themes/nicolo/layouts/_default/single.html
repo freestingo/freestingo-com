@@ -8,8 +8,6 @@
     </div>
   </article>
 
-  {{ partial "share-buttons" . }}
-
   {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
   {{ if or ($pages.Prev .) ($pages.Next .) }}
     <p class="navigation-arrows">

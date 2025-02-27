@@ -1,8 +1,0 @@
-{{- $id := .Get "id" -}}
-{{- $label := .Get "label" -}}
-{{- $anchor := .Get "anchor" -}}
-<sup
-  ><a {{ with $id }}id="{{ . }}"{{ end }} class="footnote" href="#{{ $anchor }}"
-    >[{{- $label -}}]</a
-  ></sup
->

@@ -52,10 +52,8 @@ incredibly time-consuming task. In Vim, you can do it all in two steps:
 :g/,$/v/\/\//norm $i = 0
 ```
 
-{{< details summary="Explanation" open=true >}}
-
 - `:g` is a [`global`](https://vimhelp.org/repeat.txt.html#%3Aglobal "'global' on vimhelp.org")
-   command: it executes any given action on all matching lines; `:v` executes instead on all
+   command: it executes any given action on all matching lines. `:v` instead operates on all
    non-matching lines. You can nest `:v` into `:g` in order to [only operate on lines that match
    `foo`, but do not match `bar`](https://vimhelp.org/repeat.txt.html#multi-repeat "'multi-repeat' on vimhelp.org").
    We can leverage this feature to only target actual enum fields and skip all
@@ -63,15 +61,12 @@ incredibly time-consuming task. In Vim, you can do it all in two steps:
    lines from the previous match that contain two forward-slashes (`\/\/`).
 - `norm $i = 0` is a [`normal`](https://vimhelp.org/various.txt.html#%3Anormal "':normal' on vimhelp.org")
    command that jumps to the end of the current line and inserts `= 0` right before your cursor.
-   {{< /details >}}
 
 #### 1.2. Increment all numeric values sequentially
 
 ```vim {style=github-dark}
 vi}/0,$<Enter>ng<C-a>
 ```
-
-{{< details summary="Explanation" open=true >}}
 
 - `vi}` selects all text within curly brackets.
 - `/0,$<Enter>` [searches and jumps to the first occurrence](https://vimhelp.org/pattern.txt.html#%2F "'/' on vimhelp.org")
@@ -80,9 +75,8 @@ vi}/0,$<Enter>ng<C-a>
    be selected.
 - `g<C-a>` [sequentially increments](https://vimhelp.org/change.txt.html#CTRL-A "Command documentation on vimhelp.org")
    all numbers within the current selection.
-   {{< /details >}}
 
-Your enum class should now correctly show all of its explicit values like this{{< footnote id="footnote-1-source" label="1" anchor="footnote-1-target" >}}:
+Your enum class should now correctly show all of its explicit values like this[^1]:
 
 ```csharp {lineNos=inline tabWidth=4 style=github-dark}
 public enum TranslationCodeId
@@ -145,19 +139,14 @@ your editor instead, and fix everything in one go:
 :/VALUES$/+,/^GO$/-2s/;$/,/ | /^GO$/-s/,$/;/
 ```
 
-{{< details summary="Explanation" open=true >}}
-
-The command is made respectively by two
-[`substitute`](https://vimhelp.org/change.txt.html#%3Asubstitute "'substitute' on vimhelp.org")
-commands: the first one replaces all misplaced semicolons with commas and the second one replaces
-all misplaced commas with a semicolons. We achieve this by prefixing each `:s` call with a custom
-[range](https://vimhelp.org/cmdline.txt.html#%5Brange%5D "'range' on vimhelp.org") in order to
-restrict the amount of text each command can interact with. In our case, we want to only replace
-semicolons from line 4 to line 19, and replace commas only on line 20: we can target these two
-ranges by relatively referencing the positions of `VALUES` and `GO`{{</*footnote
-id="footnote-2-source" label="2" anchor="footnote-2-target"*/>}}.
-
-{{< /details >}}
+- The command is made respectively by two
+  [`substitute`](https://vimhelp.org/change.txt.html#%3Asubstitute "'substitute' on vimhelp.org")
+  commands: the first one replaces all misplaced semicolons with commas and the second one replaces
+  all misplaced commas with a semicolons. We achieve this by prefixing each `:s` call with a custom
+  [range](https://vimhelp.org/cmdline.txt.html#%5Brange%5D "'range' on vimhelp.org") in order to
+  restrict the amount of text each command can interact with. In our case, we want to only replace
+  semicolons from line 4 to line 19, and replace commas only on line 20: we can target these two
+  ranges by relatively referencing the positions of `VALUES` and `GO`[^2].
 
 ### 3. Integrate columns of data from external sources into your project
 
@@ -234,8 +223,6 @@ Vimscript dictionary:
 `[v`]:'<,'>s/\/\(\d\d\)\t.*\t255\(.*\)\t.*/'\1': '255\2',/<Enter>gv:'<,'>j<Enter>:s/\(.*\)/{ \1 }/
 ```
 
-{{< details summary="Explanation" open=true >}}
-
 - `` `[v`] `` selects all pasted text. `` `[ `` lets you jump to the start of the text you just
    changed, while `` `] `` moves to its end.
 - `` :'<,'> `` is a range restricting the following command only to currently-selected lines. When
@@ -249,20 +236,14 @@ Vimscript dictionary:
 - `:s/\(.*\)/{ \1 }/` surrounds the current line in curly brackets.
 {#select-last-pasted-text}
 
-{{< /details >}}
-
 Save your dictionary for later use and remove it from your file:
 
 ```html {style=github-dark}
 "mdd
 ```
 
-{{< details summary="Explanation" open=true >}}
-
-- `"m` saves whatever text is deleted next into the `m` [register](https://vimhelp.org/change.txt.html#registers "'registers' on vimhelp.org").
+- `"m` saves whatever text is deleted next into the `m` [register](https://vimhelp.org/change.txt.html#registers "'registers' on vimhelp.org")[^3].
 - `dd` deletes the current line.
-
-{{< /details >}}
 
 #### 3.2. Save text snippets into registers for an easier typing experience
 
@@ -274,15 +255,12 @@ but also retrieve them faster.
 /new Re<Enter>"ayf";;"byf";;"cy$
 ```
 
-{{< details summary="Explanation" open=true >}}
-
 - `/new Re<Enter>` moves your cursor to a line in which a `new RestrictedIPAddress`
    is being instantiated.
 - `"ayf"` copies `new RestrictedIPAddress { Address = IPAddress.Parse("` into register `a`.
 - `;;` navigates to the next closing quote.
 - `"byf"` copies `"), SubnetMask = IPAddress.Parse("` into register `b`.
 - `"cy$` copies `") },` into register `c`.
-{{< /details >}}
 
 #### 3.3. Map CIDR addresses into `new RestrictedIPAddress`'es
 
@@ -317,12 +295,9 @@ Remove all redundant empty lines from your pasted text before continuing:
 `[v`]:'<,'>g/^$/d
 ```
 
-{{< details summary="Explanation" open=true >}}
-
 - `:g/^$/d` is a [`global`](https://vimhelp.org/repeat.txt.html#%3Aglobal "'global' on vimhelp.org")
   command that deletes all empty lines (`^$` in regex-speak). We restrict its action by [again]({{< ref "#select-last-pasted-text" >}})
   only selecting the pasted lines as its range.
-{{< /details >}}
 
 All the prep work is now done. Map all of your IPs into C# objects!
 
@@ -330,28 +305,25 @@ All the prep work is now done. Map all of your IPs into C# objects!
 gv:'<,'>s/\(.*\)\/\(.*\)$/\='<C-r>a' . submatch(1) . '<C-r>b' . <C-r>m[submatch(2)] .  '<C-r>c'
 ```
 
-{{< details summary="Explanation" open=true >}}
-
-At its heart, this command is basically just a regex substitution in which we discard the
-forward-slash in the CIDR line, capture the IP address at its left, capture the subnet prefix at
-its right, and insert those two values in a C# line template. This would result in such a line:
-
-```csharp {lineNos=inline tabWidth=4 style=github-dark}
-   new RestrictedIPAddress { Address = IPAddress.Parse("XXX.XXX.XXX.XXX"), SubnetMask = IPAddress.Parse("20") },
-```
-
-The problem with that line is that the `SubnetMask` value is wrong. We need to somehow be able to
-tell Vim to dynamically replace those prefix lengths with actual addresses. This is exactly the
-purpose of [sub-replace expressions](https://vimhelp.org/change.txt.html#sub-replace-expression "'sub-replace-expression' on vimhelp.org").
-You can start a sub-replace expression by starting your string with `\=`. We therefore paste
-(`<C-r>m`) the dictionary we saved earlier on register `m` and pass it the captured prefix
-length (`submatch(2)`) as a key to retrieve the correct `SubnetMask` for each line.
-{{< /details >}}
+- At its heart, this command is basically just a regex substitution in which we discard the
+  forward-slash in the CIDR line, capture the IP address at its left, capture the subnet prefix at
+  its right, and insert those two values in a C# line template. This would result in such a line:
+  
+  ```csharp {lineNos=inline tabWidth=4 style=github-dark}
+     new RestrictedIPAddress { Address = IPAddress.Parse("XXX.XXX.XXX.XXX"), SubnetMask = IPAddress.Parse("20") },
+  ```
+  
+  The problem with that line is that the `SubnetMask` value is wrong. We need to somehow be able to
+  tell Vim to dynamically replace those prefix lengths with actual addresses. This is exactly the
+  purpose of [sub-replace expressions](https://vimhelp.org/change.txt.html#sub-replace-expression "'sub-replace-expression' on vimhelp.org").
+  You can start a sub-replace expression by starting your string with `\=`. We therefore paste
+  (`<C-r>m`) the dictionary we saved earlier on register `m` and pass it the captured prefix
+  length (`submatch(2)`) as a key to retrieve the correct `SubnetMask` for each line.
 
 It is worth noting that you only ever need to do the above prep work once, making the whole workflow
 particularly efficient for periodical tasks. Subnet mask cheat-sheets are not going to change in the
 foreseeable future—once you generate your vimscript dictionary and type out [the last mapping command]({{< ref "#mapping-command" >}}),
-you can just assign it directly to a keymap of your choice, for example `<leader>cidr`{{< footnote id="footnote-3-source" label="3" anchor="footnote-3-target" >}}.
+you can just assign it directly to a keymap of your choice, for example `<leader>cidr`[^4].
 Given you have also assigned the [empty-line remover]({{< ref "#empty-line-remover" >}}) command to
 the `<leader>rel` keymap, for example, all you ever need to do next time you are sent a bunch of IPs
 to whitelist is:
@@ -362,24 +334,28 @@ p<leader>rel<leader>cidr
 
 Enjoy your free time.
 
-## Notes
+[^1]: It is also possible to do the whole thing on one pass:
 
-1. It is also possible to do the whole thing on one pass:
-   {#footnote-1-target}
+      ```vim {style=github-dark}
+      let n=0 | g/,$/v/\/\//execute "norm $i = " . n | let n=n+1
+      ```
 
-   ```vim {style=github-dark}
-   let n=0 | g/,$/v/\/\//execute "norm $i = " . n | let n=n+1
-   ```
+      This version of the command basically replaces the hardcoded `0` with an appended custom variable
+      that is incremented on every line.
 
-   This version of the command basically replaces the hardcoded `0` with an appended custom variable
-   that is incremented on every line.{{< footnote label="return" anchor="footnote-1-source" >}}
+[^2]: For small scripts like the one in the example, it would actually be both easier and faster to
+      just use line numbers:
 
-2. For small scripts like the one in the example, it would actually be both easier and faster to
-   just use line numbers (`:4,19s/;$/,/ | 20s/,$/;/`). Most times though you will be dealing with
-   very long files spanning multiple screenfuls—retrieving the exact line numbers in those cases
-   could be too cumbersome. Just keep in mind both approaches are nonetheless correct and will
-   result in the same outcome.{{< footnote label="return" anchor="footnote-2-source" >}}
-   {#footnote-2-target}
+      ```vim {style=github-dark}
+      :4,19s/;$/,/ | 20s/,$/;/
+      ```
 
-3. Vim stores your last executed command on the `:` read-only register.{{< footnote label="return" anchor="footnote-3-source" >}}
-   {#footnote-3-target}
+      Most times though you will be dealing with very long files spanning multiple
+      screenfuls—retrieving the exact line numbers in those cases could be too cumbersome. Just keep
+      in mind both approaches are nonetheless correct and will result in the same outcome.
+
+[^3]: There is no reason it has to be the `m` register specifically. I just find it easier to
+    remember since we are using its contents to **m**ap stuff, but it is also possible to achieve the
+    same results using pretty much any other named register instead.
+
+[^4]: Vim stores your last executed command on the `:` read-only register.
