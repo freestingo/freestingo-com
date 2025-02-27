@@ -1,6 +1,6 @@
 ---
 title: Music
-description: articles, reviews and curios from the aural world
+description: my music section
 translationKey: music
 weight: 20
 ---

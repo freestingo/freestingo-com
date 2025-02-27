@@ -18,9 +18,9 @@ it: why in the world do people even bother learning this weird text editor in th
 
 ### 1. Assigning numbers to existing enum classes
 
-Enums with implicit values could allow programmers to silently add new values in the middle,
-effectively making all subsequent ones shift downward and possibly creating discrepancies if any of
-them were also being persisted somewhere else in their numeric form.
+Implicit value enum members could allow programmers to silently add new members in the middle,
+effectively making all subsequent values shift downward and possibly creating discrepancies if any
+of them were also being persisted somewhere else in their numeric form.
 
 ```csharp {lineNos=inline tabWidth=4 style=github-dark anchorlinenos=true lineanchors=enum-pre}
 public enum TranslationCodeId
@@ -41,10 +41,10 @@ public enum TranslationCodeId
 }
 ```
 
-Your task is therefore to make all the values explicit. It is after all a very easy edit, but it can
-quickly become a nightmare if your enum does not contain six values only, but, say, 800. A manual
-update of every single line would simply be unthinkable, or at the very least a painfully boring,
-incredibly time-consuming task. In Vim, you can do it all in two steps:
+We therefore need to add explicit values next to all members. It is after all a very easy edit, but
+it can quickly become a nightmare if your enum does not contain six fields only, but, say, 800. A
+manual update of every single line would simply be unthinkable, or at the very least a painfully
+boring, incredibly time-consuming task. In Vim, you can do it all in two steps:
 
 #### 1.1. Assign `0` to all enum fields
 

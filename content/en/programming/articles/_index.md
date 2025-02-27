@@ -1,6 +1,6 @@
 ---
 title: Articles
-description: the fun and not so fun things about programming
+description: my programming articles
 translationKey: programming-articles
 weight: 10
 ---

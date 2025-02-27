@@ -14,5 +14,3 @@ streamingPlatforms:
   - name: bandcamp
     url: https://sunikkim.bandcamp.com/album/zero-chime
 ---
-
-Mezz'ora di spasmi glitch e freakout di sax.
