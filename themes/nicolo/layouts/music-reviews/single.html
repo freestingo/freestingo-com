@@ -4,8 +4,8 @@
   {{ $releaseYears := .GetTerms "release-years" }}
   {{ $votes := .GetTerms "votes" }}
   <article>
-    <div class="article-header">
-      <div class="article-title">
+    <div>
+      <div>
         <strong>
           {{ range $artists }}
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -33,18 +33,16 @@
         </div>
       </div>
 
-      <div class="article-fieldset">
-        <fieldset>
-          <legend>{{ "vote" | T }}</legend>
-          <div>
-            {{ range $votes -}}
-              <a href="{{ .RelPermalink }}">
-                {{ .LinkTitle }}
-              </a>
-            {{- end }}
-          </div>
-        </fieldset>
-      </div>
+      <fieldset>
+        <legend>{{ "vote" | T }}</legend>
+        <div>
+          {{ range $votes -}}
+            <a href="{{ .RelPermalink }}">
+              {{ .LinkTitle }}
+            </a>
+          {{- end }}
+        </div>
+      </fieldset>
     </div>
 
     <div>

@@ -49,10 +49,6 @@ header {
   padding-top: 0.5rem;
 }
 
-.sections {
-  margin-top: 0.3rem;
-}
-
 footer > div {
   display: flex;
   justify-content: space-between;
@@ -65,20 +61,13 @@ fieldset {
   display: inline;
   font-size: 95%;
   border-width: 1px;
-  margin-top: -0.3rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.3rem;
   padding-top: 0px;
   padding-bottom: 0.5rem;
   justify-content: flex-end;
 }
 
 fieldset > div {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 0.3rem;
-}
-
-.cta-links {
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.3rem;
@@ -137,10 +126,6 @@ sup {
 .navigation-arrows > .next {
   display: flex;
   justify-content: flex-end;
-}
-
-.article-title {
-  margin-bottom: 0.5rem;
 }
 
 .highlight div,

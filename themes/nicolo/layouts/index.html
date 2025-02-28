@@ -4,7 +4,7 @@
   {{ .Content }}
 
 
-  <div class="sections">
+  <p>
     {{ range $i, $section := site.Sections.ByWeight }}
       <div>
         <span>/</span
@@ -13,5 +13,5 @@
         >
       </div>
     {{ end }}
-  </div>
+  </p>
 {{ end }}

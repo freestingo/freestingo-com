@@ -1,16 +1,17 @@
 {{ with .Params.streamingPlatforms }}
-  <p class="cta-links">
+  <p>
     <span>{{ "listenOn" | T }}:</span>
-    {{ range . }}
+    {{ $streamingPlatformsLength := . | len }}
+    {{ range $i, $streamingPlatform := . }}
       <a
-        href="{{ .url }}"
+        href="{{ $streamingPlatform.url }}"
         target="_blank"
         rel="noopener"
         aria-label=""
-        title="{{ .name }}"
+        title="{{ $streamingPlatform.name }}"
       >
-        {{ .name }}
-      </a>
+        {{ $streamingPlatform.name }}</a
+      >{{ if lt (add $i 1) $streamingPlatformsLength }},{{ end }}
     {{ end }}
   </p>
 {{ end }}

@@ -10,18 +10,19 @@
   </article>
 
   {{ with .Site.Params.social.profiles }}
-    <p class="cta-links">
+    <p>
       <span>{{ "personalSocialCallToAction" | T }}:</span>
-      {{ range . }}
+      {{ $socialProfilesLength := . | len }}
+      {{ range $i, $socialProfile := . }}
         <a
-          href="{{ .url }}"
+          href="{{ $socialProfile.url }}"
           target="_blank"
           rel="noopener"
           aria-label=""
-          title="{{ .name }}"
+          title="{{ $socialProfile.name }}"
         >
-          {{ .name }}
-        </a>
+          {{ $socialProfile.name }}</a
+        >{{ if lt (add $i 1) $socialProfilesLength }},{{ end }}
       {{ end }}
     </p>
   {{ end }}
