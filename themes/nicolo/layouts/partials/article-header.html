@@ -9,13 +9,12 @@
 <fieldset>
   {{ $taxonomy := "topics" }}
   {{ with .GetTerms $taxonomy }}
+    {{ $taxonomyLength := . | len }}
     <legend>{{ "topics" | T }}</legend>
-    <div>
-      {{ range . -}}
-        <a href="{{ .RelPermalink }}">
-          {{ .LinkTitle }}
-        </a>
-      {{- end }}
-    </div>
+    {{ range $i, $taxonomyItem := . }}
+      <a href="{{ $taxonomyItem.RelPermalink }}">
+        {{ $taxonomyItem.LinkTitle }}</a
+      >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
+    {{- end }}
   {{ end }}
 </fieldset>

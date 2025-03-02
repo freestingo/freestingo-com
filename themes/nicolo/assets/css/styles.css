@@ -64,13 +64,6 @@ fieldset {
   margin-top: 0.3rem;
   padding-top: 0px;
   padding-bottom: 0.5rem;
-  justify-content: flex-end;
-}
-
-fieldset > div {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 0.3rem;
 }
 
 .sub-sections {
