@@ -32,6 +32,11 @@ devo scaricare uno script da 1MB per animare dei blob astratti colorati galleggi
 Secondo me, far aspettare ai visitatori il caricamento di tutte queste grafiche è una user
 experience MOLTO peggiore rispetto il far loro leggere del semplice testo in Times New Roman :-)
 
+### Come contribuire a questo sito
+
+Puoi inviare donazioni direttamente sul [mio account Paypal](https://paypal.me/freestingo "Fai una donazione a freestingo.com").
+Qualsiasi somma è la benvenuta—anche solo 1€!
+
 ### Addendum: cos'è un "freestingo"?
 
 Il fristingo è un tipico [dolce natalizio marchigiano](https://www.atuttagola.com/firstingo-o-bostrengo-dolce-tipico-marchigiano/ "ricetta del fristingo")

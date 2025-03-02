@@ -3,6 +3,12 @@
   <div>
     <div>
       {{- partial "languages.html" . -}}
+      |
+      {{ range (where site.Pages "TranslationKey" "about") }}
+        {{ $href := print .Page.RelPermalink "#" ("howToContribute" | T | urlize) }}
+        {{ $title := "donate" | T }}
+        <a href="{{ $href }}">{{ $title }}</a>
+      {{ end }}
     </div>
     <div>
       {{ partial "cookies-disclaimer.html" . }}

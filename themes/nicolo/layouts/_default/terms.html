@@ -14,7 +14,7 @@
 
 
   <div class="list-items">
-    {{ range append (site.GetPage "about") site.RegularPages }}
+    {{ range append (where site.Pages "TranslationKey" "about") site.RegularPages }}
       {{ if gt (.GetTerms $.Type | len) 0 }}
         {{ if eq .Type "music-reviews" }}
           {{- partial "music-review-preview.html" . -}}
