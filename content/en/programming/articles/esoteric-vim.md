@@ -199,7 +199,7 @@ qhq:%s/if \(.\{-}\)\./\=setreg('H', submatch(1)) || setreg('H', "\n")/n
 
 - `qhq` clears the `h` register[^register-name]. This works because we are literally recording an empty 
   [sequence of actions](https://vimhelp.org/repeat.txt.html#complex-repeat "'complex-repeat' on vimhelp.org")
-  into it[^register-macro], resulting in an empty string—and it is both easier and faster than typing `:let @a=''`.
+  into it[^register-macro], resulting in an empty string—and it is both easier and faster than typing `:let @h=''`.
 - the following `substitute` command operates on all lines, but instead of replacing the matched
   patterns with other strings, we just save them into the `h` register using a [sub-replace
   expression](https://vimhelp.org/change.txt.html#sub-replace-expression "'sub-replace-expression' on vimhelp.org"). 
