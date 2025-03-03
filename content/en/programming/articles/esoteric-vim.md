@@ -76,7 +76,7 @@ vi}/0,$<Enter>ng<C-a>
 - `g<C-a>` [sequentially increments](https://vimhelp.org/change.txt.html#CTRL-A "Command documentation on vimhelp.org")
    all numbers within the current selection.
 
-Your enum class should now correctly show all of its explicit values like this[^1]:
+Your enum class should now correctly show all of its explicit values like this[^enum-values]:
 
 ```csharp {lineNos=inline tabWidth=4 style=github-dark}
 public enum TranslationCodeId
@@ -146,9 +146,101 @@ your editor instead, and fix everything in one go:
   [range](https://vimhelp.org/cmdline.txt.html#%5Brange%5D "'range' on vimhelp.org") in order to
   restrict the amount of text each command can interact with. In our case, we want to only replace
   semicolons from line 4 to line 19, and replace commas only on line 20: we can target these two
-  ranges by relatively referencing the positions of `VALUES` and `GO`[^2].
+  ranges by relatively referencing the positions of `VALUES` and `GO`[^ranges].
 
-### 3. Integrate columns of data from external sources into your project
+### 3. Extract field names from templates
+
+Being able to automatically retrieve selected keywords from plain text can prove itself very useful
+in certain situations. For example, you might need to extract all field names from a Handlebars
+template snippet like this:
+
+```handlebars {lineNos=inline tabWidth=4 style=github-dark}
+{{#if UserDetails.FirstName}}Nome: {{UserDetails.FirstName}}{{/if}}
+{{#if UserDetails.LastName}}Cognome: {{UserDetails.LastName}}{{/if}}
+{{#if CallbackDetails.CallbackTimeStamp}}Data e orario indicati dal cliente per la chiamata: {{dateFormat CallbackDetails.CallbackTimeStamp format="d"}}.{{dateFormat CallbackDetails.CallbackTimeStamp format="M"}}.{{dateFormat CallbackDetails.CallbackTimeStamp format="Y"}} {{dateFormat CallbackDetails.CallbackTimeStamp format="H"}}:{{dateFormat CallbackDetails.CallbackTimeStamp format="m"}}{{/if}}
+{{#if UserMotivation.ReasonSell}}Motivo della vendita: {{UserMotivation.ReasonSell}}{{/if}}
+
+Informazioni sull'immobile:
+
+{{#if PropertyDetails.ObjectType}}Categoria: {{PropertyDetails.ObjectType}}{{/if}}
+{{#if PropertyDetails.ObjectSubType}}Tipo di oggetto: {{PropertyDetails.ObjectSubType}}{{/if}}
+{{#if PropertyDetails.Street}}Via: {{PropertyDetails.Street}} {{#if PropertyDetails.Number}}{{PropertyDetails.Number}}{{/if}}{{/if}}
+{{#if PropertyDetails.Zipcode}}Luogo: {{PropertyDetails.Zipcode}}{{/if}} {{#if PropertyDetails.City}}{{PropertyDetails.City}}{{/if}}
+
+Valutazione immobiliare: 
+
+{{#if ValuationDetails.EstimatedMarketValue}}Prezzo di mercato stimato: {{ValuationDetails.EstimatedMarketValue}}{{/if}}
+{{#if ValuationDetails.MinimumPrice}}Prezzo minimo:  {{ValuationDetails.MinimumPrice}}{{/if}}
+{{#if ValuationDetails.MaximumPrice}}Prezzo massimo:  {{ValuationDetails.MaximumPrice}}{{/if}}
+```
+
+You might also want to format them in a certain fashion in order to use them correctly, for example
+inside a SQL insert script:
+
+```sql {lineNos=inline tabWidth=4 style=github-dark anchorlinenos=true lineanchors=handlebars-pre hl_lines=[13,17,20]}
+INSERT INTO Campaign
+    (CampaignId, LanguageCode, DataFields)
+    VALUES
+    (NEWID(), 'en', '/* ...insert data fields here... */');
+```
+
+Once again, you can just let Vim do most of the work for you:
+
+#### 3.1. Capture and save search matches
+
+Vim allows you to store arbitrary text into many different
+[registers](https://vimhelp.org/change.txt.html#registers "'registers' on vimhelp.org"). In order to
+populate one of them with all field names, we could use a nice trick for incrementally appending
+search results into a named register with the `substitute` command:
+
+```vim {style=github-dark}
+qhq:%s/if \(.\{-}\)\./\=setreg('H', submatch(1)) || setreg('H', "\n")/n
+```
+
+- `qhq` clears the `h` register[^register-name]. This works because we are literally recording an empty 
+  [sequence of actions](https://vimhelp.org/repeat.txt.html#complex-repeat "'complex-repeat' on vimhelp.org")
+  into it[^register-macro], resulting in an empty string—and it is both easier and faster than typing `:let @a=''`.
+- the following `substitute` command operates on all lines, but instead of replacing the matched
+  patterns with other strings, we just save them into the `h` register using a [sub-replace
+  expression](https://vimhelp.org/change.txt.html#sub-replace-expression "'sub-replace-expression' on vimhelp.org"). 
+  We use an uppercase `H` because that is how you [add to a register without
+  overwriting its contents](https://vimhelp.org/change.txt.html#quote "'quote' on vimhelp.org"). The
+  [`n` flag](https://vimhelp.org/change.txt.html#%3As_n "':s_n' on vimhelp.org") at the end tells
+  the command not to actually substitute anything, and just evaluate any side-effects instead.
+
+#### 3.2. Remove duplicate lines and format the result
+
+At this point, you should have all field names grouped under your `h` key. Paste its contents
+(`"hp`). You will see plenty of duplicate lines though, because our template had multiple instances
+of many different fields in the first place. You can easily remove all of them with the
+[`sort`](https://vimhelp.org/change.txt.html#%3Asort "':sort' on vimhelp.org") command:
+
+```html {style=github-dark}
+`[v`]:'<,'>sort u
+```
+
+- `` `[v`] `` selects all pasted text. `` `[ `` lets you jump to the start of the text you just
+   changed, while `` `] `` moves to its end.
+- `` :'<,'> `` is a range restricting the following command only to currently-selected lines. When
+   entering a command from Visual mode you do not have to actually type the `'<,'>` part—Vim
+   fills it in for you.
+- the `u` flag when `sort`ing only lets you keep the first of a sequence of identical lines,
+  effectively removing any unwanted duplicate.
+{#select-last-pasted-text}
+
+You can now transform the result into a nice comma-separated string:
+
+```vim {style=github-dark}
+gv:'<,'>j | s/ /,/g
+```
+
+- `gv` [re-selects your last selection](https://vimhelp.org/visual.txt.html#gv "'gv' on vimhelp.org").
+- `'<,'>j` [collapses all selected lines into one line](https://vimhelp.org/change.txt.html#%3Ajoin "'join' on vimhelp.org").
+- `s/ /,/g` replaces all spaces with commas. The `g` flag [replaces all occurrences in the
+  line](https://vimhelp.org/change.txt.html#%3As_g "':s_g' on vimhelp.org"), instead of just the
+  first one.
+
+### 4. Integrate data from external sources into your project
 
 The nature of this use case could not be more varied. Maybe your marketing team is sending you new
 translations, or your product manager is sending you new email template titles. In our example, you
@@ -192,7 +284,7 @@ your editor instantly do all the mapping instead? This way you would not even ne
 your results since any error-prone human intervention would be removed from the actual editing.
 In Vim you can, with some preparations beforehand:
 
-#### 3.1. Create a Vimscript dictionary
+#### 4.1. Create a Vimscript dictionary
 
 Use subnet prefixes as keys, and `SubnetMask` addresses as values. This will come in handy later
 when constructing our mapping command. Copy all cells from the first table in [this cheat-sheet page](https://www.aelius.com/njh/subnet_sheet.html "Subnet Mask Cheat Sheet"),
@@ -223,17 +315,10 @@ Vimscript dictionary:
 `[v`]:'<,'>s/^.\(\d*\).\{-}\(255.*\)\t.*/'\1': '\2',/ | '<,'>j | s/.*/{ & }/
 ```
 
-- `` `[v`] `` selects all pasted text. `` `[ `` lets you jump to the start of the text you just
-   changed, while `` `] `` moves to its end.
-- `` :'<,'> `` is a range restricting the following command only to currently-selected lines. When
-   entering a command from Visual mode you do not have to actually type the `'<,'>` part—Vim
-   fills it in for you.
 - `'<,'>s/^.\(\d*\).\{-}\(255.*\)\t.*/'\1': '\2',` looks daunting but it is basically just
    a regex substitution in which we retain the first and fourth columns in capture groups, so that
    we can then format them to our liking.
-- `'<,'>j` [collapses all selected lines into one line](https://vimhelp.org/change.txt.html#%3Ajoin "'join' on vimhelp.org").
 - `s/.*/{ & }/` surrounds the current line in curly brackets.
-{#select-last-pasted-text}
 
 Save your dictionary for later use and remove it from your file:
 
@@ -241,10 +326,10 @@ Save your dictionary for later use and remove it from your file:
 "mdd
 ```
 
-- `"m` saves whatever text is deleted next into the `m` [register](https://vimhelp.org/change.txt.html#registers "'registers' on vimhelp.org")[^3].
+- `"m` saves whatever text is deleted next into the `m` register[^register-name].
 - `dd` deletes the current line.
 
-#### 3.2. Save text snippets into registers for an easier typing experience
+#### 4.2. Save text snippets into multiple registers
 
 You can store parts of C# code that do not change between different `RestrictedIPAddress`
 declarations each in its own separate register to be able to not only reduce future typing errors,
@@ -261,7 +346,7 @@ but also retrieve them faster.
 - `"byf"` copies `"), SubnetMask = IPAddress.Parse("` into register `b`.
 - `"cy$` copies `") },` into register `c`.
 
-#### 3.3. Map CIDR addresses into `new RestrictedIPAddress`'es
+#### 4.3. Map CIDR addresses into `new RestrictedIPAddress`'es
 
 Copy all new addresses from your external source and paste them in the current file, whenever you
 want the new `RestrictedIPAddresses` to be (most likely [at the end of the list]({{< ref "#ip-pre-7" >}})).
@@ -294,10 +379,6 @@ Remove all redundant empty lines from your pasted text before continuing:
 `[v`]:'<,'>g/^$/d
 ```
 
-- `:g/^$/d` is a [`global`](https://vimhelp.org/repeat.txt.html#%3Aglobal "'global' on vimhelp.org")
-  command that deletes all empty lines (`^$` in regex-speak). We restrict its action by [again]({{< ref "#select-last-pasted-text" >}})
-  only selecting the pasted lines as its range.
-
 All the prep work is now done. Map all of your IPs into C# objects!
 
 ```vim {id=mapping-command,style=github-dark}
@@ -314,15 +395,14 @@ gv:'<,'>s/\(.*\)\/\(.*\)$/\='<C-r>a' . submatch(1) . '<C-r>b' . <C-r>m[submatch(
   
   The problem with that line is that the `SubnetMask` value is wrong. We need to somehow be able to
   tell Vim to dynamically replace those prefix lengths with actual addresses. This is exactly the
-  purpose of [sub-replace expressions](https://vimhelp.org/change.txt.html#sub-replace-expression "'sub-replace-expression' on vimhelp.org").
-  You can start a sub-replace expression by starting your string with `\=`. We therefore paste
-  (`<C-r>m`) the dictionary we saved earlier on register `m` and pass it the captured prefix
-  length (`submatch(2)`) as a key to retrieve the correct `SubnetMask` for each line.
+  purpose of sub-replace expressions. We therefore paste (`<C-r>m`) the dictionary we saved earlier
+  on register `m` and pass it the captured prefix length (`submatch(2)`) as a key to retrieve the
+  correct `SubnetMask` for each line.
 
 It is worth noting that you only ever need to do the above prep work once, making the whole workflow
 particularly efficient for periodical tasks. Subnet mask cheat-sheets are not going to change in the
 foreseeable future—once you generate your vimscript dictionary and type out [the last mapping command]({{< ref "#mapping-command" >}}),
-you can just assign it directly to a keymap of your choice, for example `<leader>cidr`[^4].
+you can just assign it directly to a keymap of your choice, for example `<leader>cidr`[^colon-register].
 Given you have also assigned the [empty-line remover]({{< ref "#empty-line-remover" >}}) command to
 the `<leader>rel` keymap, for example, all you ever need to do next time you are sent a bunch of IPs
 to whitelist is:
@@ -333,28 +413,33 @@ p<leader>rel<leader>cidr
 
 Enjoy your free time.
 
-[^1]: It is also possible to do the whole thing on one pass:
+[^enum-values]: It is also possible to do the whole thing on one pass:
 
-      ```vim {style=github-dark}
-      let n=0 | g/,$/v/\/\//execute "norm $i = " . n | let n=n+1
-      ```
+    ```vim {style=github-dark}
+    let n=0 | g/,$/v/\/\//execute "norm $i = " . n | let n=n+1
+    ```
 
-      This version of the command basically replaces the hardcoded `0` with an appended custom variable
-      that is incremented on every line.
+    This version of the command basically replaces the hardcoded `0` with an appended custom variable
+    that is incremented on every line.
 
-[^2]: For small scripts like the one in the example, it would actually be both easier and faster to
-      just use line numbers:
+[^ranges]: For small scripts like the one in the example, it would actually be both easier and faster to
+    just use line numbers:
 
-      ```vim {style=github-dark}
-      :4,19s/;$/,/ | 20s/,$/;/
-      ```
+    ```vim {style=github-dark}
+    :4,19s/;$/,/ | 20s/,$/;/
+    ```
 
-      Most times though you will be dealing with very long files spanning multiple
-      screenfuls—retrieving the exact line numbers in those cases could be too cumbersome. Just keep
-      in mind both approaches are nonetheless correct and will result in the same outcome.
+    Most times though you will be dealing with very long files spanning multiple
+    screenfuls—retrieving the exact line numbers in those cases could be too cumbersome. Just keep
+    in mind both approaches are nonetheless correct and will result in the same outcome.
 
-[^3]: There is no reason it has to be the `m` register specifically. I just find it easier to
-    remember since we are using its contents to **m**ap stuff, but it is also possible to achieve the
-    same results using pretty much any other named register instead.
+[^register-name]: There is no reason we have to use that register specifically. I just find its name easier to
+    remember (**H**andlebar templates, **m**apping stuff, etc.), but it is also possible to
+    achieve the same results using pretty much any other named register instead.
 
-[^4]: Vim stores your last executed command on the `:` read-only register.
+[^register-macro]: Somewhat counter-intuitively, just as it is possible to overwrite a register by
+    recording a macro into it, it is also possible to [execute any string as if it were an actual
+    sequence of actions if you save it to a register first](https://vimhelp.org/repeat.txt.html#%40
+    "'@' on vimhelp.org"). Try it!
+
+[^colon-register]: Vim stores your last executed command on the `:` read-only register.
