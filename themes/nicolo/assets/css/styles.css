@@ -36,7 +36,8 @@ body {
     color: #cf222e !important;
   }
 
-  span[style*="display:flex; background-color:#6e7681"] {
+  span[style*="display:flex; background-color:#6e7681"],
+  span[style*="display:flex;background-color:#6e7681"] {
     background-color: lightgray !important;
   }
 }
