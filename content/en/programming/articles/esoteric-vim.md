@@ -240,7 +240,93 @@ gv:'<,'>j | s/ /,/g
   line](https://vimhelp.org/change.txt.html#%3As_g "':s_g' on vimhelp.org"), instead of just the
   first one.
 
-### 4. Integrate data from external sources into your project
+### 4. Batch process multiple files
+
+This skill can come in handy, for example, whenever you are dealing with repositories requiring
+small configuration changes for local development. The price you pay for not being able to
+`.gitignore` those changed files, though, is having all of your `git status` outputs littered by a
+bunch of filenames you need to remember NOT to ever commit or push to remote:
+
+```diff {style=github-dark}
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+   modified:   ExcelGenerator/App.Debug.config
+   modified:   ExcelGenerator/App.config
+   modified:   Core/ConfigBase.cs
+   modified:   Infrastructure/Security/Password.cs
+   modified:   Tools.AgentExport/App.Debug.config
+   modified:   Tools.AgentExport/App.config
+   modified:   Tools.CheckLeadsForConfirmedEmail/App.Debug.config
+   modified:   Tools.CheckLeadsForConfirmedEmail/App.config
+   modified:   Tools.EmailSender/App.Debug.config
+   modified:   Tools.EmailSender/App.config
+   modified:   Tools.LeadChecker/App.Debug.config
+   modified:   Tools.LeadChecker/App.config
+   modified:   Tools.LeadImport/App.Debug.config
+   modified:   Tools.LeadImport/App.config
+   modified:   Tools.LeadManager/App.Debug.config
+   modified:   Tools.LeadManager/App.config
+   modified:   Tools.LeadReminder/App.Debug.config
+   modified:   Tools.LeadReminder/App.config
+   modified:   Tools.SmsSender/App.Debug.config
+   modified:   Tools.SmsSender/App.config
+   modified:   Web.Backend/Web.Backend.csproj
+   modified:   Web.Backend/Web.Debug.config
+   modified:   Web.Backend/Web.config
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+How can we clean this up? `git` allows you to hide changes for a given file with the `git update-index
+--skip-worktree {path}` command, but typing all of this out once for every file is way too painful to
+even consider. The answer is—you guessed it—just do it inside Vim.
+
+#### 4.1. [Insert the output of `git status`](https://vimhelp.org/insert.txt.html#%3Ar%21 "':r!' on vimhelp.org") in your current file
+
+```vim {id=read-git-status,style=github-dark}
+:r! git status
+```
+
+#### 4.2. Remove all lines not containing a filename
+
+```vim {style=github-dark}
+:v/modified/d
+```
+
+#### 4.3. Map all lines to `git` commands
+
+```vim {id=skip-worktree,style=github-dark}
+gg0<C-v>tEGcgit update-index --skip-worktree <Esc>
+```
+
+- `gg0` navigates to the very start of the file.
+- `<C-v>` starts a 
+  [visual block](https://vimhelp.org/visual.txt.html#visual-block "'visual-block' on vimhelp.org");
+  this allows you to select portions of text in a rectangular fashion. The following navigation
+  commands (`tEG`) shape the rectangle selection so that it includes all text except the filenames
+  themselves.
+- `c` deletes the selected text and starts Insert mode. Since the selection came from a visual
+  block, the inserted text will be simultaneously applied to all lines.
+
+#### 4.4. Execute all lines as `bash` commands
+
+```vim {style=github-dark}
+:w !bash
+```
+
+- `:w !{command}` [executes `command` using a range of lines as its standard
+  input](https://vimhelp.org/editing.txt.html#%3Aw_c "':w_c' on vimhelp.org"). In our case, we
+  call `bash` since every line is a complete `git` command.
+
+The workflow for un-hiding files at the end of your session is exactly the same, except that in step
+[4.1.]({{< ref "#read-git-status" >}}) you will list files using `git ls-files -v . | grep ^S`, and
+in [4.3.]({{< ref "#skip-worktree" >}}) you will replace `--skip-worktree` with `--no-skip-worktree`.
+
+### 5. Integrate data from external sources into your project
 
 The nature of this use case could not be more varied. Maybe your marketing team is sending you new
 translations, or your product manager is sending you new email template titles. In our example, you
@@ -284,7 +370,7 @@ your editor instantly do all the mapping instead? This way you would not even ne
 your results since any error-prone human intervention would be removed from the actual editing.
 In Vim you can, with some preparations beforehand:
 
-#### 4.1. Create a Vimscript dictionary
+#### 5.1. Create a Vimscript dictionary
 
 Use subnet prefixes as keys, and `SubnetMask` addresses as values. This will come in handy later
 when constructing our mapping command. Copy all cells from the first table in [this cheat-sheet page](https://www.aelius.com/njh/subnet_sheet.html "Subnet Mask Cheat Sheet"),
@@ -329,7 +415,7 @@ Save your dictionary for later use and remove it from your file:
 - `"m` saves whatever text is deleted next into the `m` register[^register-name].
 - `dd` deletes the current line.
 
-#### 4.2. Save text snippets into multiple registers
+#### 5.2. Save text snippets into multiple registers
 
 You can store parts of C# code that do not change between different `RestrictedIPAddress`
 declarations each in its own separate register to be able to not only reduce future typing errors,
@@ -346,7 +432,7 @@ but also retrieve them faster.
 - `"byf"` copies `"), SubnetMask = IPAddress.Parse("` into register `b`.
 - `"cy$` copies `") },` into register `c`.
 
-#### 4.3. Map CIDR addresses into `new RestrictedIPAddress`'es
+#### 5.3. Map CIDR addresses into `new RestrictedIPAddress`'es
 
 Copy all new addresses from your external source and paste them in the current file, whenever you
 want the new `RestrictedIPAddresses` to be (most likely [at the end of the list]({{< ref "#ip-pre-7" >}})).
