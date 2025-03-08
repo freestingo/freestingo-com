@@ -257,8 +257,8 @@ only due to the layout switching or simply from the fact that I have not been pr
 anymore since 2021. My QWERTY thumb-typing abilities on phone screens have remained completely
 intact. A Colemak-specific advantage for QWERTY-native typists I only realized _in medias res_ is
 that your most common keyboard shortcuts will look the same in both layouts. Even after switching,
-you will still be able to copy (`CTRL + C`), cut (`CTRL + X`), paste (`CTRL + V`), select all (`CTRL
-+ A`), undo (`CTRL + Z`) and close windows (`CTRL + W`) without re-training your muscle memory. To
+you will still be able to copy (`CTRL + C`), cut (`CTRL + X`), paste (`CTRL + V`), select all (`CTRL + A`),
+undo (`CTRL + Z`) and close windows (`CTRL + W`) without re-training your muscle memory. To
 be completely honest, I still have yet to come across a valid argument against learning alternative
 keyboard layouts. I will quote some of the ones I most commonly found being thrown around down below
 alongside my own response to them, in order to let you make you own mind up about this whole
