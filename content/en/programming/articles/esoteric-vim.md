@@ -48,7 +48,7 @@ boring, incredibly time-consuming task. In Vim, you can do it all in two steps:
 
 #### 1.1. Assign `0` to all enum fields
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 :g/,$/v/\/\//norm $i = 0
 ```
 
@@ -64,7 +64,7 @@ boring, incredibly time-consuming task. In Vim, you can do it all in two steps:
 
 #### 1.2. Increment all numeric values sequentially
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 vi}/0,$<Enter>ng<C-a>
 ```
 
@@ -135,7 +135,7 @@ context every time in order to correctly decide whether you must be replacing a 
 comma, or viceversa. With Vim, you can completely offload the mental burden of context evaluation to
 your editor instead, and fix everything in one go:
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 :/VALUES$/+,/^GO$/-2s/;$/,/ | /^GO$/-s/,$/;/
 ```
 
@@ -193,16 +193,16 @@ Vim allows you to store arbitrary text into many different
 populate one of them with all field names, we could use a nice trick for incrementally appending
 search results into a named register with the `substitute` command:
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 qhq:%s/if \(.\{-}\)\./\=setreg('H', submatch(1)) || setreg('H', "\n")/n
 ```
 
-- `qhq` clears the `h` register[^register-name]. This works because we are literally recording an empty 
+- `qhq` clears the `h` register[^register-name]. This works because we are literally recording an empty
   [sequence of actions](https://vimhelp.org/repeat.txt.html#complex-repeat "'complex-repeat' on vimhelp.org")
   into it[^register-macro], resulting in an empty string—and it is both easier and faster than typing `:let @h=''`.
 - the following `substitute` command operates on all lines, but instead of replacing the matched
   patterns with other strings, we just save them into the `h` register using a [sub-replace
-  expression](https://vimhelp.org/change.txt.html#sub-replace-expression "'sub-replace-expression' on vimhelp.org"). 
+  expression](https://vimhelp.org/change.txt.html#sub-replace-expression "'sub-replace-expression' on vimhelp.org").
   We use an uppercase `H` because that is how you [add to a register without
   overwriting its contents](https://vimhelp.org/change.txt.html#quote "'quote' on vimhelp.org"). The
   [`n` flag](https://vimhelp.org/change.txt.html#%3As_n "':s_n' on vimhelp.org") at the end tells
@@ -215,7 +215,7 @@ At this point, you should have all field names grouped under your `h` key. Paste
 of many different fields in the first place. You can easily remove all of them with the
 [`sort`](https://vimhelp.org/change.txt.html#%3Asort "':sort' on vimhelp.org") command:
 
-```html {style=github-dark}
+```diff {style=github-dark}
 `[v`]:'<,'>sort u
 ```
 
@@ -230,7 +230,7 @@ of many different fields in the first place. You can easily remove all of them w
 
 You can now transform the result into a nice comma-separated string:
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 gv:'<,'>j | s/ /,/g
 ```
 
@@ -287,24 +287,24 @@ even consider. The answer is—you guessed it—just do it inside Vim.
 
 #### 4.1. [Insert the output of `git status`](https://vimhelp.org/insert.txt.html#%3Ar%21 "':r!' on vimhelp.org") in your current file
 
-```vim {id=read-git-status,style=github-dark}
+```diff {id=read-git-status,style=github-dark}
 :r! git status
 ```
 
 #### 4.2. Remove all lines not containing a filename
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 :v/modified/d
 ```
 
 #### 4.3. Map all lines to `git` commands
 
-```vim {id=skip-worktree,style=github-dark}
+```diff {id=skip-worktree,style=github-dark}
 gg0<C-v>tEGcgit update-index --skip-worktree <Esc>
 ```
 
 - `gg0` navigates to the very start of the file.
-- `<C-v>` starts a 
+- `<C-v>` starts a
   [visual block](https://vimhelp.org/visual.txt.html#visual-block "'visual-block' on vimhelp.org");
   this allows you to select portions of text in a rectangular fashion. The following navigation
   commands (`tEG`) shape the rectangle selection so that it includes all text except the filenames
@@ -314,7 +314,7 @@ gg0<C-v>tEGcgit update-index --skip-worktree <Esc>
 
 #### 4.4. Execute all lines as `bash` commands
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 :w !bash
 ```
 
@@ -397,7 +397,7 @@ and paste them into your file. It should look something like this:
 Discard everything besides the first and the fourth column, and format the result into a
 Vimscript dictionary:
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 `[v`]:'<,'>s/^.\(\d*\).\{-}\(255.*\)\t.*/'\1': '\2',/ | '<,'>j | s/.*/{ & }/
 ```
 
@@ -408,7 +408,7 @@ Vimscript dictionary:
 
 Save your dictionary for later use and remove it from your file:
 
-```html {style=github-dark}
+```diff {style=github-dark}
 "mdd
 ```
 
@@ -421,7 +421,7 @@ You can store parts of C# code that do not change between different `RestrictedI
 declarations each in its own separate register to be able to not only reduce future typing errors,
 but also retrieve them faster.
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 /new Re<Enter>"ayf";;"byf";;"cy$
 ```
 
@@ -461,13 +461,13 @@ XXX.XXX.XXX.XXX/23
 
 Remove all redundant empty lines from your pasted text before continuing:
 
-```vim {id=empty-line-remover,style=github-dark}
+```diff {id=empty-line-remover,style=github-dark}
 `[v`]:'<,'>g/^$/d
 ```
 
 All the prep work is now done. Map all of your IPs into C# objects!
 
-```vim {id=mapping-command,style=github-dark}
+```diff {id=mapping-command,style=github-dark}
 gv:'<,'>s/\(.*\)\/\(.*\)$/\='<C-r>a' . submatch(1) . '<C-r>b' . <C-r>m[submatch(2)] .  '<C-r>c'
 ```
 
@@ -493,7 +493,7 @@ Given you have also assigned the [empty-line remover]({{< ref "#empty-line-remov
 the `<leader>rel` keymap, for example, all you ever need to do next time you are sent a bunch of IPs
 to whitelist is:
 
-```vim {style=github-dark}
+```diff {style=github-dark}
 p<leader>rel<leader>cidr
 ```
 
@@ -501,7 +501,7 @@ Enjoy your free time.
 
 [^enum-values]: It is also possible to do the whole thing on one pass:
 
-    ```vim {style=github-dark}
+    ```diff {style=github-dark}
     let n=0 | g/,$/v/\/\//execute "norm $i = " . n | let n=n+1
     ```
 
@@ -511,7 +511,7 @@ Enjoy your free time.
 [^ranges]: For small scripts like the one in the example, it would actually be both easier and faster to
     just use line numbers:
 
-    ```vim {style=github-dark}
+    ```diff {style=github-dark}
     :4,19s/;$/,/ | 20s/,$/;/
     ```
 

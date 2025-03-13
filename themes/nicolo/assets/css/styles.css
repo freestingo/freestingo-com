@@ -10,21 +10,6 @@ body {
   margin-bottom: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: black;
-    color: white;
-  }
-
-  a {
-    color: #9e9eff;
-  }
-
-  a:visited {
-    color: violet;
-  }
-}
-
 @media (prefers-color-scheme: light) {
   pre {
     background-color: whitesmoke !important;
