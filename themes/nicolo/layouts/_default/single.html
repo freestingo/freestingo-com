@@ -1,9 +1,11 @@
-{{ define "main" }}
+{{ define "modularCss" }}
   {{ if .Params.ContainsCodeBlocks }}
     {{- $codeStyle := resources.Get "css/code.css" | minify | fingerprint -}}
-    <style>{{ $codeStyle.Content | safeCSS }}</style>
+    {{ $codeStyle.Content | safeCSS }}
   {{ end }}
+{{ end }}
 
+{{ define "main" }}
   <article>
     {{ partial "article-header.html" . }}
 

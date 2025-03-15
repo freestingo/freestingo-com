@@ -1,7 +1,9 @@
-{{ define "main" }}
+{{ define "modularCss" }}
   {{- $listStyle := resources.Get "css/list.css" | minify | fingerprint -}}
-  <style>{{ $listStyle.Content | safeCSS }}</style>
+  {{ $listStyle.Content | safeCSS }}
+{{ end }}
 
+{{ define "main" }}
   <div class="sub-sections">
     {{ range .Pages.ByTitle }}
       {{ if .Pages }}

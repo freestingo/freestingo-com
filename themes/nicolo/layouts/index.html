@@ -1,7 +1,9 @@
-{{ define "main" }}
+{{ define "modularCss" }}
   {{- $homeStyle := resources.Get "css/home.css" | minify | fingerprint -}}
-  <style>{{ $homeStyle.Content | safeCSS }}</style>
+  {{ $homeStyle.Content | safeCSS }}
+{{ end }}
 
+{{ define "main" }}
   <strong>{{ "welcomeHome" | T }}</strong>
 
   {{ .Content }}
@@ -9,13 +11,13 @@
 
   <ul>
     {{ range $i, $section := site.Sections.ByWeight }}
-      <li>
-        <a href="{{ $section.Permalink }}">{{ path.Base $section.RelPermalink }}</a>
+      <li
+        ><a href="{{ $section.Permalink }}">{{ path.Base $section.RelPermalink }}</a>
         {{ with .Sections.ByWeight }}
           <ul>
           {{ range . }}
-              <li>
-                <a href="{{ .Permalink }}">{{ path.Base .RelPermalink }}</a
+              <li
+                ><a href="{{ .Permalink }}">{{ path.Base .RelPermalink }}</a
                   ><sup>{{ .RegularPagesRecursive | len }}</sup>
               </li>
           {{ end }}

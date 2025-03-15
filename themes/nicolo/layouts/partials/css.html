@@ -1,2 +1,0 @@
-{{- $styles := resources.Get "css/styles.css" | minify | fingerprint -}}
-<style>{{ $styles.Content | safeCSS }}</style>

@@ -1,7 +1,14 @@
 <!doctype html>
 <html lang="{{ .Site.LanguageCode }}">
-  {{ partial "head.html" . }}
+  <head>
+    {{ partial "head.html" . }}
 
+    {{- $baseStyles := resources.Get "css/main.css" | minify | fingerprint -}}
+    <style>
+      {{- $baseStyles.Content | safeCSS -}}
+      {{- block "modularCss" . -}}{{- end -}}
+    </style>
+  </head>
 
   <body>
     {{- partial "header.html" . -}}
