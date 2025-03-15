@@ -1,0 +1,32 @@
+.highlight div,
+.highlight pre {
+  overflow-x: auto;
+}
+
+code {
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  pre {
+    background-color: whitesmoke !important;
+    color: black !important;
+  }
+
+  span[style*="color:#a5d6ff"],
+  span[style*="color:#79c0ff"] {
+    color: #0a3069 !important;
+  }
+
+  span[style*="color:#ff7b72"] {
+    color: #cf222e !important;
+  }
+
+  span[style*="display:flex; background-color:#6e7681"],
+  span[style*="display:flex;background-color:#6e7681"] {
+    background-color: lightgray !important;
+  }
+}

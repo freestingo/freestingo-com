@@ -1,0 +1,30 @@
+.sub-sections {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5rem;
+}
+
+.sub-section {
+  display: flex;
+}
+
+.sub-section sup {
+  font-weight: bold;
+}
+
+ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  list-style-type: none;
+}
+
+.preview-date {
+  font-size: small;
+}
+
+.list-view-title {
+  margin-bottom: 1rem;
+}

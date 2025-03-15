@@ -6,15 +6,13 @@
   <article>
     <div>
       <div>
-        <strong>
+        <h1 style="font-size:medium;margin:0">
           {{ range $artists }}
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           {{ end }}
-        </strong>
-        -
-        <strong>
+          -
           {{ .Title }}
-        </strong>
+        </h1>
         <div>
           <span>{{ "genres" | T }}:</span>
           {{ range $i, $item := $genres }}
@@ -33,7 +31,7 @@
         </div>
       </div>
 
-      <fieldset>
+      <fieldset style="display:inline;font-size:95%;border-width:1px;margin-top:0.3rem;padding-top:0px;padding-bottom:0.5rem;">
         <legend>{{ "vote" | T }}</legend>
         <div>
           {{ range $votes -}}
@@ -54,15 +52,15 @@
 
   {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
   {{ if or ($pages.Prev .) ($pages.Next .) }}
-    <p class="navigation-arrows">
+    <p style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:space-between;align-items:baseline;">
       {{ with $pages.Prev . }}
-        <a class="previous" href="{{ .RelPermalink }}">← {{ .Title }}</a>
+        <a style="display:flex;justify-content:flex-start;" href="{{ .RelPermalink }}">← {{ .Title }}</a>
       {{ else }}
         <span></span>
       {{ end }}
 
       {{ with $pages.Next . }}
-        <a class="next" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
+        <a style="display:flex;justify-content:flex-end;" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
       {{ else }}
         <span></span>
       {{ end }}

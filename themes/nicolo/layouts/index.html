@@ -1,17 +1,27 @@
 {{ define "main" }}
+  {{- $homeStyle := resources.Get "css/home.css" | minify | fingerprint -}}
+  <style>{{ $homeStyle.Content | safeCSS }}</style>
+
   <strong>{{ "welcomeHome" | T }}</strong>
 
   {{ .Content }}
 
 
-  <p>
+  <ul>
     {{ range $i, $section := site.Sections.ByWeight }}
-      <div>
-        <span>/</span
-        ><a href="{{ $section.Permalink }}"
-          >{{ path.Base $section.RelPermalink }}</a
-        >
-      </div>
+      <li>
+        <a href="{{ $section.Permalink }}">{{ path.Base $section.RelPermalink }}</a>
+        {{ with .Sections.ByWeight }}
+          <ul>
+          {{ range . }}
+              <li>
+                <a href="{{ .Permalink }}">{{ path.Base .RelPermalink }}</a
+                  ><sup>{{ .RegularPagesRecursive | len }}</sup>
+              </li>
+          {{ end }}
+          </ul>
+        {{ end }}
+      </li>
     {{ end }}
-  </p>
+  </ul>
 {{ end }}

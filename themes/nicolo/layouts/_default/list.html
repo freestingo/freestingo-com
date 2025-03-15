@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{- $listStyle := resources.Get "css/list.css" | minify | fingerprint -}}
+  <style>{{ $listStyle.Content | safeCSS }}</style>
+
   {{ if .Sections.ByWeight }}
     <div class="sub-sections">
       {{ range .Sections.ByWeight }}
@@ -19,7 +22,7 @@
             {{ else }}
               {{ .RelPermalink }}
             {{ end }}"
-            class="{{ if $isCurrentSection }}font-bold{{ end }}"
+            {{ if $isCurrentSection }}aria-current="page"{{ end }}
           >
             {{ .Title | lower }}
           </a>
@@ -51,7 +54,7 @@
             {{ end }}
             <a
               href="{{ $taxonomyPermalink }}"
-              class="{{ if $isCurrentSection }}font-bold{{ end }}"
+              {{ if $isCurrentSection }}aria-current="page"{{ end }}
             >
               {{ $currentTaxonomyPage.Title }}
             </a>
@@ -65,7 +68,7 @@
   {{ partial "list-view-title.html" . }}
 
 
-  <div class="list-items">
+  <ul>
     {{ range .RegularPagesRecursive }}
       {{ if eq .Type "music-reviews" }}
         {{- partial "music-review-preview.html" . -}}
@@ -73,5 +76,5 @@
         {{- partial "article-preview.html" . -}}
       {{ end }}
     {{ end }}
-  </div>
+  </ul>
 {{ end }}

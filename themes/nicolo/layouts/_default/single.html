@@ -1,7 +1,11 @@
 {{ define "main" }}
+  {{ if .Params.ContainsCodeBlocks }}
+    {{- $codeStyle := resources.Get "css/code.css" | minify | fingerprint -}}
+    <style>{{ $codeStyle.Content | safeCSS }}</style>
+  {{ end }}
+
   <article>
     {{ partial "article-header.html" . }}
-
 
     <div>
       {{ .Content }}
@@ -10,15 +14,15 @@
 
   {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
   {{ if or ($pages.Prev .) ($pages.Next .) }}
-    <p class="navigation-arrows">
+    <p style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:space-between;align-items:baseline;">
       {{ with $pages.Prev . }}
-        <a class="previous" href="{{ .RelPermalink }}">← {{ .Title }}</a>
+        <a style="display:flex;justify-content:flex-start;" href="{{ .RelPermalink }}">← {{ .Title }}</a>
       {{ else }}
         <span></span>
       {{ end }}
 
       {{ with $pages.Next . }}
-        <a class="next" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
+        <a style="display:flex;justify-content:flex-end;" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
       {{ else }}
         <span></span>
       {{ end }}

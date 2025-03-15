@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{- $listStyle := resources.Get "css/list.css" | minify | fingerprint -}}
+  <style>{{ $listStyle.Content | safeCSS }}</style>
+
   <div class="sub-sections">
     {{ range .Parent.Sections.ByWeight }}
       {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}
@@ -9,7 +12,7 @@
           {{ else }}
             {{ .RelPermalink }}
           {{ end }}"
-          class="{{ if $isCurrentSection }}font-bold{{ end }}"
+          {{ if $isCurrentSection }}aria-current="page"{{ end }}
         >
           {{ .Title | lower }}
         </a>
@@ -21,9 +24,9 @@
   {{ partial "list-view-title.html" . }}
 
 
-  <div class="list-items">
+  <ul>
     {{ range .RegularPagesRecursive }}
       {{- partial "music-review-preview.html" . -}}
     {{ end }}
-  </div>
+  </ul>
 {{ end }}

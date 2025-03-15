@@ -1,20 +1,20 @@
 <div>
-  <strong>
+  <h1 style="font-size:medium;margin:0">
     {{ .Title }}
-  </strong>
+  </h1>
   <div>
     {{ .Summary }}
   </div>
 </div>
-<fieldset>
-  {{ $taxonomy := "topics" }}
-  {{ with .GetTerms $taxonomy }}
-    {{ $taxonomyLength := . | len }}
-    <legend>{{ "topics" | T }}</legend>
+{{ $taxonomy := "topics" }}
+{{ with .GetTerms $taxonomy }}
+  {{ $taxonomyLength := . | len }}
+  <p style="font-size:95%">
+    {{ "topics" | T }}:
     {{ range $i, $taxonomyItem := . }}
       <a href="{{ $taxonomyItem.RelPermalink }}">
         {{ $taxonomyItem.LinkTitle }}</a
       >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
     {{- end }}
-  {{ end }}
-</fieldset>
+  </p>
+{{ end }}

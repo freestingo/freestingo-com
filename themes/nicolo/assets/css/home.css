@@ -1,0 +1,13 @@
+main > ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+li {
+  list-style-type: '/';
+}
+
+li sup {
+  font-weight: bold;
+}

@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{- $listStyle := resources.Get "css/list.css" | minify | fingerprint -}}
+  <style>{{ $listStyle.Content | safeCSS }}</style>
+
   <div class="sub-sections">
     {{ range .Pages.ByTitle }}
       {{ if .Pages }}
@@ -13,7 +16,7 @@
   {{ partial "list-view-title.html" . }}
 
 
-  <div class="list-items">
+  <ul>
     {{ range append (where site.Pages "TranslationKey" "about") site.RegularPages }}
       {{ if gt (.GetTerms $.Type | len) 0 }}
         {{ if eq .Type "music-reviews" }}
@@ -23,5 +26,5 @@
         {{ end }}
       {{ end }}
     {{ end }}
-  </div>
+  </ul>
 {{ end }}

@@ -1,8 +1,6 @@
-<div>
-  <span class="preview-date">
-    {{ time.Format "2006-01" .Date }}
-  </span>
-  <span class="grid grid-cols-1 gap-1 py-2">
-    <a href="{{ .Permalink }}">{{ .Title }}</a> - <span>{{ .Summary }}</span>
-  </span>
-</div>
+{{ $publicationDate := time.Format "2006-01" .Date }}
+
+<li>
+  <span>{{ $publicationDate }}</span>
+  <a href="{{ .Permalink }}">{{ .Title }}</a> - <span>{{ .Summary }}</span>
+</li>

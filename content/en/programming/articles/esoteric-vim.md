@@ -7,6 +7,7 @@ translationKey: esoteric-vim
 description: A list of niche Vim features and their time-saving, real-life applications
 keywords: [programming, productivity, vim]
 date: 2025-02-20
+containsCodeBlocks: true
 topics: [vim, productivity]
 ---
 

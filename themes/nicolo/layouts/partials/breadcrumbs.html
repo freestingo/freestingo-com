@@ -9,7 +9,7 @@
 
 {{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
   <span>/</span
-  ><a aria-current="page" href="{{ .RelPermalink }}"
+  ><a href="{{ .RelPermalink }}"
     >{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a
   >
 {{- end -}}

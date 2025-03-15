@@ -1,12 +1,12 @@
-<div>
-  <span class="preview-date">
-    {{ time.Format "2006-01" .Date }}
-  </span>
-  {{ with .GetTerms "artists" }}
-    {{ range . }}
+{{ $publicationDate := time.Format "2006-01" .Date }}
+
+<li>
+  <span>{{ $publicationDate }}</span>
+  {{ with .GetTerms "artists" -}}
+    {{- range . -}}
       <a href="{{ .RelPermalink }}">{{- .Title -}}</a>
-    {{ end }}
-  {{ end }}
+    {{- end -}}
+  {{- end }}
   - <a href="{{ .Permalink }}">{{ .Title }}</a>
   ({{- with append (.GetTerms "release-years") (.GetTerms "genres") -}}
     {{- range $i, $item := . -}}
@@ -15,4 +15,4 @@
       {{ end }}<a href="{{ $item.RelPermalink }}">{{- $item.Title -}}</a>
     {{- end -}}
   {{- end -}})
-</div>
+</li>
