@@ -4,7 +4,7 @@
     <div>
       {{- partial "languages.html" . -}}
       {{ range (where site.Pages "TranslationKey" "about") }}
-        {{ $href := print .Page.RelPermalink "#" ("howToContribute" | T | urlize) }}
+        {{ $href := print .Page.RelPermalink "#" ("contributing" | T | urlize) }}
         {{ $title := "donate" | T }}
         <a href="{{ $href }}">{{ $title }}</a>
       {{ end }}

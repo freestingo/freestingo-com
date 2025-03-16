@@ -1,0 +1,5 @@
+{{- $label := .Get "label" -}}
+{{- $mail := .Get "mail" -}}
+<address>
+  <a href="mailto:{{- $mail -}}">{{ $label }}</a>
+</address>

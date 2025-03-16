@@ -6,28 +6,12 @@
 {{ define "main" }}
   {{/* exploiting lookup orders to use this layout both for the English and Italian "about" section URLs https://gohugo.io/templates/lookup-order/ */}}
   <article>
-    {{ partial "article-header.html" . }}
+    <header>
+      <h1 style="font-size:medium;margin:0">
+        {{ .Title }}
+      </h1>
+    </header>
 
     {{ .Content }}
-
-    {{ with .Site.Params.social.profiles }}
-      <footer>
-        <p>
-          <span>{{ "personalSocialCallToAction" | T }}:</span>
-          {{ $socialProfilesLength := . | len }}
-          {{ range $i, $socialProfile := . }}
-            <a
-              href="{{ $socialProfile.url }}"
-              target="_blank"
-              rel="noopener"
-              aria-label=""
-              title="{{ $socialProfile.name }}"
-            >
-              {{ $socialProfile.name }}</a
-            >{{ if lt (add $i 1) $socialProfilesLength }},{{ end }}
-          {{ end }}
-        </p>
-      </footer>
-    {{ end }}
   </article>
 {{ end }}
