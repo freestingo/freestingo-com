@@ -4,29 +4,29 @@
 {{ end }}
 
 {{ define "main" }}
-  <div class="sub-sections">
+  <menu>
     {{ range .Pages.ByTitle }}
       {{ if .Pages }}
-        <div class="sub-section">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a
-          ><sup>{{ .Pages | len }}</sup>
-        </div>
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
       {{ end }}
     {{ end }}
-  </div>
+  </menu>
 
   {{ partial "list-view-title.html" . }}
 
-
-  <ul>
-    {{ range append (where site.Pages "TranslationKey" "about") site.RegularPages }}
-      {{ if gt (.GetTerms $.Type | len) 0 }}
-        {{ if eq .Type "music-reviews" }}
-          {{- partial "music-review-preview.html" . -}}
-        {{ else }}
-          {{- partial "article-preview.html" . -}}
+  <nav>
+    <ul>
+      {{ range append (where site.Pages "TranslationKey" "about") site.RegularPages }}
+        {{ if gt (.GetTerms $.Type | len) 0 }}
+          {{ if eq .Type "music-reviews" }}
+            {{- partial "music-review-preview.html" . -}}
+          {{ else }}
+            {{- partial "article-preview.html" . -}}
+          {{ end }}
         {{ end }}
       {{ end }}
-    {{ end }}
-  </ul>
+    </ul>
+  </nav>
 {{ end }}

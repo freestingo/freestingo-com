@@ -1,6 +1,10 @@
 {{ $publicationDate := time.Format "2006-01" .Date }}
 
 <li>
-  <span>{{ $publicationDate }}</span>
-  <a href="{{ .Permalink }}">{{ .Title }}</a> - <span>{{ .Summary }}</span>
+  <article>
+    <time>{{ $publicationDate }}</time>
+    <h2>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+  </article>
 </li>

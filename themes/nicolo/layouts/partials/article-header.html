@@ -10,14 +10,22 @@
       {{ $taxonomy := "topics" }}
       {{ with .GetTerms $taxonomy }}
         {{ $taxonomyLength := . | len }}
-          <small>
-          {{ "topics" | T }}:
-          {{ range $i, $taxonomyItem := . }}
-            <a href="{{ $taxonomyItem.RelPermalink }}">
-              {{ $taxonomyItem.LinkTitle }}</a
-            >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
-          {{- end }}
-          </small>
+        <dl>
+          <div>
+            <small>
+              <dt>
+                {{ "topics" | T -}}
+              </dt>
+              <dd>
+                {{ range $i, $taxonomyItem := . }}
+                  <a href="{{ $taxonomyItem.RelPermalink }}">
+                    {{ $taxonomyItem.LinkTitle }}</a
+                  >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
+                {{- end }}
+              </dd>
+            </small>
+          </div>
+        </dl>
       {{ end }}
     </aside>
   </hgroup>

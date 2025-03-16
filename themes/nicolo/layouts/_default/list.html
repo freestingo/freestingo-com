@@ -4,21 +4,19 @@
 {{ end }}
 
 {{ define "main" }}
-
   {{ if .Sections.ByWeight }}
-    <div class="sub-sections">
+    <menu>
       {{ range .Sections.ByWeight }}
-        <div class="sub-section">
-          <a href="{{ .RelPermalink }}">{{ .Title | lower -}}</a
-          ><sup>{{ .RegularPagesRecursive | len }}</sup>
-        </div>
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title | lower }}</a>
+        </li>
       {{ end }}
-    </div>
+    </menu>
   {{ else if and (ne .Parent site.Home) (.Parent.Sections.ByWeight) }}
-    <div class="sub-sections">
+    <menu>
       {{ range .Parent.Sections.ByWeight }}
         {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}
-        <div class="sub-section">
+        <li>
           <a
             href="{{ if $isCurrentSection }}
               {{ .Parent.RelPermalink }}
@@ -26,22 +24,19 @@
               {{ .RelPermalink }}
             {{ end }}"
             {{ if $isCurrentSection }}aria-current="page"{{ end }}
-          >
-            {{ .Title | lower }}
-          </a>
-          <sup>{{ .RegularPagesRecursive | len }}</sup>
-        </div>
+          >{{ .Title | lower }}</a>
+        </li>
       {{ end }}
-    </div>
+    </menu>
   {{ end }}
 
   {{ range $taxonomyName, $taxonomy := $.Site.Taxonomies }}
     {{ $translatedTaxonomyName := (site.GetPage $taxonomyName).Params.url }}
     {{ if eq $.Parent.Params.url $translatedTaxonomyName }}
-      <div class="sub-sections">
+      <menu>
         {{ range $key, $value := $taxonomy }}
           {{ $taxonomyPages := $value.Pages }}
-          <div class="sub-section">
+          <li>
             {{/* votes have the denominator in the title but not in the slug/$key.
               this means we have to check both (we could be in the "votes" taxonomy section or any other taxononmy section)
             */}}
@@ -61,23 +56,23 @@
             >
               {{ $currentTaxonomyPage.Title }}
             </a>
-            <sup>{{ $taxonomyPages | len }}</sup>
-          </div>
+          </li>
         {{ end }}
-      </div>
+      </menu>
     {{ end }}
   {{ end }}
 
   {{ partial "list-view-title.html" . }}
 
-
-  <ul>
-    {{ range .RegularPagesRecursive }}
-      {{ if eq .Type "music-reviews" }}
-        {{- partial "music-review-preview.html" . -}}
-      {{ else }}
-        {{- partial "article-preview.html" . -}}
+  <nav>
+    <ul>
+      {{ range .RegularPagesRecursive }}
+        {{ if eq .Type "music-reviews" }}
+          {{- partial "music-review-preview.html" . -}}
+        {{ else }}
+          {{- partial "article-preview.html" . -}}
+        {{ end }}
       {{ end }}
-    {{ end }}
-  </ul>
+    </ul>
+  </nav>
 {{ end }}

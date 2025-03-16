@@ -1,0 +1,16 @@
+dl {
+  margin-top: 0;
+}
+
+small {
+  display: flex;
+  column-gap: .3rem;
+}
+
+dd {
+  margin: 0;
+}
+
+dt::after {
+  content: ": ";
+}

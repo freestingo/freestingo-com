@@ -1,18 +1,24 @@
 {{ $publicationDate := time.Format "2006-01" .Date }}
 
 <li>
-  <span>{{ $publicationDate }}</span>
-  {{ with .GetTerms "artists" -}}
-    {{- range . -}}
-      <a href="{{ .RelPermalink }}">{{- .Title -}}</a>
-    {{- end -}}
-  {{- end }}
-  - <a href="{{ .Permalink }}">{{ .Title }}</a>
-  ({{- with append (.GetTerms "release-years") (.GetTerms "genres") -}}
-    {{- range $i, $item := . -}}
-      {{- if $i -}}
-        ,
-      {{ end }}<a href="{{ $item.RelPermalink }}">{{- $item.Title -}}</a>
-    {{- end -}}
-  {{- end -}})
+  <article>
+    <time>{{ $publicationDate }}</time>
+    <h2>
+      {{ with .GetTerms "artists" -}}
+        {{- range . -}}
+          <a href="{{ .RelPermalink }}">{{- .Title -}}</a>
+        {{- end -}}
+      {{- end }}
+      - <a href="{{ .Permalink }}">{{ .Title }}</a>
+      {{ with append (.GetTerms "release-years") (.GetTerms "genres") -}}
+        (
+            {{- range $i, $item := . -}}
+              {{- if $i -}}
+                ,
+              {{ end }}<a href="{{ $item.RelPermalink }}">{{- $item.Title -}}</a>
+            {{- end -}}
+        )
+      {{- end -}}
+    </h2>
+  </article>
 </li>

@@ -1,3 +1,8 @@
+{{ define "modularCss" }}
+  {{- $singleStyle := resources.Get "css/single.css" | minify | fingerprint -}}
+  {{ $singleStyle.Content | safeCSS }}
+{{ end }}
+
 {{ define "main" }}
   {{ $artists := .GetTerms "artists" }}
   {{ $genres := .GetTerms "genres" }}
@@ -14,31 +19,51 @@
           {{ .Title }}
         </h1>
         <aside>
-          <span>{{ "genres" | T }}:</span>
-          {{ range $i, $item := $genres }}
-            {{- if $i -}}
-              ,
-            {{ end }}<a href="{{ $item.RelPermalink }}"
-              >{{- $item.LinkTitle -}}</a
-            >
-          {{- end -}}
-          <div>
-            <span>{{ "released" | T }}:</span>
-            {{ range $releaseYears }}
-              <a href="{{ .RelPermalink }}">{{- .LinkTitle -}}</a>
-            {{- end -}}
-          </div>
-
-          <fieldset style="display:inline;font-size:95%;border-width:1px;margin-top:0.3rem;padding-top:0px;padding-bottom:0.5rem;">
-            <legend>{{ "vote" | T }}</legend>
+          <dl>
             <div>
-              {{ range $votes -}}
-                <a href="{{ .RelPermalink }}">
-                  {{ .LinkTitle }}
-                </a>
-              {{- end }}
+              <small>
+                <dt>
+                  {{- "genres" | T -}}
+                </dt>
+                <dd>
+                  {{ range $i, $item := $genres }}
+                    {{- if $i -}}
+                      ,
+                    {{ end }}<a href="{{ $item.RelPermalink }}"
+                      >{{ $item.LinkTitle -}}</a
+                    >
+                  {{- end -}}
+                </dd>
+              </small>
             </div>
-          </fieldset>
+            <div>
+              <small>
+                <dt>
+                  {{- "released" | T -}}
+                </dt>
+                <dd>
+                  {{ range $releaseYears }}
+                    <a href="{{ .RelPermalink }}">{{ .LinkTitle -}}</a>
+                  {{- end -}}
+                </dd>
+              </small>
+            </div>
+            <div>
+              <dt hidden>
+                {{- "vote" | T -}}
+              </dt>
+              <dd>
+                <fieldset style="display:inline;font-size:95%;border-width:1px;margin-top:0.3rem;padding-top:0px;padding-bottom:0.5rem;">
+                  <legend>{{ "vote" | T }}</legend>
+                  {{ range $votes }}
+                    <a href="{{ .RelPermalink }}">
+                      {{ .LinkTitle }}
+                    </a>
+                  {{- end }}
+                </fieldset>
+              </dd>
+            </div>
+          </dl>
         </aside>
       </hgroup>
     </header>
@@ -57,7 +82,7 @@
                 <a style="display:flex;justify-content:flex-start;" href="{{ .RelPermalink }}">← {{ .Title }}</a>
               </li>
             {{ else }}
-              <span></span>
+              <span style="display:inline-block"></span>
             {{ end }}
 
             {{ with $pages.Next . }}

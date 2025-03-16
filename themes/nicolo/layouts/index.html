@@ -29,7 +29,7 @@
                     <ul>
                       {{ range first 1 . }}
                         <li>
-                          {{ "latest" | T }}: <a href="{{ .Permalink }}">{{ .Name }}</a>
+                          <time datetime="{{ time.Format "2006-01" .Date }}">{{ "latest" | T }}:</time> <a href="{{ .Permalink }}">{{ .Name }}</a>
                         </li>
                       {{ end }}
                     </ul>

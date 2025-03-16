@@ -5,10 +5,10 @@
 
 {{ define "main" }}
 
-  <div class="sub-sections">
+  <menu>
     {{ range .Parent.Sections.ByWeight }}
       {{ $isCurrentSection := eq .Title $.CurrentSection.Title }}
-      <div class="sub-section">
+      <li>
         <a
           href="{{ if $isCurrentSection }}
             {{ .Parent.RelPermalink }}
@@ -19,17 +19,17 @@
         >
           {{ .Title | lower }}
         </a>
-        <sup>{{ .RegularPagesRecursive | len }}</sup>
-      </div>
+      </li>
     {{ end }}
-  </div>
+  </menu>
 
   {{ partial "list-view-title.html" . }}
 
-
-  <ul>
-    {{ range .RegularPagesRecursive }}
-      {{- partial "music-review-preview.html" . -}}
-    {{ end }}
-  </ul>
+  <nav>
+    <ul>
+      {{ range .RegularPagesRecursive }}
+        {{- partial "music-review-preview.html" . -}}
+      {{ end }}
+    </ul>
+  </nav>
 {{ end }}

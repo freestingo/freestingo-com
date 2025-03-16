@@ -1,7 +1,10 @@
 {{ define "modularCss" }}
-  {{ if .Params.ContainsCodeBlocks }}
+  {{- $singleStyle := resources.Get "css/single.css" | minify | fingerprint -}}
+  {{- $singleStyle.Content | safeCSS -}}
+
+  {{- if .Params.ContainsCodeBlocks -}}
     {{- $codeStyle := resources.Get "css/code.css" | minify | fingerprint -}}
-    {{ $codeStyle.Content | safeCSS }}
+    {{- $codeStyle.Content | safeCSS -}}
   {{ end }}
 {{ end }}
 
@@ -15,18 +18,18 @@
       {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
       {{ if or ($pages.Prev .) ($pages.Next .) }}
         <nav>
-          <ul style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:space-between;align-items:baseline;list-style-type:none;padding:0">
+          <ul style="list-style-type:none;padding:0">
             {{ with $pages.Prev . }}
-              <li>
-                <a style="display:flex;justify-content:flex-start;" href="{{ .RelPermalink }}">← {{ .Title }}</a>
+              <li style="display:inline-block">
+                <a href="{{ .RelPermalink }}">← {{ .Title }}</a>
               </li>
             {{ else }}
-              <span></span>
+              <span style="display:inline-block"></span>
             {{ end }}
 
             {{ with $pages.Next . }}
-              <li>
-                <a style="display:flex;justify-content:flex-end;" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
+              <li style="float:right">
+                <a href="{{ .RelPermalink }}">→ {{ .Title }}</a>
               </li>
             {{ else }}
               <span></span>

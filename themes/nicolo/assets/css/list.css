@@ -1,16 +1,11 @@
-.sub-sections {
+menu {
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  column-gap: 0.5rem;
-}
-
-.sub-section {
-  display: flex;
-}
-
-.sub-section sup {
-  font-weight: bold;
+  column-gap: .5rem;
+  list-style-type: none;
 }
 
 ul {
@@ -25,6 +20,17 @@ ul {
   font-size: small;
 }
 
-.list-view-title {
-  margin-bottom: 1rem;
+article {
+  display: flex;
+  column-gap: .3rem;
+}
+
+time {
+  flex-shrink: 0;
+}
+
+h2 {
+  font-size: medium;
+  font-weight: normal;
+  margin: 0;
 }
