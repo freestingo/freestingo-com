@@ -62,7 +62,7 @@ or I could document complex tasks or workflows much more comprehensively in memo
 help me recollect their original context more precisely and with less confusion at any time in the
 future; I could transfer my thoughts into my laptop much more swiftly and effortlessly, so I could
 completely focus on a given task without having to think about unrelated, distracting things (such
-as the position of the letter `B` on my keyboard); I could communicate much more clearly to my
+as the position of the letter {{< kbd B >}} on my keyboard); I could communicate much more clearly to my
 teammates and more often achieve what we were aiming for because I could easily type long, clear,
 in-depth messages and reduce overall ambiguity... ironically, the overlap these benefits have with
 the various areas of expertise mentioned at the start of the article is significant. Such a
@@ -88,23 +88,24 @@ If you are born after 1980 and have been using a computer for a while, at some p
 start asking yourself questions about weird and inconvenient keyboard layout choices that can only
 be answered with "It made sense when keyboards were part of typewriters". That may be true, but it
 does not change the fact that keyboards are now part of computers and a computer is not a
-typewriter. Why is the `CTRL` key so far away from the home row, despite its use being so frequent?
-Why is the `CAPS LOCK` key in the home row, right next to the `A` key, despite its use being so
-rare? It would make sense to just swap the position of those two keys—and that is exactly what some
-people do. It is such a simple and reasonable software tweak that some operating systems (such as
-Ubuntu and macOS) even allow you to swap `CTRL` and `CAPS LOCK` from their default keyboard settings
-page, without installing any third-party script or tool.
+typewriter. Why is the {{< kbd CTRL >}} key so far away from the home row, despite its use being so
+frequent? Why is the {{< kbd "CAPS LOCK" >}} key in the home row, right next to the {{< kbd A >}}
+key, despite its use being so rare? It would make sense to just swap the position of those two
+keys—and that is exactly what some people do. It is such a simple and reasonable software tweak that
+some operating systems (such as Ubuntu and macOS) even allow you to swap {{< kbd CTRL >}} and {{<
+kbd "CAPS LOCK" >}} from their default keyboard settings page, without installing any third-party
+script or tool.
 
 In addition, if you are not from an English-speaking country, your default keyboard layout will most
 likely be different than the English one. Italian keyboard layouts, for example, prioritize easy
 access to very common Italian characters such as accented vowels, at the expense of less common or
-niche punctuation symbols such as `@`, `~` or square/curly brackets. This is good news for all
-Italians except Italian programmers, which most likely will never use something like `ò` in their
-source files. The easiest fix I found is to just use the English keyboard layout, and rely on your
-`COMPOSE` key for the rare time you actually need to write a non-English character. Using three
-separate keystrokes (`` COMPOSE + o + ` ``) instead of one for an `ò` once or twice a day is way
-faster than using two modifier keys (`ALT GR + SHIFT + [`) instead of one every time you want to
-open or close a curly bracket.
+niche punctuation symbols such as {{< kbd "@" >}}, {{< kbd "~" >}} or square/curly brackets. This is
+good news for all Italians except Italian programmers, which most likely will never use something
+like {{< kbd ò >}} in their source files. The easiest fix I found is to just use the English
+keyboard layout, and rely on your {{< kbd COMPOSE >}} key for the rare time you actually need to
+write a non-English character. Using three separate keystrokes ({{< kbd COMPOSE o "`" >}}) instead
+of one for an {{< kbd ò >}} once or twice a day is way faster than using two modifier keys ({{< kbd
+"ALT GR" SHIFT "[" >}}) instead of one every time you want to open or close a curly bracket.
 
 Another quick and easy keyboard tweak is to just shorten the key repeat delay time and increase the
 key repeat rate. These two settings control how long you need to press down a single key before the
@@ -124,8 +125,9 @@ execute. You can type intricate commands like "delete the previous thirteen word
 caret position" inside text editors such as [Vim]({{< ref "programming/articles/esoteric-vim/" >}}),
 but that implies you have spent some time counting the exact number of words that need to be deleted
 and inputting the correct key sequence to execute said command. In my experience, after applying the
-key repeat tweak, holding down `CTRL` + `BACKSPACE` until I delete thirteen words is way faster than
-making sure I need to delete exactly thirteen words and then typing `d13b` in Vim's normal mode.
+key repeat tweak, holding down {{< kbd CTRL BACKSPACE >}} until I delete thirteen words is way
+faster than making sure I need to delete exactly thirteen words and then typing {{< kbd d13b >}} in
+Vim's normal mode.
 
 ### Medium-term improvements
 
@@ -133,15 +135,15 @@ Touch typing is the "one weird trick" for reaching very fast typing speeds. Touc
 means typing accurately on your keyboard without ever looking at it. The idea is to optimize the
 typing process by evenly distributing key presses among all of your fingers except for your thumbs,
 one of which has exclusive access to the spacebar. A touch typist, for example, does not need to see
-where the `P` key is before pressing it because they already know by heart that it is right above
-their right pinky finger, so they just press it with their pinky. Memorizing the position of all the
-keys on your keyboard sounds hard, but in reality it is not that complicated; it is just a little
-awkward when you first practice it. The good news is that nowadays there are tons of websites
-dedicated to teaching touch typing offering excellent typing drills and mnemonic exercises, making
-it very easy for you to process and master your own keyboard in whatever way you see fit. I found
-[this](https://www.keybr.com/ "Keybr touch typing training website") website to be particularly
-helpful, for example, because it forces you to work on your weaknesses and avoid indulging in easy
-exercises, making your practice sessions both more fruitful and efficient.
+where the {{< kbd P >}} key is before pressing it because they already know by heart that it is
+right above their right pinky finger, so they just press it with their pinky. Memorizing the
+position of all the keys on your keyboard sounds hard, but in reality it is not that complicated; it
+is just a little awkward when you first practice it. The good news is that nowadays there are tons
+of websites dedicated to teaching touch typing offering excellent typing drills and mnemonic
+exercises, making it very easy for you to process and master your own keyboard in whatever way you
+see fit. I found [this](https://www.keybr.com/ "Keybr touch typing training website") website to be
+particularly helpful, for example, because it forces you to work on your weaknesses and avoid
+indulging in easy exercises, making your practice sessions both more fruitful and efficient.
 
 Somewhat counter-intuitively, touch typing is a sufficient but not necessary condition of being able
 to type fast. Some people are able to reach very high WPM counts while still looking at their own
@@ -257,12 +259,13 @@ only due to the layout switching or simply from the fact that I have not been pr
 anymore since 2021. My QWERTY thumb-typing abilities on phone screens have remained completely
 intact. A Colemak-specific advantage for QWERTY-native typists I only realized _in medias res_ is
 that your most common keyboard shortcuts will look the same in both layouts. Even after switching,
-you will still be able to copy (`CTRL + C`), cut (`CTRL + X`), paste (`CTRL + V`), select all (`CTRL + A`),
-undo (`CTRL + Z`) and close windows (`CTRL + W`) without re-training your muscle memory. To
-be completely honest, I still have yet to come across a valid argument against learning alternative
-keyboard layouts. I will quote some of the ones I most commonly found being thrown around down below
-alongside my own response to them, in order to let you make you own mind up about this whole
-switching matter by also hearing the other side of the argument.
+you will still be able to copy ({{< kbd CTRL C >}}), cut ({{< kbd CTRL X >}}), paste ({{< kbd CTRL V
+>}}), select all ({{< kbd CTRL A >}}), undo ({{< kbd CTRL Z >}}) and close windows ({{< kbd CTRL W
+>}}) without re-training your muscle memory. To be completely honest, I still have yet to come
+across a valid argument against learning alternative keyboard layouts. I will quote some of the ones
+I most commonly found being thrown around down below alongside my own response to them, in order to
+let you make you own mind up about this whole switching matter by also hearing the other side of the
+argument.
 
 > Fallacy: _QWERTY is faster because most of the fastest typists use QWERTY._
 

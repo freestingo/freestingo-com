@@ -1,0 +1,11 @@
+{{- $paramsLength := .Params | len -}}
+<kbd>
+  {{- range $i, $param := .Params -}}
+    {{- if eq $paramsLength 1 -}}
+      {{- $param -}}
+    {{- else -}}
+      <kbd>{{- $param -}}</kbd> 
+    {{- end -}}
+    {{ if lt (add $i 1) $paramsLength }} + {{ end }}
+  {{- end -}}
+</kbd>
