@@ -3,10 +3,10 @@
     <h1 style="font-size:medium;margin:0">
       {{ .Title }}
     </h1>
+    <h2 style="font-size:medium;font-weight:normal;margin:0">
+      {{ .Summary }}
+    </h2>
     <aside>
-      <div>
-        {{ .Summary }}
-      </div>
       {{ $taxonomy := "topics" }}
       {{ with .GetTerms $taxonomy }}
         {{ $taxonomyLength := . | len }}
