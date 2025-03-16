@@ -3,13 +3,4 @@ main > ul {
   flex-direction: column;
   row-gap: 1rem;
   padding: 0;
-  list-style-position: inside;
-}
-
-li {
-  list-style-type: '/';
-}
-
-li sup {
-  font-weight: bold;
 }
