@@ -1,10 +1,20 @@
 <header>
   <nav>
-    <a href="{{ .Site.Home.Permalink }}"
-      ><strong>{{ .Site.Title }}.com</strong></a
-    ><span>
-      {{- partial "breadcrumbs.html" . -}}
-    </span>
+    <ol class="breadcrumbs">
+      <li>
+        <a href="{{ .Site.Home.Permalink }}"><strong>{{ .Site.Title }}.com</strong></a>
+      </li>
+
+      {{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}
+        {{- if $elem.RelPermalink -}}
+          <li><a href="{{ .RelPermalink }}">{{- lower (path.Base $elem.RelPermalink) -}}</a></li>
+        {{- end -}}
+      {{- end -}}
+
+      {{- if and (ne .LinkTitle .Site.Title) (not (.Slug)) -}}
+        <li><a href="{{ .RelPermalink }}">{{- lower (default (path.Base .RelPermalink) .Slug) -}}</a></li>
+      {{- end -}}
+    </ol>
   </nav>
   <hr />
 </header>

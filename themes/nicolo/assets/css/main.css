@@ -14,7 +14,7 @@ main {
   flex: 1 1 0%;
 }
 
-header {
+body > header {
   padding-top: 0.5rem;
 }
 
@@ -28,6 +28,20 @@ footer > div {
 
 [aria-current="page"] {
   font-weight: bold;
+}
+
+.breadcrumbs {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs > li {
+  display: inline-block;
+}
+
+.breadcrumbs > li:not(:first-child)::before {
+  content: '/';
 }
 
 .typewriter {

@@ -4,8 +4,8 @@
   {{ $releaseYears := .GetTerms "release-years" }}
   {{ $votes := .GetTerms "votes" }}
   <article>
-    <div>
-      <div>
+    <header>
+      <hgroup>
         <h1 style="font-size:medium;margin:0">
           {{ range $artists }}
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -13,7 +13,7 @@
           -
           {{ .Title }}
         </h1>
-        <div>
+        <aside>
           <span>{{ "genres" | T }}:</span>
           {{ range $i, $item := $genres }}
             {{- if $i -}}
@@ -28,42 +28,48 @@
               <a href="{{ .RelPermalink }}">{{- .LinkTitle -}}</a>
             {{- end -}}
           </div>
-        </div>
-      </div>
 
-      <fieldset style="display:inline;font-size:95%;border-width:1px;margin-top:0.3rem;padding-top:0px;padding-bottom:0.5rem;">
-        <legend>{{ "vote" | T }}</legend>
-        <div>
-          {{ range $votes -}}
-            <a href="{{ .RelPermalink }}">
-              {{ .LinkTitle }}
-            </a>
-          {{- end }}
-        </div>
-      </fieldset>
-    </div>
+          <fieldset style="display:inline;font-size:95%;border-width:1px;margin-top:0.3rem;padding-top:0px;padding-bottom:0.5rem;">
+            <legend>{{ "vote" | T }}</legend>
+            <div>
+              {{ range $votes -}}
+                <a href="{{ .RelPermalink }}">
+                  {{ .LinkTitle }}
+                </a>
+              {{- end }}
+            </div>
+          </fieldset>
+        </aside>
+      </hgroup>
+    </header>
 
-    <div>
-      {{ .Content }}
-    </div>
+    {{ .Content }}
+
+    <footer>
+      {{ partial "streaming-platforms" . }}
+
+      {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
+      {{ if or ($pages.Prev .) ($pages.Next .) }}
+        <nav>
+          <ul style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:space-between;align-items:baseline;list-style-type:none;padding:0">
+            {{ with $pages.Prev . }}
+              <li>
+                <a style="display:flex;justify-content:flex-start;" href="{{ .RelPermalink }}">← {{ .Title }}</a>
+              </li>
+            {{ else }}
+              <span></span>
+            {{ end }}
+
+            {{ with $pages.Next . }}
+              <li>
+                <a style="display:flex;justify-content:flex-end;" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
+              </li>
+            {{ else }}
+              <span></span>
+            {{ end }}
+          </ul>
+        </nav>
+      {{ end }}
+    </footer>
   </article>
-
-  {{ partial "streaming-platforms" . }}
-
-  {{ $pages := where .Site.RegularPages.ByWeight ".CurrentSection.Title" .CurrentSection.Title }}
-  {{ if or ($pages.Prev .) ($pages.Next .) }}
-    <p style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:space-between;align-items:baseline;">
-      {{ with $pages.Prev . }}
-        <a style="display:flex;justify-content:flex-start;" href="{{ .RelPermalink }}">← {{ .Title }}</a>
-      {{ else }}
-        <span></span>
-      {{ end }}
-
-      {{ with $pages.Next . }}
-        <a style="display:flex;justify-content:flex-end;" href="{{ .RelPermalink }}">→ {{ .Title }}</a>
-      {{ else }}
-        <span></span>
-      {{ end }}
-    </p>
-  {{ end }}
 {{ end }}

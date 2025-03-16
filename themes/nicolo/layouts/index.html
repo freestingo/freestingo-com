@@ -4,34 +4,37 @@
 {{ end }}
 
 {{ define "main" }}
-  <strong>{{ "welcomeHome" | T }}</strong>
+  <h1 style="font-size:medium;margin:0">
+    {{ "welcomeHome" | T }}
+  </h1>
 
   {{ .Content }}
 
-
-  <ul>
-    {{ range $i, $section := site.Sections.ByWeight }}
-      <li
-        ><a href="{{ $section.Permalink }}">{{ $section.Name }}</a>
-        {{ with .Sections.ByWeight }}
-          <ul>
-          {{ range . }}
-              <li>
-                <a href="{{ .Permalink }}">{{ .Name }}</a>
-                {{ with .RegularPagesRecursive }}
-                  <ul>
-                    {{ range first 1 . }}
-                      <li>
-                        {{ "latest" | T }}: <a href="{{ .Permalink }}">{{ .Name }}</a>
-                      </li>
-                    {{ end }}
-                  </ul>
-                {{ end }}
-              </li>
+  <nav>
+    <ul>
+      {{ range $i, $section := site.Sections.ByWeight }}
+        <li
+          ><a href="{{ $section.Permalink }}">{{ $section.Name }}</a>
+          {{ with .Sections.ByWeight }}
+            <ul>
+            {{ range . }}
+                <li>
+                  <a href="{{ .Permalink }}">{{ .Name }}</a>
+                  {{ with .RegularPagesRecursive }}
+                    <ul>
+                      {{ range first 1 . }}
+                        <li>
+                          {{ "latest" | T }}: <a href="{{ .Permalink }}">{{ .Name }}</a>
+                        </li>
+                      {{ end }}
+                    </ul>
+                  {{ end }}
+                </li>
+            {{ end }}
+            </ul>
           {{ end }}
-          </ul>
-        {{ end }}
-      </li>
-    {{ end }}
-  </ul>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
 {{ end }}

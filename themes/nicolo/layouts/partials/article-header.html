@@ -1,20 +1,24 @@
-<div>
-  <h1 style="font-size:medium;margin:0">
-    {{ .Title }}
-  </h1>
-  <div>
-    {{ .Summary }}
-  </div>
-</div>
-{{ $taxonomy := "topics" }}
-{{ with .GetTerms $taxonomy }}
-  {{ $taxonomyLength := . | len }}
-  <p style="font-size:95%">
-    {{ "topics" | T }}:
-    {{ range $i, $taxonomyItem := . }}
-      <a href="{{ $taxonomyItem.RelPermalink }}">
-        {{ $taxonomyItem.LinkTitle }}</a
-      >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
-    {{- end }}
-  </p>
-{{ end }}
+<header>
+  <hgroup>
+    <h1 style="font-size:medium;margin:0">
+      {{ .Title }}
+    </h1>
+    <aside>
+      <div>
+        {{ .Summary }}
+      </div>
+      {{ $taxonomy := "topics" }}
+      {{ with .GetTerms $taxonomy }}
+        {{ $taxonomyLength := . | len }}
+          <small>
+          {{ "topics" | T }}:
+          {{ range $i, $taxonomyItem := . }}
+            <a href="{{ $taxonomyItem.RelPermalink }}">
+              {{ $taxonomyItem.LinkTitle }}</a
+            >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
+          {{- end }}
+          </small>
+      {{ end }}
+    </aside>
+  </hgroup>
+</header>
