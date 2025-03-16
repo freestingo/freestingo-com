@@ -23,7 +23,7 @@ Implicit value enum members could allow programmers to silently add new members 
 effectively making all subsequent values shift downward and possibly creating discrepancies if any
 of them were also being persisted somewhere else in their numeric form.
 
-```csharp {lineNos=inline tabWidth=4 style=github-dark anchorlinenos=true lineanchors=enum-pre}
+```csharp {lineNos=inline tabWidth=4 style=github-dark}
 public enum TranslationCodeId
 {
    // buttons
@@ -178,7 +178,7 @@ Valutazione immobiliare:
 You might also want to format them in a certain fashion in order to use them correctly, for example
 inside a SQL insert script:
 
-```sql {lineNos=inline tabWidth=4 style=github-dark anchorlinenos=true lineanchors=handlebars-pre hl_lines=[13,17,20]}
+```sql {lineNos=inline tabWidth=4 style=github-dark}
 INSERT INTO Campaign
     (CampaignId, LanguageCode, DataFields)
     VALUES
@@ -351,7 +351,7 @@ they currently live in (actual values obscured for privacy):
 
 And this is how the existing whitelisted IP list looks like:
 
-```csharp {lineNos=inline tabWidth=4 style=github-dark anchorlinenos=true lineanchors=ip-pre}
+```csharp {lineNos=inline tabWidth=4 style=github-dark}
 var list = new List<RestrictedIPAddress>()
 {
    new RestrictedIPAddress { Address = IPAddress.Parse("XXX.XXX.XXX.XXX"), SubnetMask = IPAddress.Parse("255.255.255.0") },
@@ -436,12 +436,11 @@ but also retrieve them faster.
 #### 5.3. Map CIDR addresses into `new RestrictedIPAddress`'es
 
 Copy all new addresses from your external source and paste them in the current file, whenever you
-want the new `RestrictedIPAddresses` to be (most likely [at the end of the list]({{< ref "#ip-pre-7" >}})).
-If you are lucky, your IPs will already be arranged neatly one by one on neighboring, subsequent
-lines. If you are unlucky and are forced to work with Jira tables, you might get something that
-looks more like this:
+want the new `RestrictedIPAddresses` to be (most likely at the end of the list). If you are lucky,
+your IPs will already be arranged neatly one by one on neighboring, subsequent lines. If you are
+unlucky and are forced to work with Jira tables, you might get something that looks more like this:
 
-```csharp {lineNos=inline tabWidth=4 style=github-dark anchorlinenos=true lineanchors=cidr-pre}
+```csharp {lineNos=inline tabWidth=4 style=github-dark}
    new RestrictedIPAddress { Address = IPAddress.Parse("XXX.XXX.XXX.XXX"), SubnetMask = IPAddress.Parse("255.255.192.0") },
    new RestrictedIPAddress { Address = IPAddress.Parse("XXX.XXX.XXX.XXX"), SubnetMask = IPAddress.Parse("255.255.192.0") },
 XXX.XXX.XXX.XXX/20
