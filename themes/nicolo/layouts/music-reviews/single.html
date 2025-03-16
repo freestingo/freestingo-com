@@ -21,32 +21,28 @@
         <aside>
           <dl>
             <div>
-              <small>
-                <dt>
-                  {{- "genres" | T -}}
-                </dt>
-                <dd>
-                  {{ range $i, $item := $genres }}
-                    {{- if $i -}}
-                      ,
-                    {{ end }}<a href="{{ $item.RelPermalink }}"
-                      >{{ $item.LinkTitle -}}</a
-                    >
-                  {{- end -}}
-                </dd>
-              </small>
+              <dt>
+                {{- "genres" | T -}}
+              </dt>
+              <dd>
+                {{ range $i, $item := $genres }}
+                  {{- if $i -}}
+                    ,
+                  {{ end }}<a href="{{ $item.RelPermalink }}"
+                    >{{ $item.LinkTitle -}}</a
+                  >
+                {{- end -}}
+              </dd>
             </div>
             <div>
-              <small>
-                <dt>
-                  {{- "released" | T -}}
-                </dt>
-                <dd>
-                  {{ range $releaseYears }}
-                    <a href="{{ .RelPermalink }}">{{ .LinkTitle -}}</a>
-                  {{- end -}}
-                </dd>
-              </small>
+              <dt>
+                {{- "released" | T -}}
+              </dt>
+              <dd>
+                {{ range $releaseYears }}
+                  <a href="{{ .RelPermalink }}">{{ .LinkTitle -}}</a>
+                {{- end -}}
+              </dd>
             </div>
             <div>
               <dt hidden>

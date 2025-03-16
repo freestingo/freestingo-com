@@ -1,8 +1,9 @@
 dl {
   margin-top: 0;
+  font-size: 95%;
 }
 
-small {
+dl > div {
   display: flex;
   column-gap: .3rem;
 }

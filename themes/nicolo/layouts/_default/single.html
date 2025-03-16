@@ -19,21 +19,17 @@
       {{ if or ($pages.Prev .) ($pages.Next .) }}
         <nav>
           <ul style="list-style-type:none;padding:0">
-            {{ with $pages.Prev . }}
-              <li style="display:inline-block">
+            <li style="display:inline-block">
+              {{ with $pages.Prev . }}
                 <a href="{{ .RelPermalink }}">← {{ .Title }}</a>
-              </li>
-            {{ else }}
-              <span style="display:inline-block"></span>
-            {{ end }}
+              {{ end }}
+            </li>
 
-            {{ with $pages.Next . }}
-              <li style="float:right">
+            <li style="float:right">
+              {{ with $pages.Next . }}
                 <a href="{{ .RelPermalink }}">→ {{ .Title }}</a>
-              </li>
-            {{ else }}
-              <span></span>
-            {{ end }}
+              {{ end }}
+            </li>
           </ul>
         </nav>
       {{ end }}

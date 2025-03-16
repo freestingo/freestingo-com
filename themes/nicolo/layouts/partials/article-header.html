@@ -12,18 +12,16 @@
         {{ $taxonomyLength := . | len }}
         <dl>
           <div>
-            <small>
-              <dt>
-                {{ "topics" | T -}}
-              </dt>
-              <dd>
-                {{ range $i, $taxonomyItem := . }}
-                  <a href="{{ $taxonomyItem.RelPermalink }}">
-                    {{ $taxonomyItem.LinkTitle }}</a
-                  >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
-                {{- end }}
-              </dd>
-            </small>
+            <dt>
+              {{ "topics" | T -}}
+            </dt>
+            <dd>
+              {{ range $i, $taxonomyItem := . }}
+                <a href="{{ $taxonomyItem.RelPermalink }}">
+                  {{ $taxonomyItem.LinkTitle }}</a
+                >{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
+              {{- end }}
+            </dd>
           </div>
         </dl>
       {{ end }}
