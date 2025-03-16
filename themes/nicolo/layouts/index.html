@@ -1,8 +1,3 @@
-{{ define "modularCss" }}
-  {{- $homeStyle := resources.Get "css/home.css" | minify | fingerprint -}}
-  {{ $homeStyle.Content | safeCSS }}
-{{ end }}
-
 {{ define "main" }}
   <h1 style="font-size:medium;margin:0">
     {{ "welcomeHome" | T }}
