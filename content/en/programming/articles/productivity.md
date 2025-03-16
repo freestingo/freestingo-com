@@ -9,6 +9,7 @@ keywords:
   [programming, productivity, WPM, typing, bottleneck]
 date: 2025-03-07
 topics: [productivity]
+draft: true
 ---
 
 Most people, when prompted into sharing pieces of productivity advice, will mention techniques that
