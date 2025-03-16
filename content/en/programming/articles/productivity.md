@@ -1,7 +1,7 @@
 ---
 author: Nicolò Traini
-title: The simplest and most overlooked productivity boost
-summary: reflections on the (still mostly untapped) potential of touch typing
+title: Why are there no mandatory typing classes?
+summary: reflections on the (still mostly untapped) potential of boring optimizations
 slug: the-simplest-and-most-overlooked-productivity-boost
 translationKey: the-simplest-and-most-overlooked-productivity-boost
 description: Reflections on the (still mostly untapped) potential of touch typing.
