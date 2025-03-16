@@ -17,7 +17,7 @@ curious vimmer wanting to expand their vocabulary, and as an answer to the quest
 non-vimmers ask themselves whenever they accidentally open Vim and cannot figure out how to close
 it: why in the world do people even bother learning this weird text editor in the first place?
 
-## 1. Assigning numbers to existing enum classes
+### 1. Assigning numbers to existing enum classes
 
 Implicit value enum members could allow programmers to silently add new members in the middle,
 effectively making all subsequent values shift downward and possibly creating discrepancies if any
@@ -47,7 +47,7 @@ it can quickly become a nightmare if your enum does not contain six fields only,
 manual update of every single line would simply be unthinkable, or at the very least a painfully
 boring, incredibly time-consuming task. In Vim, you can do it all in two steps:
 
-### 1.1. Assign `0` to all enum fields
+#### 1.1. Assign `0` to all enum fields
 
 ```diff {style=github-dark}
 :g/,$/v/\/\//norm $i = 0
@@ -63,7 +63,7 @@ boring, incredibly time-consuming task. In Vim, you can do it all in two steps:
 - `norm $i = 0` is a [`normal`](https://vimhelp.org/various.txt.html#%3Anormal "':normal' on vimhelp.org")
    command that jumps to the end of the current line and inserts `= 0` right before your cursor.
 
-### 1.2. Increment all numeric values sequentially
+#### 1.2. Increment all numeric values sequentially
 
 ```diff {style=github-dark}
 vi}/0,$<Enter>ng<C-a>
@@ -98,7 +98,7 @@ public enum TranslationCodeId
 }
 ```
 
-## 2. Fixing verbose SQL insert scripts
+### 2. Fixing verbose SQL insert scripts
 
 All highlighted lines in the following script end with wrong characters:
 
@@ -149,7 +149,7 @@ your editor instead, and fix everything in one go:
   semicolons from line 4 to line 19, and replace commas only on line 20: we can target these two
   ranges by relatively referencing the positions of `VALUES` and `GO`[^ranges].
 
-## 3. Extract field names from templates
+### 3. Extract field names from templates
 
 Being able to automatically retrieve selected keywords from plain text can prove itself very useful
 in certain situations. For example, you might need to extract all field names from a Handlebars
@@ -187,7 +187,7 @@ INSERT INTO Campaign
 
 Once again, you can just let Vim do most of the work for you:
 
-### 3.1. Capture and save search matches
+#### 3.1. Capture and save search matches
 
 Vim allows you to store arbitrary text into many different
 [registers](https://vimhelp.org/change.txt.html#registers "'registers' on vimhelp.org"). In order to
@@ -209,7 +209,7 @@ qhq:%s/if \(.\{-}\)\./\=setreg('H', submatch(1)) || setreg('H', "\n")/n
   [`n` flag](https://vimhelp.org/change.txt.html#%3As_n "':s_n' on vimhelp.org") at the end tells
   the command not to actually substitute anything, and just evaluate any side-effects instead.
 
-### 3.2. Remove duplicate lines and format the result
+#### 3.2. Remove duplicate lines and format the result
 
 At this point, you should have all field names grouped under your `h` key. Paste its contents
 (`"hp`). You will see plenty of duplicate lines though, because our template had multiple instances
@@ -241,7 +241,7 @@ gv:'<,'>j | s/ /,/g
   line](https://vimhelp.org/change.txt.html#%3As_g "':s_g' on vimhelp.org"), instead of just the
   first one.
 
-## 4. Batch process multiple files
+### 4. Batch process multiple files
 
 This skill can come in handy, for example, whenever you are dealing with repositories requiring
 small configuration changes for local development. The price you pay for not being able to
@@ -286,19 +286,19 @@ How can we clean this up? `git` allows you to hide changes for a given file with
 --skip-worktree {path}` command, but typing all of this out once for every file is way too painful to
 even consider. The answer is—you guessed it—just do it inside Vim.
 
-### 4.1. [Insert the output of `git status`](https://vimhelp.org/insert.txt.html#%3Ar%21 "':r!' on vimhelp.org") in your current file
+#### 4.1. [Insert the output of `git status`](https://vimhelp.org/insert.txt.html#%3Ar%21 "':r!' on vimhelp.org") in your current file
 
 ```diff {id=read-git-status,style=github-dark}
 :r! git status
 ```
 
-### 4.2. Remove all lines not containing a filename
+#### 4.2. Remove all lines not containing a filename
 
 ```diff {style=github-dark}
 :v/modified/d
 ```
 
-### 4.3. Map all lines to `git` commands
+#### 4.3. Map all lines to `git` commands
 
 ```diff {id=skip-worktree,style=github-dark}
 gg0<C-v>tEGcgit update-index --skip-worktree <Esc>
@@ -313,7 +313,7 @@ gg0<C-v>tEGcgit update-index --skip-worktree <Esc>
 - `c` deletes the selected text and starts Insert mode. Since the selection came from a visual
   block, the inserted text will be simultaneously applied to all lines.
 
-### 4.4. Execute all lines as `bash` commands
+#### 4.4. Execute all lines as `bash` commands
 
 ```diff {style=github-dark}
 :w !bash
@@ -327,7 +327,7 @@ The workflow for un-hiding files at the end of your session is exactly the same,
 [4.1.]({{< ref "#read-git-status" >}}) you will list files using `git ls-files -v . | grep ^S`, and
 in [4.3.]({{< ref "#skip-worktree" >}}) you will replace `--skip-worktree` with `--no-skip-worktree`.
 
-## 5. Integrate data from external sources into your project
+### 5. Integrate data from external sources into your project
 
 The nature of this use case could not be more varied. Maybe your marketing team is sending you new
 translations, or your product manager is sending you new email template titles. In our example, you
@@ -371,7 +371,7 @@ your editor instantly do all the mapping instead? This way you would not even ne
 your results since any error-prone human intervention would be removed from the actual editing.
 In Vim you can, with some preparations beforehand:
 
-### 5.1. Create a Vimscript dictionary
+#### 5.1. Create a Vimscript dictionary
 
 Use subnet prefixes as keys, and `SubnetMask` addresses as values. This will come in handy later
 when constructing our mapping command. Copy all cells from the first table in [this cheat-sheet page](https://www.aelius.com/njh/subnet_sheet.html "Subnet Mask Cheat Sheet"),
@@ -416,7 +416,7 @@ Save your dictionary for later use and remove it from your file:
 - `"m` saves whatever text is deleted next into the `m` register[^register-name].
 - `dd` deletes the current line.
 
-### 5.2. Save text snippets into multiple registers
+#### 5.2. Save text snippets into multiple registers
 
 You can store parts of C# code that do not change between different `RestrictedIPAddress`
 declarations each in its own separate register to be able to not only reduce future typing errors,
@@ -433,7 +433,7 @@ but also retrieve them faster.
 - `"byf"` copies `"), SubnetMask = IPAddress.Parse("` into register `b`.
 - `"cy$` copies `") },` into register `c`.
 
-### 5.3. Map CIDR addresses into `new RestrictedIPAddress`'es
+#### 5.3. Map CIDR addresses into `new RestrictedIPAddress`'es
 
 Copy all new addresses from your external source and paste them in the current file, whenever you
 want the new `RestrictedIPAddresses` to be (most likely [at the end of the list]({{< ref "#ip-pre-7" >}})).

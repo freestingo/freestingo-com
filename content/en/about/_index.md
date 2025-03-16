@@ -30,12 +30,12 @@ for animating 3D abstract colorful blobs floating around in the background? In m
 people to wait for all these graphics to load before entering your site is a WAY worse user
 experience than just having them look at Times New Roman :-)
 
-## How to contribute to this website
+### How to contribute to this website
 
 Just send money to [my Paypal account](https://paypal.me/freestingo "Donate to freestingo.com").
 Any contribution is welcome—even just €1!
 
-## Appendix: what is a "freestingo"?
+### Appendix: what is a "freestingo"?
 
 The _fristingo_ is a [traditional sweet dish](https://www.atuttagola.com/firstingo-o-bostrengo-dolce-tipico-marchigiano/ "a fristingo recipe")
 made from figs, nuts and grape must. Families usually bake it and serve it to their

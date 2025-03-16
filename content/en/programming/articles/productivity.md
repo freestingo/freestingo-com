@@ -82,7 +82,7 @@ of disrupting well-established routines and breaking existing setups, but they c
 apply to senior engineers as well—in the end, it all depends on how much you actually care about
 typing.
 
-## Short-term improvements
+#### Short-term improvements
 
 If you are born after 1980 and have been using a computer for a while, at some point you inevitably
 start asking yourself questions about weird and inconvenient keyboard layout choices that can only
@@ -127,7 +127,7 @@ and inputting the correct key sequence to execute said command. In my experience
 key repeat tweak, holding down `CTRL` + `BACKSPACE` until I delete thirteen words is way faster than
 making sure I need to delete exactly thirteen words and then typing `d13b` in Vim's normal mode.
 
-## Medium-term improvements
+#### Medium-term improvements
 
 Touch typing is the "one weird trick" for reaching very fast typing speeds. Touch typing essentially
 means typing accurately on your keyboard without ever looking at it. The idea is to optimize the
@@ -167,7 +167,7 @@ she types; unfreezing one or two more fingers on her right hand would also most 
 already very close to 100 WPM. Alas, we will never know for sure since she could not care less about
 typing.
 
-## Long-term improvements
+#### Long-term improvements
 
 The best thing you can do for your long-term typing experience is to learn an alternative keyboard
 layout. Why are computers equipped with QWERTY keyboards anyway? The answer has actually nothing to
@@ -385,7 +385,7 @@ want to do it.
 
 ## Everything below is still a work in progress and will be fleshed out sometime in the future.
 
-## Managing open windows
+### Managing open windows
 
 - short-term: use default keyboard shortcuts for switching/opening/closing windows
 - medium-term: sort windows in dedicated virtual desktops/workspaces
@@ -394,7 +394,7 @@ want to do it.
 In this case, medium- and long-term solutions almost manage to abstract away completely the number
 of external screens you need to have in order to work productively.
 
-## Navigating your codebase
+### Navigating your codebase
 
 - short-term: minimize right-click context menu usage (learn what keyboard shortcuts are available
   in your IDE for your most common actions)
@@ -406,7 +406,7 @@ of external screens you need to have in order to work productively.
   - they are very old, therefore they are everywhere (your linux server that runs your company's
     tools overnight will have `vi`, but will not have `vscode`)
 
-## Managing source control
+### Managing source control
 
 - short-term: learn git stashing (useful for local configurations, staging/prod connection strings,
   work in progress, etc.)
