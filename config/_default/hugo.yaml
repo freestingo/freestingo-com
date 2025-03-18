@@ -3,6 +3,7 @@ title: freestingo
 theme: nicolo
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: true
+enableGitInfo: true
 markup:
   goldmark:
     parser:
