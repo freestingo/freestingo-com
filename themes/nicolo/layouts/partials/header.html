@@ -2,7 +2,7 @@
   <nav>
     <ol class="breadcrumbs">
       <li>
-        <a href="{{ .Site.Home.Permalink }}"><strong>{{ .Site.Title }}.com</strong></a>
+        <a href="{{ .Site.Home.Permalink }}"><strong>{{ replaceRE "www." "" (urls.Parse .Site.Home.Permalink).Hostname }}</strong></a>
       </li>
 
       {{- range $i, $elem := (after 1 .Ancestors.Reverse) -}}

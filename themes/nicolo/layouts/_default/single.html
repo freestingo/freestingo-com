@@ -8,6 +8,10 @@
   {{ end }}
 {{ end }}
 
+{{ define "json-ld" }}
+  {{ partial "article-structured-data.html" . }}
+{{ end }}
+
 {{ define "main" }}
   <article>
     {{ partial "article-header.html" . }}

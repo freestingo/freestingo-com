@@ -1,0 +1,50 @@
+{{/*  
+  JSON-LD structured data for SEO.  
+
+  https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+  https://developers.google.com/search/docs/appearance/structured-data/search-gallery
+  https://developers.google.com/search/docs/appearance/structured-data/review-snippet
+*/}}
+
+{{ $aboutPagePermalink := (index (where site.Pages "TranslationKey" "about") 0).Page.Permalink }}
+{{ $iso8601DateFormat := "2006-01-02T15:04:05Z0700" }}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BlogPosting",
+    "@id": {{ .Permalink }},
+    "url": {{ .Permalink }},
+    "headline": {{ .Title }},
+    "name": {{ .Title }},
+    "description": {{ .Description }},
+    "articleSection": {{ .Section | title }},
+    "datePublished": {{ .Date.Format $iso8601DateFormat }},
+    "author": {
+      "@type": "Person",
+      "@id": {{ $aboutPagePermalink }},
+      "name": "Nicolò Traini",
+      "url": {{ $aboutPagePermalink }}
+    },
+    "isPartOf": {
+      "@type" : "Blog",
+        "@id": {{ site.BaseURL }},
+        "url": {{ site.BaseURL }},
+        "name": {{ site.Title }}
+     },
+    "about": [
+      {{ $taxonomy := "topics" }}
+      {{ with .GetTerms $taxonomy }}
+        {{ $taxonomyLength := . | len }}
+        {{ range $i, $taxonomyItem := . }}
+          {
+            "@type": "Thing",
+            "@id": {{ $taxonomyItem.Permalink }},
+            "name": {{ $taxonomyItem.LinkTitle | title }}
+          }{{ if lt (add $i 1) $taxonomyLength }},{{ end }}
+        {{- end }}
+      {{ end }}
+    ],
+    "keywords": {{ .Keywords | jsonify | safeJS }}
+  }
+</script>

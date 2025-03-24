@@ -4,7 +4,7 @@ en:
   languageCode: en-US
   languageDirection: ltr
   languageName: en
-  title: freestingo
+  title: Nicolò Traini's digital diary
   weight: 1
   permalinks:
     topics: /topics/:slug/
@@ -19,7 +19,7 @@ it:
   languageCode: it-IT
   languageDirection: ltr
   languageName: it
-  title: freestingo
+  title: Il diario digitale di Nicolò Traini
   weight: 2
   permalinks:
     topics: /argomenti/:slug/

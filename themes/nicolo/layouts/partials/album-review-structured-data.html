@@ -7,7 +7,7 @@
 */}}
 
 {{ $artists := .GetTerms "artists" }}
-{{ $genres := .GetTerms "genres" }}
+{{ $genres := first 1 (.GetTerms "genres") }}
 {{ $votes := .GetTerms "votes" }}
 
 <script type="application/ld+json">
@@ -20,7 +20,7 @@
         "@type": "MusicGroup",
         "name": {{ range $artists }}{{ .Title }}{{ end }}
       },
-      "genre": {{ range $i, $item := $genres }}{{- if $i -}}, {{ end }}{{- $item.Title | title -}}{{- end -}},
+      "genre": {{ range $genres }}{{ .Title | title }}{{ end }},
       "name": {{ .Title }}
     },
     "reviewRating": {
