@@ -3,6 +3,15 @@
   {{ $singleStyle.Content | safeCSS }}
 {{ end }}
 
+{{ define "json-ld" }}
+  {{ partial "album-review-structured-data.html" . }}
+{{ end }}
+
+{{- define "title" -}}
+  {{ $artists := .GetTerms "artists" }}
+  {{- range $artists -}}{{- .Title -}}{{- end }} - {{ .Title }} {{ .Description -}}
+{{- end -}}
+
 {{ define "main" }}
   {{ $artists := .GetTerms "artists" }}
   {{ $genres := .GetTerms "genres" }}

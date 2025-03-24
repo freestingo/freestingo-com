@@ -1,7 +1,6 @@
 ---
 author: Nicolò Traini
 title: Orphan
-summary: album review
 description: album review
 slug: orphan
 translationKey: orphan

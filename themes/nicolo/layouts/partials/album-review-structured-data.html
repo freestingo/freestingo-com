@@ -1,0 +1,37 @@
+{{/*  
+  JSON-LD structured data for SEO.  
+
+  https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+  https://developers.google.com/search/docs/appearance/structured-data/search-gallery
+  https://developers.google.com/search/docs/appearance/structured-data/review-snippet
+*/}}
+
+{{ $artists := .GetTerms "artists" }}
+{{ $genres := .GetTerms "genres" }}
+{{ $votes := .GetTerms "votes" }}
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "MusicAlbum",
+      "byArtist": {
+        "@type": "MusicGroup",
+        "name": {{ range $artists }}{{ .Title }}{{ end }}
+      },
+      "genre": {{ range $i, $item := $genres }}{{- if $i -}}, {{ end }}{{- $item.Title | title -}}{{- end -}},
+      "name": {{ .Title }}
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": {{ range $votes }}{{ .Name }}{{ end }},
+      "bestRating": "10",
+      "worstRating": "0"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Nicolò Traini"
+    }
+  }
+</script>

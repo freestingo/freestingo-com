@@ -1,7 +1,6 @@
 ---
 author: Nicolò Traini
 title: Hyperdrama
-summary: recensione album
 description: recensione album
 slug: hyperdrama
 translationKey: hyperdrama

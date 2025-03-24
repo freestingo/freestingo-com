@@ -1,7 +1,6 @@
 ---
 author: Nicolò Traini
 title: Zero Chime
-summary: recensione album
 description: recensione album
 slug: zero-chime
 translationKey: zero-chime
