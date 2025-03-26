@@ -1,6 +1,6 @@
 ---
 title: Musica
-description: articoli, recensioni, curiosità
+description: la mia sezione sulla musica
 translationKey: music
 weight: 20
 ---

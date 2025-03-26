@@ -1,6 +1,6 @@
 ---
 title: Programming
-description: everything I know about ones and zeroes
+description: my programming section
 translationKey: programming
 weight: 10
 ---

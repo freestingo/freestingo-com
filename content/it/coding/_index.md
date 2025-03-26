@@ -1,6 +1,6 @@
 ---
 title: Coding
-description: tutto quello che so sugli uni, gli zeri e il caffè
+description: la mia sezione sulla programmazione
 translationKey: programming
 weight: 10
 cascade:

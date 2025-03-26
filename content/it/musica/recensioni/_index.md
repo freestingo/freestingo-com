@@ -1,6 +1,6 @@
 ---
 title: Recensioni
-description: gioie, letizie e dolori dal mondo dell'aria che vibra
+description: le mie recensioni musicali
 cascade:
   type: music-reviews
 translationKey: music-reviews
