@@ -9,7 +9,7 @@
     <search>
       <form action="https://duckduckgo.com/">
         <input required type="search" id="content" name="q" placeholder='{{ "searchWebsite" | T }}' />
-        <input hidden type="search" id="domain" name="sites" value="{{ .Site.Title }}.com" />
+        <input hidden type="search" id="domain" name="sites" value='{{ partial "domain-name.html" . }}' />
         <button type="submit">{{ "search" | T }}</button>
       </form>
     </search>
